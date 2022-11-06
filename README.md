@@ -6,7 +6,7 @@
 
 ## Related Interview Questions
 
-* [JavaScript Program Writing Questions](program-writing)
+* [JavaScript Program Writing Questions](program-writing.md)
 
 <br/>
 
