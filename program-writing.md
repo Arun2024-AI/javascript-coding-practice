@@ -4,17 +4,13 @@
 
 ## Q. Write a function to accept argument like `sum(num1)(num2);` or `sum(num1,num2);`
 
-**Example 1:**
+**Examples:**
 
 ```js
 Input: sum(10)(20);
 Output: 30
 Explanation: 10 + 20 = 30
-```
 
-**Example 2:**
-
-```js
 Input: sum(10, 20);
 Output: 30
 Explanation: 10 + 20 = 30
@@ -51,8 +47,8 @@ console.log(sum(10)(20));
 
 ```js
 Input:
-var a1 = ['a', 'b'];
-var a2 = ['a', 'b', 'c', 'd'];
+const a1 = ['a', 'b'];
+const a2 = ['a', 'b', 'c', 'd'];
 
 Output:
 ["c", "d"]
@@ -499,42 +495,6 @@ function reverseBySeparator(string, separator) {
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Implement enqueue and dequeue using only two stacks
-
-Enqueue means to add an element, dequeue to remove an element.
-
-<details><summary><b>Answer<b></summary>
-
-```js
-var inputStack = []; // First stack
-var outputStack = []; // Second stack
-
-// For enqueue, just push the item into the first stack
-function enqueue(stackInput, item) {
-  return stackInput.push(item);
-}
-
-function dequeue(stackInput, stackOutput) {
-  // Reverse the stack such that the first element of the output stack is the
-  // last element of the input stack. After that, pop the top of the output to
-  // get the first element that was ever pushed into the input stack
-  if (stackOutput.length <= 0) {
-    while(stackInput.length > 0) {
-      var elementToOutput = stackInput.pop();
-      stackOutput.push(elementToOutput);
-    }
-  }
-
-  return stackOutput.pop();
-}
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. Use a closure to create a private counter?
 
 **Example:**
@@ -643,16 +603,12 @@ randomInteger(1, 100); // returns a random integer from 1 to 100
 
 ## Q. Write a function to convert decimal number to binary number?
 
-**Example 01:**
+**Examples:**
 
 ```js
 Input: 10
 Output: 1010
-```
 
-**Example 02:**
-
-```js
 Input: 7
 Output: 111
 ```
@@ -729,16 +685,12 @@ console.log(capitalizeFirstLetter("hello world")); // Hello World
 
 ## Q. Write a function which will test string as a literal and as an object?
 
-**Example 01:**
+**Examples:**
 
 ```js
 Input:  const ltrlStr = "Hi I am string literal";
 Output: It is a string literal
-```
 
-**Example 02:**
-
-```js
 Input:  const objStr = new String("Hi I am string object");
 Output: It is an object of string
 ```
@@ -1095,24 +1047,14 @@ console.log(fibonnaci(5)); // 8
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Generate a random Number between min and max?
-
-<details><summary><b>Answer<b></summary>
-
-```javascript
-// 5 to 7
-let min = 5;
-let max = 7;
-console.log(min + Math.floor(Math.random() * (max - min + 1)));
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. Write a function to reverse the number?
+
+**Example:**
+
+```js
+Input: 12345
+Output: 54321
+```
 
 <details><summary><b>Answer<b></summary>
 
@@ -1136,50 +1078,14 @@ console.log(reverse(12345));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. How to perform deep copy of object or clone of object?
-
-<details><summary><b>Answer<b></summary>
-
-```javascript
-function deepExtend(out = {}) {
-  for (let i = 1; i < arguments.length; i++) {
-    let obj = arguments[i];
-    if (obj == null)
-      // skip undefined and null [check with double equal not triple]
-      continue;
-
-    obj = Object(obj);
-
-    for (let key in obj) {
-      // avoid shadow hasownproperty of parent
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        if (
-          typeof obj[key] === "object" &&
-          !Array.isArray(obj[key]) &&
-          obj[key] != null
-        )
-          out[key] = deepExtend(out[key], obj[key]);
-        else out[key] = obj[key];
-      }
-    }
-  }
-  return out;
-}
-
-//Alternative if there are no function
-let cloneObj = JSON.parse(JSON.stringify(obj));
-
-console.log(deepExtend({}, { a: 1, b: { c: 2, d: 3 } }, { e: 4, b: { f: 1 } }));
-//output : { a: 1, b: {c: 2, d: 3, f: 1}, e: 4 }
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. Write a function to reverse an array?
+
+**Example:**
+
+```js
+Input: {10, 20, 30, 40, 50}
+Output: {50, 40, 30, 20, 10}
+```
 
 <details><summary><b>Answer<b></summary>
 
@@ -1416,7 +1322,21 @@ console.log(mergeSortedArray([1, 2, 3, 4, 5, 6], [0, 3, 4, 7])); // [0, 1, 2, 3,
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Anagram of words
+## Q. Generate anagram of a given words?
+
+**Example:**
+
+```js
+Input: {"map", "art", "how", "rat", "tar", "who", "pam", "shoop"}
+
+Output: 
+{
+  amp: [ 'map', 'pam' ],
+  art: [ 'art', 'rat', 'tar' ],
+  how: [ 'how', 'who' ],
+  hoops: [ 'shoop' ]
+}
+```
 
 <details><summary><b>Answer<b></summary>
 
@@ -1435,15 +1355,7 @@ function groupAnagram(wordsArr) {
   }, {});
 }
 
-console.log(
-  groupAnagram(["map", "art", "how", "rat", "tar", "who", "pam", "shoop"])
-);
-// result : {
-//  amp: ["map", "pam"],
-//  art: ["art", "rat", "tar"],
-//  hoops: ["shoop"],
-//  how: ["how", "who"]
-// }
+console.log(groupAnagram(["map", "art", "how", "rat", "tar", "who", "pam", "shoop"]));
 ```
 
 </details>
@@ -1452,7 +1364,7 @@ console.log(
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Print the largest (maximum) hourglass sum found in 2d array.
+## Q. Print the largest (maximum) hourglass sum found in 2d array?
 
 <details><summary><b>Answer<b></summary>
 
@@ -1612,7 +1524,7 @@ console.log(flattenIterative1(list2)); // [0, 1, 2, 3, 4, 5]
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Find max difference between two number in Array
+## Q. Find max difference between two number in Array?
 
 <details><summary><b>Answer<b></summary>
 
@@ -1630,22 +1542,6 @@ function maxDifference(arr) {
 }
 
 console.log(maxDifference([1, 2, 4])); // [1 - 4 ] = 3
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. swap two number in ES6 [destructing]
-
-<details><summary><b>Answer<b></summary>
-
-```javascript
-let a = 10, b = 5;
-
-[a, b] = [b, a];
 ```
 
 </details>
@@ -1845,7 +1741,14 @@ e.emit("callme", ["a", "b"], { firstName: "umesh", lastName: "gohil" });
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Move all zero\'s to end
+## Q. Move all zero\'s to end?
+
+**Example:**
+
+```js
+Input: {1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0}
+Output:{1, 8, 2, 3, 4, 5, 0, 0, 0, 0, 0}
+```
 
 <details><summary><b>Answer<b></summary>
 
@@ -1862,7 +1765,7 @@ const moveZeroToEnd = (arr) => {
   return arr;
 };
 
-console.log(moveZeroToEnd([1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0])); // [1, 8, 2, 3, 4, 5, 0, 0, 0, 0, 0]
+console.log(moveZeroToEnd([1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0]));
 ```
 
 </details>
@@ -2243,11 +2146,14 @@ for (var i = 1; i <= 15; i++) {
 ```js
 Input: arr[] = {2, 2, 0}
 Output: 4
-Explanation: Considering the 1st and the 2nd rabbits to be of same color, eg. Blue, there should be 3 blue-colored rabbits. The third rabbit is the only rabbit of that color. Therefore, the minimum number of rabbits that could be present in the forest are = 3 + 1 = 4.
+Explanation: Considering the 1st and the 2nd rabbits to be of same color, eg. Blue, there should be 3 blue-colored rabbits.
+The third rabbit is the only rabbit of that color. Therefore, the minimum number of rabbits that could be present in the 
+forest are = 3 + 1 = 4.
 
 Input: arr[] = {10, 10, 10}
 Output: 11
-Explanation: Considering all the rabbits to be of the same color, the minimum number of rabbits present in forest are 10 + 1 = 11.
+Explanation: Considering all the rabbits to be of the same color, the minimum number of rabbits present in forest are 
+10 + 1 = 11.
 ```
 
 <details><summary><b>Answer<b></summary>
@@ -2316,3 +2222,28 @@ console.log(solution([7, 7, 7])); // 8
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
+
+## Q. Write a function solution that, given an array A of N integers, returns the largest integer K > 0 such that both values K and "-K" (the opposite number) exist in array A. If there is no such integer, the function should return 0?
+
+**Examples:**
+
+1. Given A = [3, 2, -2, 5, -3], the function should reutrn 3 (both 3 and -3 exist in array A).
+2. Given A = [1, 1, 2, -1, 2, -1], the function should reutrn 1 (both 1 and -1 exist in array A).
+3. Given A = [1, 2, 3, -4], the function should reutrn 0 (there is no such K for which both values K and -K exist in array A).
+
+Write an efficient algorithm for the following assumptions:
+
+* N is an integer within the range [1...100,000]
+* each element of array A is an integer within the range [-1,000,000,000...1,000,000,000].
+
+<details><summary><b>Answer<b></summary>
+
+
+
+```js
+function solution(arr) {
+
+}
+```
+
+</details>
