@@ -2279,3 +2279,31 @@ console.log(solution([1, 2, 3, -4])); // 0
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
+
+## Q. You are given an array of N integers. You want to split them into N/2 pairs in such a way that the sum of integers in each pair is odd. N is even nd every element of the array must be present in exactly one pair?
+
+Yous task is determine whether it is possible to split the numbers into such pairs. For example, given [2, 7, 4, 6, 3, 1], the answer is true. One of the possible sets of pairs is (2,7), (6,3) and (4,1).Their sums are respectively 9,9 and 5, all of which are odd.
+
+Write a function, which given an array of integers A of length N, returns true when it is possible to create the required pairs and false otherwise.
+
+**Examples:**
+
+1. Given A = [2, 7, 4, 3, 1], the function should return true, as explained above.
+2. Given A = [-1, 1], the function should return false. The only possible pairs has the sum -1 + 1 = 0 which is even.
+3. Given A = [2, -1], the function should return true. The only pair has sum -1 + 2 = 1, which is odd.
+4. Given A = [1, 2, 4, 3], the function should return true. Possible pairs are (1,2), (4,3). They both have an odd sum.
+5. Given A = [-1, -3, 4, 7, 7, 7], the function should return false. We can create only one pair with an odd sum by taking 4 and any of the other numbers: for example, 4 + 7 = 11. All the other pairs have an even sum.
+
+<details><summary><b>Answer<b></summary>
+
+The idea is to observe the fact that if the count of even and odd numbers present in the given array are both even, only then, the given array can be divided into pairs having even sum by odd numbers together and even numbers together. Follow the steps below to solve the problem:
+
+Find the total number of odd and even elements present in the given array and store it in two variables, countEven and countOdd respectively. Check if both countEven and countOdd are even or not.
+
+```js
+function solution(A) {
+
+}
+```
+
+</details>
