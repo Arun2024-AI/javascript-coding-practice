@@ -2296,10 +2296,6 @@ Write a function, which given an array of integers A of length N, returns true w
 
 <details><summary><b>Answer<b></summary>
 
-The idea is to observe the fact that if the count of even and odd numbers present in the given array are both even, only then, the given array can be divided into pairs having even sum by odd numbers together and even numbers together. Follow the steps below to solve the problem:
-
-Find the total number of odd and even elements present in the given array and store it in two variables, countEven and countOdd respectively. Check if both countEven and countOdd are even or not.
-
 ```js
 function solution(A) {
 
@@ -2307,3 +2303,70 @@ function solution(A) {
 ```
 
 </details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Student have been assigned a servies of math problems that have points associated with them. Given a sorted points array, minimize the number of problems a student needs to solve based on these criteria?
+
+1. They must always solve the first problem, index i = 0.
+2. After Solving the math problem, they choose to solve the next problem (i+1) or skip ahead and solve the (i+2) problem.
+3. Students must keep solving problems unit the difference between the maximum and minimum points questions solved so far meets or exceeds a specified threshold.
+4. If students cannot meet or exceed the threshold, they must solve all the problems.
+
+Return the minimum number of problems a student needs to solve.
+
+**Example:**
+threshold = 4
+points = [1, 2, 3, 5, 8]
+
+If a student solves points[0] = 1, points[2] = 3 and points[3] = 5, then the difference between the minimum and the maximum points solved is 5 -1 = 4. This meets the threshold, to the student must solve at least 3 problems. Return 3.
+
+points = [1, 2, 3, 5, 8]
+min = 1
+max = 3, 5
+
+If the threshold is 7, again it takes 3 problem solving 0,2 and 4 where points[4] - points[0] = 8-1=7. This meets the threshold, so the student must solve at least 3 problems. Return 3.
+
+If the threshold is greater than 7, then there is no way to meet the threshold. In that case, all problems need to be solved and the return value is 5.
+
+**Function Description:**
+
+Complete the function minNum in the editor below.
+
+minNum has the follwing parameters:
+  int threshold: the minimum difference
+required
+  int points[n]: a sorted array of integers
+Returns:
+  int: the minimum number of problems that must be solved
+
+**Constrainsts:**
+
+* 1 <= n <= 100
+* 1 <= points[i] <= 1000
+* 1 <= k <= 1000
+
+<details><summary><b>Answer<b></summary>
+
+```js
+/**
+ * Complete the 'minNum' functions below
+ * 
+ * The function is expected to return an INTEGER.
+ * The function accepts following parameters:
+ *  1. INTEGER threshold
+ *  2. INTEGER_ARRAY points
+ */
+
+function minNum(threshold, points) {
+
+}
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
