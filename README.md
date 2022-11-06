@@ -3294,43 +3294,6 @@ console.log(result);
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What will be the output of the following code?
-
-```javascript
-// Example 01:
-var prices = [12, 20, 18];
-var newPriceArray = [...prices];
-console.log(newPriceArray);
-
-// Example 02:
-var alphabets = ["A", ..."BCD", "E"];
-console.log(alphabets);
-
-// Example 03:
-var prices = [12, 20, 18];
-var maxPrice = Math.max(...prices);
-console.log(maxPrice);
-
-// Example 04:
-var max = Math.max(..."43210");
-console.log(max);
-
-// Example 05:
-const fruits = ["apple", "orange"];
-const vegetables = ["carrot", "potato"];
-
-const result = ["bread", ...vegetables, "chicken", ...fruits];
-console.log(result);
-
-// Example 06:
-const country = "USA";
-console.log([...country]);
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. How many times the createVal function is called?
 
 ```javascript
