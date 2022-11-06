@@ -2238,12 +2238,44 @@ Write an efficient algorithm for the following assumptions:
 
 <details><summary><b>Answer<b></summary>
 
-
-
 ```js
-function solution(arr) {
+function solution(A) {
+  let s = new Set();
+  let N = A.length;
+  let possible = [];
+  let ans = 0;
 
+  for (let i = 0; i < N; i++) {
+    // If set has it's negation, check if it is max
+    if (s.has(A[i] * -1)) {
+      possible.push(Math.abs(A[i]));
+    } else {
+      s.add(A[i]);
+    }
+  }
+
+  // Find the maximum possible answer
+  for (let i = 0; i < possible.length; i++) {
+    if (possible[i] >= A[i]) {
+      ans = Math.max(ans, possible[i]);
+    }
+  }
+
+  return ans;
 }
+
+// Test Case: 01
+console.log(solution([3, 2, -2, 5, -3])); // 3
+
+// Test Case: 02
+console.log(solution([1, 1, 2, -1, 2, -1])); // 1
+
+// Test Case: 03
+console.log(solution([1, 2, 3, -4])); // 0
 ```
 
 </details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
