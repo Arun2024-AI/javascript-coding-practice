@@ -2324,9 +2324,9 @@ points = [1, 2, 3, 5, 8]
 
 If a student solves points[0] = 1, points[2] = 3 and points[3] = 5, then the difference between the minimum and the maximum points solved is 5 -1 = 4. This meets the threshold, to the student must solve at least 3 problems. Return 3.
 
-points = [1, 2, 3, 5, 8]
-min = 1
-max = 3, 5
+<p align="center">
+  <img src="assets/math-problems-puzzle.png" alt="math problems" width="250px" />
+</p>
 
 If the threshold is 7, again it takes 3 problem solving 0,2 and 4 where points[4] - points[0] = 8-1=7. This meets the threshold, so the student must solve at least 3 problems. Return 3.
 
