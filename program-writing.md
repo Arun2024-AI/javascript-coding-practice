@@ -2308,7 +2308,7 @@ function solution(A) {
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Student have been assigned a servies of math problems that have points associated with them. Given a sorted points array, minimize the number of problems a student needs to solve based on these criteria?
+## Q. Student have been assigned a series of math problems that have points associated with them. Given a sorted pointer array, minimize the number of problems a student needs to solve based on these criteria?
 
 1. They must always solve the first problem, index i = 0.
 2. After Solving the math problem, they choose to solve the next problem (i+1) or skip ahead and solve the (i+2) problem.
