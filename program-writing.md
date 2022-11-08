@@ -2394,6 +2394,10 @@ Returns
 
 <details><summary><b>Answer</b></summary>
 
+* Create a count array of size 256 to store the frequency of every character of the string
+* Maintain a max variable to store the maximum frequency so far whenever encounter a frequency more than max then update max
+* Update that character in our result variable.
+
 ```js
 /**
  * Complete the 'maximumOccurringCharacter' function below.
@@ -2402,9 +2406,44 @@ Returns
  * The function accepts STRING text as parameter.
  * 
  */
-function maximumOccurringCharacter(text) {
 
+function maximumOccurringCharacter(str) {
+  // Create array to keep the count of individual
+  // characters and initialize the array as 0
+  let ASCII_SIZE = 256;
+  let count = new Array(ASCII_SIZE);
+  for (let i = 0; i < ASCII_SIZE; i++) {
+    count[i] = 0;
+  }
+
+  // Construct character count array from the input
+  // string.
+  let len = str.length;
+  for (let i = 0; i < len; i++) {
+    count[str[i].charCodeAt(0)] += 1;
+  }
+  let max = -1; // Initialize max count
+  let result = " "; // Initialize result
+
+  // Traversing through the string and maintaining
+  // the count of each character
+  for (let i = 0; i < len; i++) {
+    if (max < count[str[i].charCodeAt(0)]) {
+      max = count[str[i].charCodeAt(0)];
+      result = str[i];
+    }
+  }
+  return result;
 }
+
+// Test Case: 01
+console.log(maximumOccurringCharacter('abbbaacc'));
+
+// Test Case: 02
+console.log(maximumOccurringCharacter('test sample'));
+
+// Test Case: 03
+console.log(maximumOccurringCharacter('sample program'));
 ```
 
 </details>
