@@ -2371,3 +2371,44 @@ function minNum(threshold, points) {
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
+
+## Q. Given a string return the character that appears the maximum number of times in the string. The string will contain only ASCII characters, from the ranges ('a'-'z', 'A'-'Z', '0'- '9'), and case matters. If there is a tie in the maximum number of times a character appears in the string, return the character that appears first in the string?
+
+**Example:**
+
+text = abbbaacc
+
+Both 'a' and 'b' occur 3 times in text. Since 'a' occurs earlier, 'a' is the answer.
+
+**Function Description:**
+
+Complete the function
+
+maximumOccurringCharacter in the editor below.
+
+maximumOccurringCharacter has the follwing paratermer:
+  string text: the string to be operated upon
+
+Returns
+  char: The most occurring character the appears first in the string.
+
+<details><summary><b>Answer</b></summary>
+
+```js
+/**
+ * Complete the 'maximumOccurringCharacter' function below.
+ * 
+ * The function is expected to return a CHARACTER.
+ * The function accepts STRING text as parameter.
+ * 
+ */
+function maximumOccurringCharacter(text) {
+
+}
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
