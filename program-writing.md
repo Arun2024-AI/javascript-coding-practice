@@ -2451,3 +2451,109 @@ console.log(maximumOccurringCharacter('sample program'));
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
+
+## Q. A password manager wants to create new passwords using two trings given by the user, then combined to create a harder-to-guess combination. Given two strings, interleave the characters of the strings to create a new string. Begining with an empty string, alternately append a character from string a and from string b. If one of the string is exhausted befoe the other, append the remaining letters from the other string all at once. The result is the new password?
+
+**Example:**
+
+If a = 'hackerrank' and b = 'mountain', the result is hmaocuknetrariannk.
+
+**Function Description:**
+Complete the function newPassword in the ediot below.
+
+newPassword has the follwing parametr(s):
+  string a: the first string
+  string b: the second string
+
+Reutrns:
+  string: the merged string
+
+**Constraints:**
+
+* 1 <= length of a,b <= 25000
+* All characters in a and b are lowercase letters in the range ascii['a'-'z']
+
+<details><summary><b>Answer</b></summary>
+
+```js
+/**
+ * Complete the 'newPassword' function below.
+ * 
+ * The function is expected to return a STRING.
+ * The function accepts following parameters:
+ *  1. STRING a
+ *  2. STRING b
+ */
+
+function newPassword(a, b) {
+   
+  
+}
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. You are in a browser-like environment, where you have access to the windwo object, and also $ - the jQuery library. The document contains a two-dimentional table. Each cell of the table has an upper-case letter in it and has its background color and text color text color set. Your taks is simply to read the letters in row-major order(top to bottom, left to right) concatenate them into a single string and reurn it. Howerver, you need to skip the letters that cannot be seen by the human eye. These are the ones whose colour is exactly the same as their background (that is, even marginal difference can be distinguished by a humn eye)?
+
+The table is create using "table", "tbody", "tr", and "td" tags. Each "td" tag has a "style" attribute with its CSS "background-color" and "color" attributes set. Thee is the same number of cells in each row.
+
+Wirte a function
+  function solution();
+
+that, given a DOM tree representing an HTML document, return a string containing all visible letters, read in row-major order.
+
+For example, given a document which has the following table in its body:
+
+```html
+  <table>
+    <tbody>
+      <tr>
+        <td style="color: #ff00ff; background-color: #ffffff">Q</td>
+        <td style="background-color: #442244 color: #442244">Y</td>
+        <td style="color: #ffff00; background-color: #442244">A</td>
+      </tr>
+        <td style="color: #ffeeefe; background-color: #990000">Q</td>
+        <td style="color: #ffff00; background-color: #ff0">M</td>
+        <td style="color: #000000; background-color: #ff7777">O</td>
+      </tr>
+    </tbody>
+  </table>
+```
+
+which, when displayed in a browser, produces the following output:
+
+Your function should return "QAQO", since the letter "Y" and "M" are invisible.
+
+Note that innerText is not supported by the DOM. Please use textContent instead.
+
+Assume that:
+
+* the DOM tree represents a valid HTML5 document;
+* there is excalty one table in the document, it has at leat one cell and every row has the same umber of cells;
+* the only child of `<body>` is `<table>`;
+* the length of the HTML document does not exceed 4KB;
+* jQuery 2.1 is supported
+* all colors are provided as hex codes;
+* each pair of distinct colors occuring on input can be distinguished by a human eye (for exmaple #000000 is different than #000001).
+
+In your solution, focus on correctness. The performnace of your solution will not be the focus of the assessment.
+
+<details><summary><b>Answer</b></summary>
+
+```js
+
+function solution() {
+
+}
+
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
