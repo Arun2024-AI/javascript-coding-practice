@@ -2560,3 +2560,99 @@ function solution() {
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
+
+## Q. You are given a string S. Deletion of the K-th letter of S costs C[K]. After deleting a letter, the costs of deleting other letters do not change. For example, for S = "ab" and C = [1, 3], after deleting 'a', deletion of 'b' will still cost 3.
+
+You want to delete some letters from S to obtain a string without two identical letters next to each other. What is the minimum total cost of deletions to achieve such a string?
+
+Write a function:
+
+  function solution(S, C);
+
+that, given string S and array C of integers, both of length N, returns the minimum cost of all necessary deletions.
+
+**Examples:**
+
+1. Given S = "abccbd" and C = [0,1,2,3,4,5], the fucntion should return 2. You can delete the first occurence of 'c' to achieve "abcbd".
+2. Given S = "aabbcc" and C = [1,2,1,2,1,2], the function should return 3. By deleting all letters with a cost of 1, you can achieve string "abc".
+3. Given S = "aaaa" and C = [3,4,5,6], the function should return 12. You need to delete all but one letter 'a', and the lowest cost of deletions is 3+4+5 = 12.
+4. Given S = "ababa" and C = [10,5,10,5,10], the function should return 0. There is no need to delete any letter.
+
+Write an efficient algorithm for the following assumptions:
+
+* string S and array C have length equal to N;
+* N is an integer within the range [1...100,000];
+* string S is made only of lowercase letters (a-z);
+* each element of array C is an integer within the range [0...1,000].
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function solution(S, C) {
+     let i = 0;
+     let  N = S.length; 
+	 let ans = 0;
+	 while (i < N) {
+            let j = i;
+			let sum = 0 
+			let mx = 1;
+			
+            for (; i < N && S[i] == S[j]; ++i) sum += C[i], mx = Math.max(mx, C[i]);
+            ans += sum - mx;
+     }
+     return ans;
+}
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. You want to spend your next vacation in a foreign country. In the summer you are free for N consecutive days. You have consulted Travel Agency and learned that they are offering a trip to some interesting location in the country every day. For simplicity, each location si identified by a number 0 to N-1. Trips are described in a non-empty array A: for each K (0 <= K <= N), A[K] is the identifier of a location which is the destination of a trip offered on a day K. Travel Agency does not to offer trips to all locations, and can offer more than one trip to some locations?
+
+You want to go on a trip every day during your vacation. Moreover, you want to visit all locations offered by Travel Agency. You may visit the same location more than once, but you want to minimize duplicate visits. The goal is to find the shortest vacation (a range of consecutive days) that will allow you to visit all the locations offered by Travel Agency.
+
+For example, consider array A such that:
+
+   A[0] = 7
+   A[1] = 3
+   A[2] = 7
+   A[3] = 3
+   A[4] = 1
+   A[5] = 3
+   A[6] = 4
+   A[7] = 1
+
+Travel Agency offers trips to four different locations (identified by numbers 1,3,4 and 7). The shortest vacation starting on day 0 that allows you visit all these locations ends on day 6 (thus is seven days long). However, a shorter vacation of five days (starting on day 2 and ending on day 6) also permits you to visit all locations. On Every vacation shorter than five days, you will have to miss at least one location.
+
+Write a function:
+  function solution(A);
+
+that, given a non-empty array A consisting of N integers, returns the length of the shortest vacation that allows you to visit all the offered locations.
+
+For example, given array A shown above, the function should return 5, as explained above.
+
+1. Given A = [2,1,1,3,2,1,1,3], the function should return 3. One of the shortest vacations that visits all the places starts on day 3(counting from 0) and lasts for 3 days.
+
+2. Given A = [7,5,2,7,2,7,4,7], the function should return 6. The shortest vacation that visits all the places starts on day 1(counting from 0) and lasts for 6 days.
+
+Write an efficient algorithm for the following assumptions:
+
+* N is an integer within the range[1...100,000];
+* each element of array A is an integer within the range[0...N - 1].
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function solution(S, C) {
+
+}
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
