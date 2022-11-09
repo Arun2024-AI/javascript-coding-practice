@@ -2526,21 +2526,24 @@ For example, given a document which has the following table in its body:
 
 which, when displayed in a browser, produces the following output:
 
-Your function should return "QAQO", since the letter "Y" and "M" are invisible.
+          Q       Y       A
+          Q       M       O
+
+your function should return "QAQO", since the letters "Y" and "M" are invisible.
 
 Note that innerText is not supported by the DOM. Please use textContent instead.
 
 Assume that:
 
 * the DOM tree represents a valid HTML5 document;
-* there is excalty one table in the document, it has at leat one cell and every row has the same umber of cells;
+* there is exactly one table in the document, it has at least one cell and every row has the same number of cells;
 * the only child of `<body>` is `<table>`;
 * the length of the HTML document does not exceed 4KB;
-* jQuery 2.1 is supported
+* jQuery 2.1 is supported;
 * all colors are provided as hex codes;
-* each pair of distinct colors occuring on input can be distinguished by a human eye (for exmaple #000000 is different than #000001).
+* each pair of distinct colors occuring on input can be distinguished by a human eye (for example #000000 is different than #000001).
 
-In your solution, focus on correctness. The performnace of your solution will not be the focus of the assessment.
+In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
 
 <details><summary><b>Answer</b></summary>
 
