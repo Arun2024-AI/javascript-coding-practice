@@ -2,6 +2,54 @@
 
 <br/>
 
+## Q. Write a function to get result in group by parameter?
+
+**Examples:**
+
+```js
+const arry = [ 
+    { Phase: "Phase 1", Step: "Step 1", Task: "Task 1", Value: "5"},
+    { Phase: "Phase 1", Step: "Step 1", Task: "Task 2", Value: "10"},
+    { Phase: "Phase 1", Step: "Step 2", Task: "Task 1", Value: "15"},
+    { Phase: "Phase 1", Step: "Step 2", Task: "Task 2", Value: "20"},
+    { Phase: "Phase 2", Step: "Step 1", Task: "Task 1", Value: "25"},
+    { Phase: "Phase 2", Step: "Step 1", Task: "Task 2", Value: "30"}
+];
+
+// Output:
+{
+  'Phase 1': [
+    { Phase: 'Phase 1', Step: 'Step 1', Task: 'Task 1', Value: '5' },
+    { Phase: 'Phase 1', Step: 'Step 1', Task: 'Task 2', Value: '10' },
+    { Phase: 'Phase 1', Step: 'Step 2', Task: 'Task 1', Value: '15' },
+    { Phase: 'Phase 1', Step: 'Step 2', Task: 'Task 2', Value: '20' }
+  ],
+  'Phase 2': [
+    { Phase: 'Phase 2', Step: 'Step 1', Task: 'Task 1', Value: '25' },
+    { Phase: 'Phase 2', Step: 'Step 1', Task: 'Task 2', Value: '30' }
+  ]
+}
+```
+
+<details><summary><b>Answer</b></summary>
+
+```javascript
+const groupBy = function (items, key) {
+  return items.reduce(function (result, item) {
+    (result[item[key]] = result[item[key]] || []).push(item);
+    return result;
+  }, {});
+};
+
+console.log(groupBy(arry, "Phase"));
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function to accept argument like `sum(num1)(num2);` or `sum(num1,num2);`
 
 **Examples:**
