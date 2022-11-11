@@ -2794,3 +2794,106 @@ class StaffList {
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/hacker-rank-1-eyyp87?file=/index.js)**
 
 </details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. JavaScript: User Warning Data
+
+Implement the classes and methods to maintain user data using inheritance as described below.
+
+Create a class User and its methods as follows:
+
+* The constructor takes a single parameter, userName, and sets user name.
+* The method getUsername() returns the username.
+* The method setUsername(username) set\'s the username of the user to the given username.
+
+Create a class ChatUser that inherits User class and has the following methods:
+
+* The constructor takes a single parameter, userName, then sets username to userName and the initial warning count to 0.
+* The method giveWarning() that increases the warning count by 1.
+* The method getWarningCount() that returns the current warninig count.
+
+The locked stub code in the editor validates the correctness of the ChatUser class implementation by performing the follwing operations:
+
+* setName username: The operation updates the username.
+* GiveWarining: This operation increases the warning count of the user.
+
+After performing all the operatons, the locked stub code prints the current username and warning count of the user. Finally, the user of inheritance is tested.
+
+**Input Format For Custom Testing:**
+The first line contains a sting n, the initial username when the ChatUser object is created.
+The second line contains an integer, m, the number of operations.
+Each line i of the m subsequesnt lines(where 0<= i <= m) contains one of the tow operations listed above with a parameter if necessary.
+
+**Sample Input For Custom Testing:**
+
+```js
+STDIN         Function
+-------       ---------
+Jay           -> username = Jay
+5             -> number of operatirons = 5
+GiveWarning   -> first operation
+GiveWarning
+SetName JayMenon
+GiveWarning
+GiveWarning   -> fifth operation
+```
+
+**Sample Output:**
+
+```js
+User JayMenon has a warning count of 4
+ChatUser extends User: true
+```
+
+**Explanation:**
+A ChatUser ibject is created with the username 'Jay'. As per the given operations, the name is set to JayMenon and the warning count is increased 4 times. Henece the final outpt is 'User JayMenon has warning cout of 4'. The last line checks if ChatUser inherits the User class.
+
+<details><summary><b>Answer</b></summary>
+
+```js
+let warningCount = 0;
+
+class User {
+  constructor(userName) {
+    this.userName = userName;
+  }
+  getUsername() {
+    return this.userName;
+  }
+  setUsername(userName) {
+    this.userName = userName;
+  }
+}
+
+class ChatUser extends User {
+  constructor(userName) {
+    super(userName);
+    this.username = userName;
+    this.warningCount = 0;
+  }
+  giveWarning() {
+    this.warningCount++;
+  }
+  getWarningCount() {
+    return this.warningCount;
+  }
+}
+
+const chatUserObj = new ChatUser("Jay");
+console.log(chatUserObj.giveWarning());
+console.log(chatUserObj.giveWarning());
+console.log(chatUserObj.setUsername("JayMenon"));
+console.log(chatUserObj.giveWarning());
+console.log(chatUserObj.giveWarning());
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/hacker-rank-2-kxgvrz?file=/script.js)**
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
