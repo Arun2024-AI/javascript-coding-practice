@@ -2149,11 +2149,11 @@ Complete the function fizzBuzz in the editor below.
 
 fuzzBuzz has the following parameters:
 
- int n: upper limit of values to test(inclusive)
+* int n: upper limit of values to test(inclusive)
 
-Rerutns: NONE
-Prints:
-The function must print the appropriate response for each value i in the set {1, 2,...n} in ascending order, each on a separate line.
+* Rerutns: NONE
+
+* Prints: The function must print the appropriate response for each value i in the set {1, 2,...n} in ascending order, each on a separate line.
 
 **Sample Input:**
 
