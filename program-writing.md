@@ -2134,13 +2134,39 @@ var yourself = {
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Write a program that prints the numbers from 1 to 15. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”?
+## Q. FizzBuzz
 
-**Example:**
+Given a number n, for each integer i in the range from 1 to n inclusive, print one vale per line as follows:
+
+* If i is a multiple of both 3 and 5, print FizzBuzz.
+* If i is a multiple of 3 (but not 5), print Fizz.
+* If i is a mupitple of 5 (but not 3), print Buzz.
+* If i is not a multiple of 3 or 5, print the value of i.
+
+**Function Description:**
+
+Complete the function fizzBuzz in the editor below.
+
+fuzzBuzz has the following parameters:
+
+ int n: upper limit of values to test(inclusive)
+
+Rerutns: NONE
+Prints:
+The function must print the appropriate response for each value i in the set {1, 2,...n} in ascending order, each on a separate line.
+
+**Sample Input:**
 
 ```js
-Input: 15
-Output: 
+STDIN       Function
+------      -----------
+ 15         -> n = 15
+
+```
+
+**Sample Output:**
+
+```js
 1
 2
 Fizz
@@ -2158,27 +2184,47 @@ Fizz
 FizzBuzz
 ```
 
+**Explanation:**
+
+The numbers 3, 6, 9, and 12 are multiples of 3 (but not 5), so print Fizz on those lines.
+The numbers 5 and 10 are multiples of 5 (bit not 3), so print Buzz on those lines.
+The number 15 is a multiple of both 3 and 5, so print FizzBuzz on that line.
+None of the other values is a multiple of either 3 or 5, so print the value of i on those lines.
+
 <details><summary><b>Answer</b></summary>
 
 **Solution - 01:**
 
 ```javascript
-for (var i = 1; i <= 15; i++) {
-  if (i % 15 == 0) console.log("FizzBuzz");
-  else if (i % 3 == 0) console.log("Fizz");
-  else if (i % 5 == 0) console.log("Buzz");
-  else console.log(i);
+function fizzBuzz(n) {
+  for (let i = 1; i <= n; i++) {
+    if (i % 15 == 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 == 0) {
+      console.log("Fizz");
+    } else if (i % 5 == 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
 }
+
+fizzBuzz(15);
 ```
 
 **Solution - 02:**
 
 ```javascript
-for (var i = 1; i <= 15; i++) {
-  var f = i % 3 == 0,
-    b = i % 5 == 0;
-  console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
+function fizzBuzz(n) {
+  for (let i = 1; i <= n; i++) {
+    const f = i % 3 == 0;
+    const b = i % 5 == 0;
+    console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
+  }
 }
+
+fizzBuzz(15);
 ```
 
 </details>
