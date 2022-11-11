@@ -2356,7 +2356,9 @@ function solution(A) {
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Student have been assigned a series of math problems that have points associated with them. Given a sorted pointer array, minimize the number of problems a student needs to solve based on these criteria?
+## Q. Math Homework
+
+Student have been assigned a series of math problems that have points associated with them. Given a sorted pointer array, minimize the number of problems a student needs to solve based on these criteria?
 
 1. They must always solve the first problem, index i = 0.
 2. After Solving the math problem, they choose to solve the next problem (i+1) or skip ahead and solve the (i+2) problem.
@@ -2420,7 +2422,9 @@ function minNum(threshold, points) {
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Given a string return the character that appears the maximum number of times in the string. The string will contain only ASCII characters, from the ranges ('a'-'z', 'A'-'Z', '0'- '9'), and case matters. If there is a tie in the maximum number of times a character appears in the string, return the character that appears first in the string?
+## Q. Maximum Occuring Character
+
+Given a string return the character that appears the maximum number of times in the string. The string will contain only ASCII characters, from the ranges ('a'-'z', 'A'-'Z', '0'- '9'), and case matters. If there is a tie in the maximum number of times a character appears in the string, return the character that appears first in the string?
 
 **Example:**
 
@@ -2500,7 +2504,9 @@ console.log(maximumOccurringCharacter('sample program'));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. A password manager wants to create new passwords using two trings given by the user, then combined to create a harder-to-guess combination. Given two strings, interleave the characters of the strings to create a new string. Begining with an empty string, alternately append a character from string a and from string b. If one of the string is exhausted befoe the other, append the remaining letters from the other string all at once. The result is the new password?
+## Q. Password Creation
+
+A password manager wants to create new passwords using two trings given by the user, then combined to create a harder-to-guess combination. Given two strings, interleave the characters of the strings to create a new string. Begining with an empty string, alternately append a character from string a and from string b. If one of the string is exhausted befoe the other, append the remaining letters from the other string all at once. The result is the new password?
 
 **Example:**
 
@@ -2704,3 +2710,87 @@ function solution(S, C) {
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
+
+## Q. JavaScript: Staff List
+
+The task is to create a class StaffList. The class will manage a collection of staff members, where each member is uniquely identified by a name. The class must have following methods:
+
+1. add(name, age):
+  * Paramters string name and integer age are passed to this function.
+  * If age is greater than 20, it adds the member with the given name to the collection.
+  * Else if age is less than or equal to 20, it throws an Error with the message 'Staff member age must be greater than 20'.
+  * It is guaranteed that at any time, if a member is in the collection, then no other member with the same name will be added to the collection.
+
+2. remove(name):
+  * If the memeber with the given name is in the collection, it removes the member from the collection and return true.
+  * Else if the member with the given name is not in the collection, it does nothing and return false.
+
+3. getSize():
+  * returns the number of members in the collection.
+
+Your implementation of the class will be tested by a stubbed code on several input files. Each input file contains parameters for the functions calls. The functions will be called with those parameters, and the result of their executions will be printed to the standard output by the provided code. The stubbed code prints values returned by the remove(name) and getSize() functions and its also prints messages of all the cached errors.
+
+**Input formtat for Custom Testing:**
+The first line contains an integer, n, denotating the number of operations to be performed.
+
+Each line i of the n subsequesnt lines(where 0 <= i <= n) contains space-seprarted strings, such that the first of them is the function name and the remaining ones, if any, are parameters for that function.
+
+**Sample Case 0:**
+Sample Input For Customg Testing
+
+```js
+5
+add John 25
+add Robin 23
+getSize
+remove Robin
+getSize
+```
+
+**Sample Output:**
+
+```js
+2 
+true
+1
+```
+
+**Explanation:**
+There are 2 staff members, 'John' and 'Robin', who are added by calling the add Function twice. getSize is then called and returns the number of members in the collection, which is 2. Then the staff member 'Robin' is removed from the list by calling the remove function, and since the given name is in the collection, the return true is printed. Finally, getSize is called, which prints thr size of the collect, whcih is now 1 becuase 'Robin' was removed.
+
+<details><summary><b>Answer</b></summary>
+
+```js
+const List = [];
+
+class StaffList {
+  add(name, age) {
+    if (age > 20 && Object.values(List).indexOf(name) < 0) {
+      List.push({ name: name, age: age });
+    } else {
+      throw "Error: Staff member age must be greater than 20";
+    }
+  }
+  remove(name) {
+    if (List.some((el) => el.name === name)) {
+      const indexOfObject = List.findIndex((object) => {
+        return object.name === name;
+      });
+      List.splice(indexOfObject, 1);
+     if(List) {
+         return true 
+     } else return false;
+      
+    } else {
+        return false
+    }
+  }
+  getSize() {
+    return List.length;
+  }
+}
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/hacker-rank-1-eyyp87?file=/index.js)**
+
+</details>
