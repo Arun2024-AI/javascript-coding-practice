@@ -2731,12 +2731,12 @@ The task is to create a class StaffList. The class will manage a collection of s
 Your implementation of the class will be tested by a stubbed code on several input files. Each input file contains parameters for the functions calls. The functions will be called with those parameters, and the result of their executions will be printed to the standard output by the provided code. The stubbed code prints values returned by the remove(name) and getSize() functions and its also prints messages of all the cached errors.
 
 **Input formtat for Custom Testing:**
+
 The first line contains an integer, n, denotating the number of operations to be performed.
 
 Each line i of the n subsequesnt lines(where 0 <= i <= n) contains space-seprarted strings, such that the first of them is the function name and the remaining ones, if any, are parameters for that function.
 
-**Sample Case 0:**
-Sample Input For Customg Testing
+**Sample Input For Customg Testing:**
 
 ```js
 5
@@ -2756,6 +2756,7 @@ true
 ```
 
 **Explanation:**
+
 There are 2 staff members, 'John' and 'Robin', who are added by calling the add Function twice. getSize is then called and returns the number of members in the collection, which is 2. Then the staff member 'Robin' is removed from the list by calling the remove function, and since the given name is in the collection, the return true is printed. Finally, getSize is called, which prints thr size of the collect, whcih is now 1 becuase 'Robin' was removed.
 
 <details><summary><b>Answer</b></summary>
@@ -2823,6 +2824,7 @@ The locked stub code in the editor validates the correctness of the ChatUser cla
 After performing all the operatons, the locked stub code prints the current username and warning count of the user. Finally, the user of inheritance is tested.
 
 **Input Format For Custom Testing:**
+
 The first line contains a sting n, the initial username when the ChatUser object is created.
 The second line contains an integer, m, the number of operations.
 Each line i of the m subsequesnt lines(where 0<= i <= m) contains one of the tow operations listed above with a parameter if necessary.
@@ -2849,6 +2851,7 @@ ChatUser extends User: true
 ```
 
 **Explanation:**
+
 A ChatUser ibject is created with the username 'Jay'. As per the given operations, the name is set to JayMenon and the warning count is increased 4 times. Henece the final outpt is 'User JayMenon has warning cout of 4'. The last line checks if ChatUser inherits the User class.
 
 <details><summary><b>Answer</b></summary>
