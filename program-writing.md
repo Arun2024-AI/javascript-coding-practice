@@ -1,4 +1,4 @@
-# JavaScript Program Writing Questions
+# JavaScript Program Writing
 
 <br/>
 
