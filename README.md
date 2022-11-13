@@ -4,9 +4,9 @@
 
 <br/>
 
-## Related Interview Questions
+## Related Topics
 
-* [JavaScript Program Writing Questions](program-writing.md)
+* *[JavaScript Program Writing](program-writing.md)*
 
 <br/>
 
