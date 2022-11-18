@@ -3657,8 +3657,8 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ## Q. All object have prototypes?
 
-- A: true
-- B: false
+- [ ] `true`
+- [ ] `false`
 
 <details><summary><b>Answer</b></summary>
 
