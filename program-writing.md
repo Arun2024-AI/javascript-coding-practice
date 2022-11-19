@@ -147,6 +147,14 @@ console.log(dif1); // => [1, 2, 6]
 
 ## Q. Validate file size and extension before file upload in JavaScript?
 
+```js
+Output:
+
+File Name: pic.jpg 
+File Size: 1159168 bytes 
+File Extension: jpg 
+```
+
 <details><summary><b>Answer</b></summary>
 
 ```html
@@ -194,19 +202,28 @@ File Extension: jpg
 
 ## Q. Create a captcha using javascript?
 
+<p align="center">
+  <img src="assets/captcha.png" alt="Captcha in JavaScript" width="300px" />
+</p>
+
 <details><summary><b>Answer</b></summary>
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JavaScript Captcha Example</title>
+    <title>JavaScript Captcha Generator</title>
   </head>
   <script>
-    var captcha;
+    const randomString =
+      "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
 
     function generateCaptcha() {
-      captcha = Math.floor(Math.random() * 1000000);
+      let captcha = "";
+      for (let i = 0; i < 6; i++) {
+        captcha += randomString.charAt(Math.random() * randomString.length);
+      }
+      document.getElementById("captcha").value = "";
       document.getElementById("captcha").value = captcha;
     }
   </script>
