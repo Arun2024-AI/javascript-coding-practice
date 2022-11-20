@@ -160,36 +160,37 @@ File Extension: jpg
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <title>JavaScript File Upload Example</title>
-  <script type="text/javascript">
-    function showFileSize() {
-      var input, file, extension;
+  <head>
+    <script type="text/javascript">
+      function showFileSize() {
+        var input, file, extension;
 
-      input = document.getElementById("fileinput");
-      file = input.files[0];
-      extension = file.name.substring(file.name.lastIndexOf(".") + 1);
+        input = document.getElementById("fileinput");
+        file = input.files[0];
+        extension = file.name.substring(file.name.lastIndexOf(".") + 1);
 
-      console.log("File Name: " + file.name);
-      console.log("File Size: " + file.size + " bytes");
-      console.log("File Extension: " + extension);
-    }
-  </script>
-</head>
+        let result = "File Name: " + file.name;
+        result += "<br/>File Size: " + file.size + " bytes";
+        result += "<br/>File Extension: " + extension;
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+  </head>
 
-<body>
-  <form action="#" onsubmit="return false;">
-    <input type="file" id="fileinput" />
-    <input type="button" id="btnLoad" value="Load" onclick="showFileSize();" />
-  </form>
-</body>
+  <body>
+    <form action="#" onsubmit="return false;">
+      <input type="file" id="fileinput" />
+      <br /><br />
+      <input
+        type="button"
+        id="btnLoad"
+        value="Upload"
+        onclick="showFileSize();"
+      />
+    </form>
+    <div id="result"></div>
+  </body>
 </html>
-
-<!-- Output -->
-
-File Name: pic.jpg 
-File Size: 1159168 bytes 
-File Extension: jpg 
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-cp-file-upload-fj17kh?file=/index.html)**
