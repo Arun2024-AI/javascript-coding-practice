@@ -2012,7 +2012,6 @@ console.log(myArray);
 
 ```js
 Input:
-
 {
   user: {
       username: 'Navin Chauhan',
@@ -2089,6 +2088,47 @@ for (const element of arr) {
 }
 
 console.log(count); // {1: 2, 2: 1, 3: 2}
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Print all pairs with given sum?
+
+**Example:**
+
+```js
+Input:  [1, 5, 7, -1, 5], sum = 6
+Output: (1, 5) (7, -1) (1, 5)
+
+Input:  [2, 5, 17, -1], sum = 7
+Output:  (2, 5)
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function getPairs(arr, sum) {
+  // Consider all possible pairs and check
+  // their sums
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === sum) {
+        console.log(arr[i] + ", " + arr[j]);
+      }
+    }
+  }
+}
+
+getPairs([1, 5, 7, -1, 5], 6);
+
+// Output
+// (1, 5)
+// (1, 5)
+// (7, -1)
 ```
 
 </details>
