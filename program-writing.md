@@ -204,7 +204,7 @@ File Extension: jpg
 ## Q. Create a captcha using javascript?
 
 <p align="center">
-  <img src="assets/captcha.png" alt="Captcha in JavaScript" width="300px" />
+  <img src="assets/captcha.png" alt="Captcha in JavaScript" width="250px" />
 </p>
 
 <details><summary><b>Answer</b></summary>
@@ -245,6 +245,10 @@ File Extension: jpg
 </div>
 
 ## Q. Create a stopwatch in javascript?
+
+<p align="center">
+  <img src="assets/stop-watch.png" alt="Stop Watch in JavaScript" width="300px" />
+</p>
 
 <details><summary><b>Answer</b></summary>
 
