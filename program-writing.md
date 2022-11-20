@@ -7,7 +7,7 @@
 **Examples:**
 
 ```js
-const arry = [ 
+[ 
     { Phase: "Phase 1", Step: "Step 1", Task: "Task 1", Value: "5"},
     { Phase: "Phase 1", Step: "Step 1", Task: "Task 2", Value: "10"},
     { Phase: "Phase 1", Step: "Step 2", Task: "Task 1", Value: "15"},
@@ -16,7 +16,7 @@ const arry = [
     { Phase: "Phase 2", Step: "Step 1", Task: "Task 2", Value: "30"}
 ];
 
-// Output:
+// Output: Group By 'Phase'
 {
   'Phase 1': [
     { Phase: 'Phase 1', Step: 'Step 1', Task: 'Task 1', Value: '5' },
@@ -95,8 +95,8 @@ console.log(sum(10)(20));
 
 ```js
 Input:
-const a1 = ['a', 'b'];
-const a2 = ['a', 'b', 'c', 'd'];
+['a', 'b'];
+['a', 'b', 'c', 'd'];
 
 Output:
 ["c", "d"]
@@ -389,21 +389,28 @@ function reverseBySeparator(string, separator) {
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Create a Promise to accept car names as argument and send response once the argument matches with Maruti?
+## Q. Create a Promise to accept argument and make it resolve if the argument matches with predefined condition?
+
+```js
+Input: ['Maruti Suzuki', 'Hyundai', 'Tata Motors', 'Kia', 'Mahindra & Mahindra'];
+Key:   Maruti Suzuki
+Output:
+Maruti Suzuki
+```
 
 <details><summary><b>Answer</b></summary>
 
 ```js
 async function myCars(name) {
   const promise = new Promise((resolve, reject) => {
-    name === "Maruti" ? resolve(name) : reject(name);
+    name === "Maruti Suzuki" ? resolve(name) : reject(name);
   });
 
   const result = await promise;
   console.log(result); // "resolved!"
 }
 
-myCars("Maruti");
+myCars("Maruti Suzuki");
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-promise-1tmrnp?file=/src/index.js)**
@@ -421,12 +428,12 @@ myCars("Maruti");
 ```js
 Input:
 
-const person = {
+{
   name: "Tanvi",
   age: 28
 };
 
-const address = {
+{
   addressLine1: "Some Location x",
   addressLine2: "Some Location y",
   city: "Bangalore"
@@ -523,6 +530,11 @@ function findMissingNumber(arrayOfIntegers, upperBound, lowerBound) {
 
 ## Q. Write a function to remove duplicates from an array in JavaScript?
 
+```js
+Input: ['John', 'Paul', 'George', 'Ringo', 'John']
+Output: ['John', 'Paul', 'George', 'Ringo']
+```
+
 <details><summary><b>Answer</b></summary>
 
 **1. Using set():**
@@ -558,7 +570,7 @@ function removeDups(names) {
   return Object.keys(unique);
 }
 
-removeDups(names); // // 'John', 'Paul', 'George', 'Ringo'
+removeDups(names); // 'John', 'Paul', 'George', 'Ringo'
 ```
 
 </details>
@@ -738,7 +750,7 @@ You can create a function which uses chain of string methods such as charAt, toU
 ```js
 function capitalizeFirstLetter(string) {
   let arr = string.split(" ");
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
   }
   return arr.join(" ");
@@ -784,8 +796,8 @@ function check(str) {
   }
 }
 
-var ltrlStr = "Hi I am string literal";
-var objStr = new String("Hi I am string object");
+const ltrlStr = "Hi I am string literal";
+const objStr = new String("Hi I am string object");
 
 console.log(check(ltrlStr)); // It is a string literal
 console.log(check(objStr)); // It is an object of string
@@ -799,18 +811,22 @@ console.log(check(objStr)); // It is an object of string
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. How do you reversing an array?
+## Q. Write a program to reverse an array?
+
+```js
+Input: ["Apple", "Banana", "Mango", "Orange"];
+Output: ["Orange", "Mango", "Banana", "Apple"];
+```
 
 <details><summary><b>Answer</b></summary>
 
-You can use reverse() method is used reverse the elements in an array. This method is useful to sort an array in descending order. Let us see the usage of reverse() method in an example,
+You can use reverse() method is used reverse the elements in an array. This method is useful to sort an array in descending order.
 
 ```js
 const fruits = ["Apple", "Banana", "Mango", "Orange"];
 
 const reversed = fruits.reverse();
-console.log('reversed:', reversed);
-// expected output: "reversed:" Array ["Orange", "Mango", "Banana", "Apple"]
+console.log(reversed); // ["Orange", "Mango", "Banana", "Apple"]
 ```
 
 </details>
@@ -819,7 +835,7 @@ console.log('reversed:', reversed);
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. How do you find min and max value in an array?
+## Q. Write a program to find min and max value in an array?
 
 **Example:**
 
@@ -832,11 +848,10 @@ Max: 70
 
 <details><summary><b>Answer</b></summary>
 
-You can use `Math.min` and `Math.max` methods on array variable to find the minimum and maximum elements with in an array. 
-Let us create two functions to find the min and max value with in an array,
+You can use `Math.min` and `Math.max` methods on array variable to find the minimum and maximum elements with in an array.
 
 ```js
-var marks = [50, 20, 70, 60, 45, 30];
+const marks = [50, 20, 70, 60, 45, 30];
 
 function findMin(arr) {
   return Math.min.apply(null, arr);
@@ -845,8 +860,8 @@ function findMax(arr) {
   return Math.max.apply(null, arr);
 }
 
-console.log(findMin(marks));
-console.log(findMax(marks));
+console.log(findMin(marks)); // 20
+console.log(findMax(marks)); // 70
 ```
 
 </details>
@@ -855,18 +870,27 @@ console.log(findMax(marks));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. How do you find min and max values without Math functions?
+## Q. Write a program to find min and max values in an array without using Math functions?
+
+**Example:**
+
+```js
+Input: [50, 20, 70, 60, 45, 30];
+Output:
+Min: 20
+Max: 70
+```
 
 <details><summary><b>Answer</b></summary>
 
 You can write functions which loops through an array comparing each value with the lowest value or highest value to find the min and max values. Let us create those functions to find min an max values,
 
 ```js
-var marks = [50, 20, 70, 60, 45, 30];
+const marks = [50, 20, 70, 60, 45, 30];
 
 function findMin(arr) {
-  var length = arr.length;
-  var min = Infinity;
+  let length = arr.length;
+  let min = Infinity;
   while (length--) {
     if (arr[length] < min) {
       min = arr[length];
@@ -876,8 +900,8 @@ function findMin(arr) {
 }
 
 function findMax(arr) {
-  var length = arr.length;
-  var max = -Infinity;
+  let length = arr.length;
+  let max = -Infinity;
   while (length--) {
     if (arr[length] > max) {
       max = arr[length];
@@ -886,8 +910,8 @@ function findMax(arr) {
   return max;
 }
 
-console.log(findMin(marks));
-console.log(findMax(marks));
+console.log(findMin(marks)); // 20
+console.log(findMax(marks)); // 70
 ```
 
 </details>
@@ -897,6 +921,14 @@ console.log(findMax(marks));
 </div>
 
 ## Q. Check if object is empty or not using javaScript?
+
+**Example:**
+
+```js
+Input:
+const obj = {};
+console.log(isEmpty(obj)); // true 
+```
 
 <details><summary><b>Answer</b></summary>
 
@@ -919,6 +951,13 @@ console.log(isEmpty(obj));
 
 ## Q. Write a function to validate an email using regular expression?
 
+**Example:**
+
+```js
+Input: 'pradeep.vwa@gmail.com'
+Output: true
+```
+
 <details><summary><b>Answer</b></summary>
 
 ```javascript
@@ -939,6 +978,13 @@ console.log(validateEmail("pradeep.vwa@gmail.com")); // true
 </div>
 
 ## Q. Use RegEx to test password strength in JavaScript?
+
+**Example:**
+
+```js
+Input: 'Pq5*@a{J'
+Output: 'PASS'
+```
 
 <details><summary><b>Answer</b></summary>
 
@@ -975,22 +1021,34 @@ PASS
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Write a script that returns the number of occurrences of character given a string as input
+## Q. Write a program to count the number of occurrences of character given a string as input?
+
+**Example:**
+
+```js
+Input: 'Hello'
+Output: 
+h: 1
+e: 1
+l: 2
+o: 1
+```
 
 <details><summary><b>Answer</b></summary>
 
 ```javascript
 function countCharacters(str) {
-  return str.replace(/ /g, "").toLowerCase().split("").reduce((p, c) => {
-      if (c in p) {
-        p[c]++;
+  return str.replace(/ /g, "").toLowerCase().split("").reduce((result, key) => {
+      if (key in result) {
+        result[key]++;
       } else {
-        p[c] = 1;
+        result[key] = 1;
       }
-      return p;
+      return result;
     }, {});
 }
-console.log(countCharacters("the brown fox jumps over the lazy dog"));
+
+console.log(countCharacters("Hello"));
 ```
 
 </details>
@@ -1000,6 +1058,14 @@ console.log(countCharacters("the brown fox jumps over the lazy dog"));
 </div>
 
 ## Q. Write a function that return the number of occurrences of a character in paragraph?
+
+**Example:**
+
+```js
+Input: 'the brown fox jumps over the lazy dog'
+Key: 'o'
+Output: 4
+```
 
 <details><summary><b>Answer</b></summary>
 
@@ -1027,9 +1093,17 @@ console.log(charCount("the brown fox jumps over the lazy dog", "o"));
 
 ## Q. Write a recursive and non-recursive Factorial function?
 
+**Example:**
+
+```js
+Input: 5
+Output: 120
+```
+
 <details><summary><b>Answer</b></summary>
 
 ```javascript
+// Recursive Method
 function recursiveFactorial(n) {
   if (n < 1) {
     throw Error("Value of N has to be greater then 1");
@@ -1043,6 +1117,7 @@ function recursiveFactorial(n) {
 
 console.log(recursiveFactorial(5));
 
+// Non-Recursive Method
 function factorial(n) {
   if (n < 1) {
     throw Error("Value of N has to be greater then 1");
@@ -1068,11 +1143,18 @@ console.log(factorial(5));
 
 ## Q. Write a recursive and non recursive fibonacci-sequence?
 
+**Example:**
+
+```js
+Input: 8
+Output: 34
+```
+
 <details><summary><b>Answer</b></summary>
 
 ```javascript
 // 1, 1, 2, 3, 5, 8, 13, 21, 34
-
+// Recursive Method
 function recursiveFibonacci(num) {
   if (num <= 1) {
     return 1;
@@ -1083,10 +1165,9 @@ function recursiveFibonacci(num) {
 
 console.log(recursiveFibonacci(8));
 
+// Non-Recursive Method
 function fibonnaci(num) {
-  let a = 1,
-    b = 0,
-    temp;
+  let a = 1, b = 0, temp;
   while (num >= 0) {
     temp = a;
     a = a + b;
@@ -1098,8 +1179,7 @@ function fibonnaci(num) {
 
 console.log(fibonnaci(7));
 
-// Memoization fibonnaci
-
+// Memoization Method
 function fibonnaci(num, memo = {}) {
   if (num in memo) {
     return memo[num];
@@ -1155,8 +1235,8 @@ console.log(reverse(12345));
 **Example:**
 
 ```js
-Input: {10, 20, 30, 40, 50}
-Output: {50, 40, 30, 20, 10}
+Input: [10, 20, 30, 40, 50]
+Output: [50, 40, 30, 20, 10]
 ```
 
 <details><summary><b>Answer</b></summary>
@@ -1182,67 +1262,15 @@ console.log(reverse);
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Rotate 2D array
+## Q. Get top N from array
 
 **Example:**
 
 ```js
-Input:
-[1, 2, 3, 4],
-[5, 6, 7, 8],
-[9, 10, 11, 12]
-
-
-Output:
-[1, 5, 9]
-[2, 6, 10]
-[3, 7, 11]
-[4, 8, 12]
+Input: [1, 8, 3, 4, 5]
+Key: 2
+Output: [5, 8]
 ```
-
-<details><summary><b>Answer</b></summary>
-
-```javascript
-const transpose = (arr) => arr[0].map((col, i) => arr.map((row) => row[i]));
-
-console.log(
-  transpose([
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-    [9, 10, 11, 12],
-  ])
-);
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Get Column from 2D Array
-
-<details><summary><b>Answer</b></summary>
-
-```javascript
-const getColumn = (arr, n) => arr.map((x) => x[n]);
-
-const twoDimensionalArray = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
-
-console.log(getColumn(twoDimensionalArray, 1)); //Result = [2,5,8]
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Get top N from array
 
 <details><summary><b>Answer</b></summary>
 
@@ -1261,40 +1289,20 @@ console.log(topN([1, 8, 3, 4, 5], 2)); // [5,8]
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Get query params from Object
+## Q. Get the consecutive 1\'s in binary?
 
-<details><summary><b>Answer</b></summary>
+**Example:**
 
-```javascript
-function getQueryParams(obj) {
-  let parms = "";
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      if (parms.length > 0) {
-        parms += "&";
-      }
-      parms += encodeURI(`${key}=${obj[key]}`);
-    }
-  }
-  return parms;
-}
+```js
+Input: 7
+Output: 3
 
-console.log(
-  getQueryParams({
-    name: "Umesh",
-    tel: "48289",
-    add: "3333 emearld st",
-  })
-);
+Input: 5
+Output: 1
+
+Input: 13
+Output: 2
 ```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Consecutive 1\'s in binary
 
 <details><summary><b>Answer</b></summary>
 
@@ -1302,8 +1310,7 @@ console.log(
 function consecutiveOne(num) {
   let binaryArray = num.toString(2);
 
-  let maxOccurence = 0,
-    occurence = 0;
+  let maxOccurence = 0, occurence = 0;
   for (let val of binaryArray) {
     if (val === "1") {
       occurence += 1;
@@ -1314,9 +1321,12 @@ function consecutiveOne(num) {
   }
   return maxOccurence;
 }
-//13 = 1101 = 2
-//5 = 101 = 1
-console.log(consecutiveOne(5)); //1
+
+console.log(consecutiveOne(7)); // 3
+
+// 13 => 1101 = 2
+// 5 => 101 = 1
+// 7 => 111 = 3
 ```
 
 </details>
@@ -1325,58 +1335,14 @@ console.log(consecutiveOne(5)); //1
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Spiral travesal of matrix
+## Q. Write a program to merge sorted array and sort it?
 
-<details><summary><b>Answer</b></summary>
+**Example:**
 
-```javascript
-var input = [
-  [1, 2, 3, 4],
-  [5, 6, 7, 8],
-  [9, 10, 11, 12],
-  [13, 14, 15, 16],
-];
-
-var spiralTraversal = function (matriks) {
-  let result = [];
-  var goAround = function (matrix) {
-    if (matrix.length === 0) {
-      return;
-    }
-
-    // right
-    result = result.concat(matrix.shift());
-
-    // down
-    for (var j = 0; j < matrix.length - 1; j++) {
-      result.push(matrix[j].pop());
-    }
-
-    // bottom
-    result = result.concat(matrix.pop().reverse());
-
-    // up
-    for (var k = matrix.length - 1; k > 0; k--) {
-      result.push(matrix[k].shift());
-    }
-
-    return goAround(matrix);
-  };
-
-  goAround(matriks);
-
-  return result;
-};
-console.log(spiralTraversal(input)); // [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
+```js
+Input: [1, 2, 3, 4, 5, 6],  [0, 3, 4, 7]
+Output: [0, 1, 2, 3, 4, 5, 6, 7]
 ```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Merge Sorted array and sort it.
 
 <details><summary><b>Answer</b></summary>
 
@@ -1399,7 +1365,7 @@ console.log(mergeSortedArray([1, 2, 3, 4, 5, 6], [0, 3, 4, 7])); // [0, 1, 2, 3,
 **Example:**
 
 ```js
-Input: {"map", "art", "how", "rat", "tar", "who", "pam", "shoop"}
+Input: ["map", "art", "how", "rat", "tar", "who", "pam", "shoop"]
 
 Output: 
 {
@@ -1436,41 +1402,27 @@ console.log(groupAnagram(["map", "art", "how", "rat", "tar", "who", "pam", "shoo
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Print the largest (maximum) hourglass sum found in 2d array?
+## Q. Write a program to transform array of objects to array?
 
-<details><summary><b>Answer</b></summary>
+**Example:**
 
-```javascript
-// if arr 6 X 6 then iterate it till 4 X 4  [reduce by two]
-// if arr 8 X 8 then iterate it till 6 X 6  [reduce by two]
-function main(arr) {
-  let maxScore = -999;
-  let len = arr.length;
-  for (let i = 0; i < len - 2; i++) {
-    for (let j = 0; j < len - 2; j++) {
-      let total =
-        arr[i][j] +
-        arr[i][j + 1] +
-        arr[i][j + 2] +
-        arr[i + 1][j + 1] +
-        arr[i + 2][j] +
-        arr[i + 2][j + 1] +
-        arr[i + 2][j + 2];
+```js
+Input: 
+[
+  { vid: "aaa", san: 12 },
+  { vid: "aaa", san: 18 },
+  { vid: "aaa", san: 2 },
+  { vid: "bbb", san: 33 },
+  { vid: "bbb", san: 44 },
+  { vid: "aaa", san: 100 },
+]
 
-      maxScore = Math.max(maxScore, total);
-    }
-  }
-  console.log(maxScore);
-}
+Output: 
+[
+  { vid: 'aaa', san: [ 12, 18, 2, 100 ] },
+  { vid: 'bbb', san: [ 33, 44 ] }
+]
 ```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Transform array of object to array
 
 <details><summary><b>Answer</b></summary>
 
@@ -1491,15 +1443,6 @@ let newData = data.reduce((acc, item) => {
 }, {});
 
 console.log(Object.keys(newData).map((key) => newData[key]));
-
-// Result
-// [[object Object] {
-//   san: [12, 18, 2, 100],
-//   vid: "aaa"
-// }, [object Object] {
-//   san: [33, 44],
-//   vid: "bbb"
-// }]
 ```
 
 </details>
@@ -1508,7 +1451,7 @@ console.log(Object.keys(newData).map((key) => newData[key]));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Create a private variable or private method in object
+## Q. Create a private variable or private method in object?
 
 <details><summary><b>Answer</b></summary>
 
@@ -1537,7 +1480,15 @@ obj.callPrivateFunction(); // this is private function
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Flatten only Array not objects
+## Q. Write a program to flatten only Array not objects?
+
+**Example:**
+
+```js
+Input: [1, { a: [2, [3]] }, 4, [5, [6]], [[7, ["hi"]], 8, 9], 10];
+
+Output: [1, { a: [2, [3]]}, 4, 5, 6, 7, "hi", 8, 9, 10]
+```
 
 <details><summary><b>Answer</b></summary>
 
@@ -1554,40 +1505,8 @@ function flatten(arr, result = []) {
 }
 
 let input = [1, { a: [2, [3]] }, 4, [5, [6]], [[7, ["hi"]], 8, 9], 10];
+
 console.log(flatten(input)); // [1, { a: [2, [3]]}, 4, 5, 6, 7, "hi", 8, 9, 10]
-
-function flattenIterative(out) {
-  // iteratively
-  let result = out;
-  while (result.some(Array.isArray)) {
-    result = [].concat.apply([], result);
-  }
-  return result;
-}
-var list1 = [
-  [0, 1],
-  [2, 3],
-  [4, 5],
-];
-console.log(flattenIterative(list1)); // [0, 1, 2, 3, 4, 5]
-
-function flattenIterative1(current) {
-  let result = [];
-  while (current.length) {
-    let firstValue = current.shift();
-    if (Array.isArray(firstValue)) {
-      current = firstValue.concat(current);
-    } else {
-      result.push(firstValue);
-    }
-  }
-  return result;
-}
-
-let input = [1, { a: [2, [3]] }, 4, [5, [6]], [[7, ["hi"]], 8, 9], 10];
-console.log(flattenIterative1(input));
-var list2 = [0, [1, [2, [3, [4, [5]]]]]];
-console.log(flattenIterative1(list2)); // [0, 1, 2, 3, 4, 5]
 ```
 
 </details>
@@ -1596,24 +1515,31 @@ console.log(flattenIterative1(list2)); // [0, 1, 2, 3, 4, 5]
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Find max difference between two number in Array?
+## Q. Find max difference between two numbers in Array?
+
+**Example:**
+
+```js
+Input: [ -10, 4, -9, -5 ];
+Output: -10 - 4 => 14
+
+Input: [1, 2, 4]
+Ouput: 4 - 1 => 3
+```
 
 <details><summary><b>Answer</b></summary>
 
 ```javascript
 function maxDifference(arr) {
-  let maxDiff = 0;
+  // find the minimum and the maximum element
+  let max = Math.max(...arr);
+  let min = Math.min(...arr);
 
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      let diff = Math.abs(arr[i] - arr[j]);
-      maxDiff = Math.max(maxDiff, diff);
-    }
-  }
-  return maxDiff;
+  return Math.abs(max - min);
 }
 
-console.log(maxDifference([1, 2, 4])); // [1 - 4 ] = 3
+const arr = [1, 2, 4];
+console.log(maxDifference(arr)); // 4 - 1 => 3
 ```
 
 </details>
@@ -1623,6 +1549,16 @@ console.log(maxDifference([1, 2, 4])); // [1 - 4 ] = 3
 </div>
 
 ## Q. Panagram ? it means all the 26 letters of alphabet are there
+
+**Example:**
+
+```js
+Input: 'We promptly judged antique ivory buckles for the next prize'
+Output: 'Pangram'
+
+Input: 'We promptly judged antique ivory buckles for the prize'
+Ouput: 'Not Pangram'
+```
 
 <details><summary><b>Answer</b></summary>
 
@@ -1644,10 +1580,11 @@ function panagram(input) {
     }
     return prev;
   }, {});
-  console.log(Object.keys(obj).length === 26 ? "panagram" : "not pangram");
+  console.log(Object.keys(obj).length === 26 ? "Panagram" : "Not Pangram");
 }
-processData("We promptly judged antique ivory buckles for the next prize"); // pangram
-processData("We promptly judged antique ivory buckles for the prize"); // Not Pangram
+
+panagram("We promptly judged antique ivory buckles for the next prize"); // Pangram
+panagram("We promptly judged antique ivory buckles for the prize"); // Not Pangram
 ```
 
 </details>
@@ -1656,74 +1593,45 @@ processData("We promptly judged antique ivory buckles for the prize"); // Not Pa
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Given two identical DOM trees (not the same one), and a node from one of them find the node in the other one.
+## Q. Write a program to convert a number into a Roman Numeral?
 
-<details><summary><b>Answer</b></summary>
+**Example:**
 
-```javascript
-function indexOf(arrLike, target) {
-  return Array.prototype.indexOf.call(arrLike, target);
-}
+```js
+Input: 3
+Output: III
 
-// Given a node and a tree, extract the nodes path
-function getPath(root, target) {
-  var current = target;
-  var path = [];
-  while (current !== root) {
-    let parentNode = current.parentNode;
-    path.unshift(indexOf(parentNode.childNodes, current));
-    current = parentNode;
-  }
-  return path;
-}
-
-// Given a tree and a path, let\'s locate a node
-function locateNodeFromPath(node, path) {
-  return path.reduce((root, index) => root.childNodes[index], node);
-}
-
-const rootA = document.querySelector("#root-a");
-const rootB = document.querySelector("#root-b");
-const target = rootA.querySelector(".person__age");
-
-console.log(locateNodeFromPath(rootB, getPath(rootA, target)));
+Input: 10
+Output: X
 ```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Convert a number into a Roman Numeral
 
 <details><summary><b>Answer</b></summary>
 
 ```javascript
 function romanize(num) {
   let lookup = {
-      M: 1000,
-      CM: 900,
-      D: 500,
-      CD: 400,
-      C: 100,
-      XC: 90,
-      L: 50,
-      XL: 40,
-      X: 10,
-      IX: 9,
-      V: 5,
-      IV: 4,
-      I: 1,
-    },
-    roman = "";
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1,
+  };
+  let result = "";
   for (let i in lookup) {
     while (num >= lookup[i]) {
-      roman += i;
+      result += i;
       num -= lookup[i];
     }
   }
-  return roman;
+  return result;
 }
 
 console.log(romanize(3)); // III
@@ -1735,7 +1643,17 @@ console.log(romanize(3)); // III
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. check if parenthesis is malformed or not
+## Q. Write a program to check if parenthesis is malformed or not?
+
+**Example:**
+
+```js
+Input: "}{{}}"
+Output: false
+
+Input: "{{[]}}"
+Output: true
+```
 
 <details><summary><b>Answer</b></summary>
 
@@ -1749,7 +1667,7 @@ function matchParenthesis(str) {
       result.push(s);
     } else {
       if (result.length > 0) {
-        let lastValue = result.pop(); //pop the last value and compare with key
+        let lastValue = result.pop(); // pop the last value and compare with key
         if (obj[lastValue] !== s) {
           // if it is not same then it is not formated properly
           return false;
@@ -1762,7 +1680,8 @@ function matchParenthesis(str) {
   return result.length === 0;
 }
 
-console.log(matchParenthesis("}{{}}"), matchParenthesis("{{[]}}")); // false - true
+console.log(matchParenthesis("}{{}}")); // false 
+console.log(matchParenthesis("{{[]}}")); // true
 ```
 
 </details>
@@ -1771,7 +1690,15 @@ console.log(matchParenthesis("}{{}}"), matchParenthesis("{{[]}}")); // false - t
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Create Custom Event Emitter class
+## Q. Create Custom Event Emitter class?
+
+**Example:**
+
+```js
+Output:
+'Custom event called with argument: a,b,[object Object]'
+'Custom event called without argument'
+```
 
 <details><summary><b>Answer</b></summary>
 
@@ -1797,14 +1724,14 @@ class EventEmitter {
 }
 
 let e = new EventEmitter();
-e.on("callme", function (args) {
-  console.log(`you called me ${args}`);
+e.on("myCustomEvent", function (args) {
+  console.log(`Custom event called with arguments: ${args}`);
 });
-e.on("callme", function (args) {
-  console.log(`testing`);
+e.on("myCustomEvent", function () {
+  console.log(`Custom event called without argument`);
 });
 
-e.emit("callme", ["a", "b"], { firstName: "umesh", lastName: "gohil" });
+e.emit("myCustomEvent", ["a", "b"], { firstName: "Umesh", lastName: "Gohil" });
 ```
 
 </details>
@@ -1813,13 +1740,13 @@ e.emit("callme", ["a", "b"], { firstName: "umesh", lastName: "gohil" });
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Move all zero\'s to end?
+## Q. Wirte a program to move all zero to end?
 
 **Example:**
 
 ```js
-Input: {1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0}
-Output:{1, 8, 2, 3, 4, 5, 0, 0, 0, 0, 0}
+Input:  [1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0]
+Output: [1, 8, 2, 3, 4, 5, 0, 0, 0, 0, 0]
 ```
 
 <details><summary><b>Answer</b></summary>
@@ -1847,6 +1774,21 @@ console.log(moveZeroToEnd([1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0]));
 </div>
 
 ## Q. Decode message in matrix [diagional down right, diagional up right]
+
+**Example:**
+
+```js
+Input:  
+[
+  ["I", "B", "C", "A", "L", "K", "A"],
+  ["D", "R", "F", "C", "A", "E", "A"],
+  ["G", "H", "O", "E", "L", "A", "D"],
+  ["G", "H", "O", "E", "L", "A", "D"],
+]
+
+Output: 
+'IROELEA'
+```
 
 <details><summary><b>Answer</b></summary>
 
@@ -1890,7 +1832,7 @@ let mat = [
   ["G", "H", "O", "E", "L", "A", "D"],
 ];
 
-console.log(decodeMessage(mat)); //IROELEA
+console.log(decodeMessage(mat)); // IROELEA
 ```
 
 </details>
@@ -1899,39 +1841,25 @@ console.log(decodeMessage(mat)); //IROELEA
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. find a pair in array, whose sum is equal to given number?
+## Q. Find a pair in array, whose sum is equal to given number?
+
+**Example:**
+
+```js
+Input: [6, 4, 3, 8],  Sum = 8
+Output: false
+
+Input: [1, 2, 4, 4],  Sum = 8
+Output: true
+```
 
 <details><summary><b>Answer</b></summary>
 
 ```javascript
 const hasPairSum = (arr, sum) => {
-  if (arr == null && arr.length < 2) {
-    return false;
-  }
-
-  let left = 0;
-  let right = arr.length - 1;
-  let result = false;
-
-  while (left < right && !result) {
-    let pairSum = arr[left] + arr[right];
-    if (pairSum < sum) {
-      left++;
-    } else if (pairSum > sum) {
-      right--;
-    } else {
-      result = true;
-    }
-  }
-  return result;
-};
-
-console.log(hasPairSum([1, 2, 4, 5], 8)); // null
-console.log(hasPairSum([1, 2, 4, 4], 8)); // [2,3]
-
-const hasPairSum = (arr, sum) => {
   let difference = {};
   let hasPair = false;
+
   arr.forEach((item) => {
     let diff = sum - item;
     if (!difference[diff]) {
@@ -1942,10 +1870,9 @@ const hasPairSum = (arr, sum) => {
   });
   return hasPair;
 };
-console.log(hasPairSum([6, 4, 3, 8], 8));
 
-// NOTE: if array is not sorted then subtract the value with sum and store in difference
-// then see if that value exist in difference then return true.
+console.log(hasPairSum([6, 4, 3, 8], 8)); // false
+console.log(hasPairSum([1, 2, 4, 4], 8)); // true
 ```
 
 </details>
@@ -1954,7 +1881,17 @@ console.log(hasPairSum([6, 4, 3, 8], 8));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Binary Search [Array should be sorted]
+## Q. Write a Binary Search Program [Array should be sorted]?
+
+**Example:**
+
+```js
+Input: [-1, 10, 22, 35, 48, 56, 67], key = 22
+Output: 2
+
+Input: [-1, 10, 22, 35, 48, 56, 67], key = 27
+Output: -1
+```
 
 <details><summary><b>Answer</b></summary>
 
@@ -1976,8 +1913,8 @@ function binarySearch(arr, val) {
   return arr[middleIndex] === val ? middleIndex : -1;
 }
 
-console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 22));
-console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 27));
+console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 22)); // 2
+console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 27)); // -1
 ```
 
 </details>
@@ -1988,6 +1925,20 @@ console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 27));
 
 ## Q. Write a function to generate Pascal triangle?
 
+**Example:**
+
+```js
+Input: 5
+
+Output: 
+[ 1 ],
+[ 1, 1 ],
+[ 1, 2, 1 ],
+[ 1, 3, 3, 1 ],
+[ 1, 4, 6, 4, 1 ],
+[ 1, 5, 10, 10, 5, 1 ]
+```
+
 <details><summary><b>Answer</b></summary>
 
 ```javascript
@@ -1995,15 +1946,15 @@ function pascalTriangle(n) {
   let last = [1],
     triangle = [last];
   for (let i = 0; i < n; i++) {
-    const ls = [0].concat(last), //[0,1]           // [0,1,1]
-      rs = last.concat([0]); //[1,0]           // [1,1,0]
-    last = rs.map((r, i) => ls[i] + r); //[1, 1]          // [1,2,1]
-    triangle = triangle.concat([last]); // [[1], [1,1]]   // [1], [1, 1], [1, 2, 1]
+    const ls = [0].concat(last),
+      rs = last.concat([0]);
+    last = rs.map((r, i) => ls[i] + r);
+    triangle = triangle.concat([last]);
   }
   return triangle;
 }
 
-console.log(pascalTriangle(2));
+console.log(pascalTriangle(5));
 ```
 
 </details>
@@ -2014,29 +1965,39 @@ console.log(pascalTriangle(2));
 
 ## Q. Remove array element based on object property?
 
+**Example:**
+
+```js
+Input: 
+[
+  { field: "id", operator: "eq" },
+  { field: "cStatus", operator: "eq" },
+  { field: "money", operator: "eq" },
+]
+
+Key: 'money'
+
+Output: 
+[
+  { field: 'id', operator: 'eq' },
+  { field: 'cStatus', operator: 'eq' }
+]
+```
+
 <details><summary><b>Answer</b></summary>
 
 ```javascript
-var myArray = [
+let myArray = [
   { field: "id", operator: "eq" },
   { field: "cStatus", operator: "eq" },
   { field: "money", operator: "eq" },
 ];
 
-myArray = myArray.filter(function (obj) {
+myArray = myArray.filter((obj) => {
   return obj.field !== "money";
 });
 
-Console.log(myArray);
-```
-
-Output
-
-```js
-myArray = [
-    {field: "id", operator: "eq"}
-    {field: "cStatus", operator: "eq"}
-]
+console.log(myArray);
 ```
 
 </details>
@@ -2052,33 +2013,50 @@ myArray = [
 ```js
 Input:
 
-const data = {
-    user: {
-        username: 'Navin Chauhan',
-        password: 'Secret'
-    },
-    rapot: {
-        title: 'Storage usage raport',
-        goal: 'Remove unused data.'
-    }
+{
+  user: {
+      username: 'Navin Chauhan',
+      password: 'Secret'
+  },
+  rapot: {
+      title: 'Storage usage raport',
+      goal: 'Remove unused data.'
+  }
 };
 
+Key: 'user.username'
+
 Output:
-console.log(getObjectProperty(data, 'user.username')); // Navin Chauhan
+'Navin Chauhan'
 ```
 
 <details><summary><b>Answer</b></summary>
 
 ```js
+const data = {
+  user: {
+    username: "Navin Chauhan",
+    password: "Secret",
+  },
+  rapot: {
+    title: "Storage usage raport",
+    goal: "Remove unused data.",
+  },
+};
+
+const path = "user.username";
+
 const getObjectProperty = (object, path) => {
-  const parts = path.split('.');
+  const parts = path.split(".");
 
   for (let i = 0; i < parts.length; ++i) {
-      const key = parts[i];
-      object = object[key];
-    }
+    const key = parts[i];
+    object = object[key];
+  }
   return object;
 };
+
+console.log(getObjectProperty(data, path));
 ```
 
 </details>
