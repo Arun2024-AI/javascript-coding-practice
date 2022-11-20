@@ -360,6 +360,35 @@ console.log(reverseString("Hello"));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Given a string, reverse each word in the sentence
+
+**Example:**
+
+```js
+Input: "Hello World";
+Output: "olleH dlroW";
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+const str = "Hello World";
+
+let reverseEntireSentence = reverseBySeparator(str, "");
+
+console.log(reverseBySeparator(reverseEntireSentence, " "));
+
+function reverseBySeparator(string, separator) {
+  return string.split(separator).reverse().join(separator);
+}
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Create a Promise to accept car names as argument and send response once the argument matches with Maruti?
 
 <details><summary><b>Answer</b></summary>
@@ -406,40 +435,37 @@ const address = {
 Output:
 
 // Now person should have 5 properties 
-name, age, addressLine1, addressLine2, city
+{
+  name: "Tanvi",
+  age: 28,
+  addressLine1: "Some Location x",
+  addressLine2: "Some Location y",
+  city: "Bangalore"
+}
 ```
 
 <details><summary><b>Answer</b></summary>
 
-Write merge function which will take two object and add all the own property of second object into first object.
-
-**Method 1: Using ES6, Object.assign method:**
-
 ```js
-const merge = (toObj, fromObj) => Object.assign(toObj, fromObj);
+/**
+ * Using Spread Object
+ */
 
-console.log(merge(person, address));
-// {name: "Tanvi", age: 28, addressLine1: "Some Location x", addressLine2: "Some Location y", city: "Bangalore"}
-```
+const person = {
+  name: "Tanvi",
+  age: 28
+};
 
-**Method 2: Without using built-in function:**
+const address = {
+  addressLine1: "Some Location x",
+  addressLine2: "Some Location y",
+  city: "Bangalore"
+};
 
-```js
-function mergeObject(toObj, fromObj) {
-  // Make sure both of the parameter is an object
-  if (typeof toObj === "object" && typeof fromObj === "object") {
-    for (var pro in fromObj) {
-      // Assign only own properties not inherited properties
-      if (fromObj.hasOwnProperty(pro)) {
-        toObj[pro] = fromObj[pro];
-      }
-    }
-  } else {
-    throw "Merge function can apply only on object";
-  }
-}
 
-console.log(mergeObject(person, address));
+const merged = {...person, ...address};
+
+console.log(merged);
 // {name: "Tanvi", age: 28, addressLine1: "Some Location x", addressLine2: "Some Location y", city: "Bangalore"}
 ```
 
@@ -533,35 +559,6 @@ function removeDups(names) {
 }
 
 removeDups(names); // // 'John', 'Paul', 'George', 'Ringo'
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Given a string, reverse each word in the sentence
-
-**Example:**
-
-```js
-Input: "Hello World";
-Output: "olleH dlroW";
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-const str = "Hello World";
-
-let reverseEntireSentence = reverseBySeparator(str, "");
-
-console.log(reverseBySeparator(reverseEntireSentence, " "));
-
-function reverseBySeparator(string, separator) {
-  return string.split(separator).reverse().join(separator);
-}
 ```
 
 </details>
