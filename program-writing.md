@@ -334,6 +334,11 @@ File Extension: jpg
 
 ## Q. Write a program to reverse a string?
 
+```js
+Input: Hello 
+Output: olleH
+```
+
 <details><summary><b>Answer</b></summary>
 
 ```javascript
