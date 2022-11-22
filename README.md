@@ -3328,7 +3328,7 @@ VM298:6 5
 function sayHi() {
   console.log(name);
   console.log(age);
-  var name = "Lydia";
+  var name = "Mala Pall";
   let age = 21;
 }
 
@@ -3406,14 +3406,14 @@ There is no value `radius` on that object, which returns `undefined`.
 
 ```javascript
 +true;
-!"Lydia";
+!"Mala Pall";
 ```
 
 <details><summary><b>Answer</b></summary>
 
 The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
 
-The string `'Lydia'` is a truthy value. What we\'re actually asking, is "is this truthy value falsy?". This returns `false`.
+The string `'Mala Pall'` is a truthy value. What we\'re actually asking, is "is this truthy value falsy?". This returns `false`.
 
 </details>
 
@@ -3581,7 +3581,7 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 
-const member = new Person("Lydia", "Hallie");
+const member = new Person("Mala Pall", "Hallie");
 Person.getFullName = function () {
   return `${this.firstName} ${this.lastName}`;
 };
@@ -3615,10 +3615,10 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 
-const lydia = new Person("Lydia", "Hallie");
+const Karthik = new Person("Karthik", "Hallie");
 const sarah = Person("Sarah", "Smith");
 
-console.log(lydia);
+console.log(Karthik);
 console.log(sarah);
 ```
 
@@ -3636,10 +3636,10 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 
 ## Q. What are the three phases of event propagation?
 
-- A: Target > Capturing > Bubbling
-- B: Bubbling > Target > Capturing
-- C: Target > Bubbling > Capturing
-- D: Capturing > Target > Bubbling
+- [ ] Target > Capturing > Bubbling
+- [ ] Bubbling > Target > Capturing
+- [ ] Target > Bubbling > Capturing
+- [ ] Capturing > Target > Bubbling
 
 <details><summary><b>Answer</b></summary>
 
@@ -3732,7 +3732,7 @@ function getPersonInfo(one, two, three) {
   console.log(three);
 }
 
-const person = "Lydia";
+const person = "Zoya Babu";
 const age = 21;
 
 getPersonInfo`${person} is ${age} years old`;
@@ -3957,13 +3957,13 @@ The `continue` statement skips an iteration if a certain condition returns `true
 ## Q. What is the output?
 
 ```javascript
-String.prototype.giveLydiaPizza = () => {
-  return "Just give Lydia pizza already!";
+String.prototype.giveRashmi Pizza = () => {
+  return "Just give Rashmi  pizza already!";
 };
 
-const name = "Lydia";
+const name = "Rashmi ";
 
-name.giveLydiaPizza();
+name.giveRashmi Pizza();
 ```
 
 <details><summary><b>Answer</b></summary>
@@ -4090,7 +4090,7 @@ If we click `p`, we see two logs: `p` and `div`. During event propagation, there
 ## Q. What is the output?
 
 ```javascript
-const person = { name: "Lydia" };
+const person = { name: "Inika " };
 
 function sayHi(age) {
   console.log(`${this.name} is ${age}`);
@@ -4321,7 +4321,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 ## Q. What does this return?
 
 ```javascript
-[..."Lydia"];
+[..."Inika "];
 ```
 
 <details><summary><b>Answer</b></summary>
@@ -4389,7 +4389,7 @@ When we pass multiple promises to the `Promise.race` method, it resolves/rejects
 ## Q. What is the output?
 
 ```javascript
-let person = { name: "Lydia" };
+let person = { name: "Inika" };
 const members = [person];
 person = null;
 
@@ -4422,7 +4422,7 @@ We are only modifying the value of the `person` variable, and not the first elem
 
 ```javascript
 const person = {
-  name: "Lydia",
+  name: "Inika",
   age: 21,
 };
 
@@ -4504,7 +4504,7 @@ However, we don\'t return a value. When we don\'t return a value from the functi
 
 ```javascript
 function getInfo(member, year) {
-  member.name = "Lydia";
+  member.name = "Inika";
   year = "1998";
 }
 
@@ -4522,7 +4522,7 @@ Arguments are passed by _value_, unless their value is an object, then they\'re 
 
 The variable `birthYear` has a reference to the value `"1997"`. The argument `year` also has a reference to the value `"1997"`, but it\'s not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `"1998"`, we are only updating the value of `year`. `birthYear` is still equal to `"1997"`.
 
-The value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`\'s `name` property is now equal to the value `"Lydia"`
+The value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`\'s `name` property is now equal to the value `"Inika"`
 
 </details>
 
@@ -4701,7 +4701,7 @@ When we try to increment the value of `myCounter`, it throws an error: `myCounte
 ## Q. What is the output?
 
 ```javascript
-const name = "Lydia";
+const name = "Swarna";
 age = 21;
 
 console.log(delete name);
@@ -4758,7 +4758,7 @@ This means that the value of `y` is equal to the first value in the array, which
 ## Q. What is the output?
 
 ```javascript
-const user = { name: "Lydia", age: 21 };
+const user = { name: "Swarna", age: 21 };
 const admin = { admin: true, ...user };
 
 console.log(admin);
@@ -4767,7 +4767,7 @@ console.log(admin);
 <details><summary><b>Answer</b></summary>
 
 ```js
-{ admin: true, name: 'Lydia', age: 21 }
+{ admin: true, name: 'Swarna', age: 21 }
 ```
 
 </details>
@@ -4779,7 +4779,7 @@ console.log(admin);
 ## Q. What is the output?
 
 ```javascript
-const person = { name: "Lydia" };
+const person = { name: "Swarna" };
 
 Object.defineProperty(person, "age", { value: 21 });
 
@@ -4789,11 +4789,13 @@ console.log(Object.keys(person));
 
 <details><summary><b>Answer</b></summary>
 
+```js
 With the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. The `Object.keys` method returns all _enumerable_ property names from an object, in this case only `"name"`.
 
 Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` and `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you\'re adding to an object.
+```
 
-<\details>
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -4803,7 +4805,7 @@ Properties added using the `defineProperty` method are immutable by default. You
 
 ```javascript
 const settings = {
-  username: "lydiahallie",
+  username: "Akhil Sunderhallie",
   level: 19,
   health: 90,
 };
@@ -5002,14 +5004,14 @@ Every Symbol is entirely unique. The purpose of the argument passed to the Symbo
 ## Q. What is the output?
 
 ```javascript
-const name = "Lydia Hallie";
+const name = "Akhil Sunder";
 console.log(name.padStart(13));
 console.log(name.padStart(2));
 ```
 
 <details><summary><b>Answer</b></summary>
 
-With the `padStart` method, we can add padding to the beginning of a string. The value passed to this method is the _total_ length of the string together with the padding. The string `"Lydia Hallie"` has a length of `12`. `name.padStart(13)` inserts 1 space at the start of the string, because 12 + 1 is 13.
+With the `padStart` method, we can add padding to the beginning of a string. The value passed to this method is the _total_ length of the string together with the padding. The string `"Akhil Sunder"` has a length of `12`. `name.padStart(13)` inserts 1 space at the start of the string, because 12 + 1 is 13.
 
 If the argument passed to the `padStart` method is smaller than the length of the array, no padding will be added.
 
@@ -5127,14 +5129,14 @@ Since `shape` is frozen, and since the value of `x` is not an object, we cannot 
 ## Q. What is the output?
 
 ```javascript
-const { name: myName } = { name: "Lydia" };
+const { name: myName } = { name: "Anusha Kapadia" };
 
 console.log(name);
 ```
 
 <details><summary><b>Answer</b></summary>
 
-When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
+When we unpack the property `name` from the object on the right-hand side, we assign its value `"Anusha Kapadia"` to a variable with the name `myName`.
 
 With `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.
 
@@ -5221,9 +5223,9 @@ By default, arguments have the value of `undefined`, unless a value has been pas
 
 In ES6, we can overwrite this default `undefined` value with default parameters. For example:
 
-`function sayHi(name = "Lydia") { ... }`
+`function sayHi(name = "Akash Guha") { ... }`
 
-In this case, if we didn\'t pass a value or if we passed `undefined`, `name` would always be equal to the string `Lydia`
+In this case, if we didn\'t pass a value or if we passed `undefined`, `name` would always be equal to the string `Akash Guha`
 
 </details>
 
@@ -5235,7 +5237,7 @@ In this case, if we didn\'t pass a value or if we passed `undefined`, `name` wou
 
 ```javascript
 const person = {
-  name: "Lydia",
+  name: "Rishima Nair",
   age: 21,
 };
 
@@ -5374,7 +5376,7 @@ If you\'re trying to set a default parameter\'s value equal to a parameter which
 ```javascript
 // module.js
 export default () => "Hello world";
-export const name = "Lydia";
+export const name = "Rishima Nair";
 
 // index.js
 import * as data from "./module";
@@ -5384,7 +5386,7 @@ console.log(data);
 
 <details><summary><b>Answer</b></summary>
 
-With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Lydia"`.
+With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Rishima Nair"`.
 
 The `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values.
 
@@ -5448,20 +5450,20 @@ Then, we try to use the `.push` method on `newList`. Since `newList` is the nume
 ## Q. What is the output?
 
 ```javascript
-function giveLydiaPizza() {
+function giveSwarnaPizza() {
   return "Here is pizza!";
 }
 
-const giveLydiaChocolate = () =>
+const giveSwarnaChocolate = () =>
   "Here\'s chocolate... now go hit the gym already.";
 
-console.log(giveLydiaPizza.prototype);
-console.log(giveLydiaChocolate.prototype);
+console.log(giveSwarnaPizza.prototype);
+console.log(giveSwarnaChocolate.prototype);
 ```
 
 <details><summary><b>Answer</b></summary>
 
-Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`.
+Regular functions, such as the `giveSwarnaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveSwarnaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveSwarnaChocolate.prototype`.
 
 </details>
 
@@ -5473,7 +5475,7 @@ Regular functions, such as the `giveLydiaPizza` function, have a `prototype` pro
 
 ```javascript
 const person = {
-  name: "Lydia",
+  name: "Hari Srinivas",
   age: 21,
 };
 
@@ -5486,11 +5488,11 @@ for (const [x, y] of Object.entries(person)) {
 
 `Object.entries(person)` returns an array of nested arrays, containing the keys and objects:
 
-`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]`
+`[ [ 'name', 'Hari Srinivas' ], [ 'age', 21 ] ]`
 
 Using the `for-of` loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using `const [x, y]`. `x` is equal to the first element in the subarray, `y` is equal to the second element in the subarray.
 
-The first subarray is `[ "name", "Lydia" ]`, with `x` equal to `"name"`, and `y` equal to `"Lydia"`, which get logged.
+The first subarray is `[ "name", "Hari Srinivas" ]`, with `x` equal to `"name"`, and `y` equal to `"Hari Srinivas"`, which get logged.
 The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal to `21`, which get logged.
 
 </details>
@@ -5567,7 +5569,7 @@ This means that `a + b` is never reached, since a function stops running after t
 ```javascript
 class Person {
   constructor() {
-    this.name = "Lydia";
+    this.name = "Anima Nagarajan";
   }
 }
 
@@ -5621,7 +5623,7 @@ const getList = ([x, ...y]) => [x, y]
 const getUser = user => { name: user.name, age: user.age }
 
 const list = [1, 2, 3, 4]
-const user = { name: "Lydia", age: 21 }
+const user = { name: "Anima Nagarajan", age: 21 }
 
 console.log(getList(list))
 console.log(getUser(user))
@@ -5650,7 +5652,7 @@ Since no value gets returned in this case, the function returns `undefined`.
 ## Q. What is the output?
 
 ```javascript
-const name = "Lydia";
+const name = "Anima Nagarajan";
 
 console.log(name());
 ```
@@ -5758,8 +5760,8 @@ This means that it waited for the `myPromise` to resolve with the value `I have 
 const set = new Set();
 
 set.add(1);
-set.add("Lydia");
-set.add({ name: "Lydia" });
+set.add("Anima Nagarajan");
+set.add({ name: "Anima Nagarajan" });
 
 for (let item of set) {
   console.log(item + 2);
@@ -5772,9 +5774,9 @@ The `+` operator is not only used for adding numerical values, but we can also u
 
 The first one is `1`, which is a numerical value. `1 + 2` returns the number 3.
 
-However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is a number: `2` gets coerced into a string. `"Lydia"` and `"2"` get concatenated, which results in the string `"Lydia2"`.
+However, the second one is a string `"Anima Nagarajan"`. `"Anima Nagarajan"` is a string and `2` is a number: `2` gets coerced into a string. `"Anima Nagarajan"` and `"2"` get concatenated, which results in the string `"Anima Nagarajan2"`.
 
-`{ name: "Lydia" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[Object object]"`. `"[Object object]"` concatenated with `"2"` becomes `"[Object object]2"`.
+`{ name: "Anima Nagarajan" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[Object object]"`. `"[Object object]"` concatenated with `"2"` becomes `"[Object object]2"`.
 
 </details>
 
@@ -5811,7 +5813,7 @@ function compareMembers(person1, person2 = person) {
   }
 }
 
-const person = { name: "Lydia" };
+const person = { name: "Surya Jha" };
 
 compareMembers(person);
 ```
@@ -5865,7 +5867,7 @@ JavaScript interprets (or unboxes) statements. When we use bracket notation, it 
 ## Q. What is the output?
 
 ```javascript
-let name = "Lydia";
+let name = "Surya Jha";
 
 function getName() {
   console.log(name);
@@ -5881,16 +5883,16 @@ Each function has its own _execution context_ (or _scope_). The `getName` functi
 
 Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don\'t get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
 
-If we wouldn\'t have declared the `name` variable within the `getName` function, the javascript engine would\'ve looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Lydia`. In that case, it would\'ve logged `Lydia`.
+If we wouldn\'t have declared the `name` variable within the `getName` function, the javascript engine would\'ve looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Surya Jha`. In that case, it would\'ve logged `Surya Jha`.
 
 ```javascript
-let name = "Lydia";
+let name = "Surya Jha";
 
 function getName() {
   console.log(name);
 }
 
-getName(); // Lydia
+getName(); // Surya Jha
 ```
 
 </details>
@@ -6014,7 +6016,7 @@ When adding a key/value pair using the `set` method, the key will be the value o
 
 ```javascript
 const person = {
-  name: "Lydia",
+  name: "Kani Palla",
   age: 21,
 };
 
@@ -6034,9 +6036,9 @@ console.log(person);
 
 Both the `changeAge` and `changeAgeAndName` functions have a default parameter, namely a _newly_ created object `{ ...person }`. This object has copies of all the key/values in the `person` object.
 
-First, we invoke the `changeAge` function and pass the `person` object as its argument. This function increases the value of the `age` property by 1. `person` is now `{ name: "Lydia", age: 22 }`.
+First, we invoke the `changeAge` function and pass the `person` object as its argument. This function increases the value of the `age` property by 1. `person` is now `{ name: "Kani Palla", age: 22 }`.
 
-Then, we invoke the `changeAgeAndName` function, however we don\'t pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it\'s a new object, it doesn\'t affect the values of the properties on the `person` object. `person` is still equal to `{ name: "Lydia", age: 22 }`.
+Then, we invoke the `changeAgeAndName` function, however we don\'t pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it\'s a new object, it doesn\'t affect the values of the properties on the `person` object. `person` is still equal to `{ name: "Kani Palla", age: 22 }`.
 
 </details>
 
