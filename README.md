@@ -6054,6 +6054,14 @@ if(2 == true)
 if(2 == false)
 ```
 
+<details><summary><b>Answer</b></summary>
+
+```js
+SyntaxError: Unexpected end of input
+```
+
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
@@ -6072,7 +6080,27 @@ function find_max(nums) {
 }
 ```
 
+<details><summary><b>Answer</b></summary>
+
+```js
+function find_max(nums) {
+  let max_num = Number.NEGATIVE_INFINITY; // smaller than all other numbers
+  for (let num of nums) {
+    if (num > max_num) {
+      max_num = num;
+    }
+  }
+  return max_num;
+}
+
+const nums = [10, 20, -30];
+console.log(find_max(nums));
+```
+
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-code-practice-xjw5n3)**
+
+</details>
+
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
