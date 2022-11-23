@@ -1972,7 +1972,7 @@ console.log(hasPairSum([1, 2, 4, 4], 8)); // true
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Write a Binary Search Program [Array should be sorted]?
+## Q. Write a Binary Search Program (array should be sorted)?
 
 **Example:**
 
@@ -2188,6 +2188,45 @@ getPairs([1, 5, 7, -1, 5], 6);
 // (1, 5)
 // (1, 5)
 // (7, -1)
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to find out duplicate words in a given string?
+
+**Example:**
+
+```js
+Input:  
+"big black bug bit a big black dog on his big black nose"
+
+Output: 
+"big black"
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+const str = "big black bug bit a big black dog on his big black nose";
+
+const findDuplicateWords = (str) => {
+  const strArr = str.split(" ");
+  const res = [];
+  for (let i = 0; i < strArr.length; i++) {
+    if (strArr.indexOf(strArr[i]) !== strArr.lastIndexOf(strArr[i])) {
+      if (!res.includes(strArr[i])) {
+        res.push(strArr[i]);
+      }
+    }
+  }
+  return res.join(" ");
+};
+
+console.log(findDuplicateWords(str));
 ```
 
 </details>
