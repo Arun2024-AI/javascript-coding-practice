@@ -103,6 +103,44 @@ console.log(groupBy(arr));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Write a function to find non-repetitive numbers in a given array?
+
+**Examples:**
+
+```js
+Input:
+[2, 3, 4, 3, 3, 2, 4, 9, 1, 2, 5, 5]
+
+Output:
+[9, 1]
+```
+
+<details><summary><b>Answer</b></summary>
+
+```javascript
+// Creating Object with number of occurance of each elements
+for(let element of arr) {
+   if(count[element]) {
+      count[element] += 1;
+   } else {
+      count[element] = 1;
+   }
+}
+
+// Iterate Unique elements
+for(let key in count) {
+    if(count[key] === 1) {
+       console.log(key + '->' + count[key]); 
+    }
+}
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function to accept argument like `sum(num1)(num2);` or `sum(num1,num2);`
 
 **Examples:**
@@ -2109,38 +2147,6 @@ const getObjectProperty = (object, path) => {
 };
 
 console.log(getObjectProperty(data, path));
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Find the unique number in given array?
-
-**Example:**
-
-```js
-Input: [1, 1, 3, 2, 3]
-Output: 2
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-const arr = [1, 1, 3, 2, 3];
-const count = {};
-
-for (const element of arr) {
-  if (count[element]) {
-    count[element] += 1;
-  } else {
-    count[element] = 1;
-  }
-}
-
-console.log(count); // {1: 2, 2: 1, 3: 2}
 ```
 
 </details>
