@@ -2,7 +2,7 @@
 
 <br/>
 
-## Q. Write a function to get result in group by parameter?
+## Q. Write a function to transform json in group by parameter?
 
 **Examples:**
 
@@ -42,6 +42,59 @@ const groupBy = function (items, key) {
 };
 
 console.log(groupBy(arry, "Phase"));
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to transform json in group by id?
+
+**Examples:**
+
+```js
+Input:
+
+[
+  { id: 1, type: "ADD" },
+  { id: 1, type: "CHANGE" },
+  { id: 2, type: "ADD" },
+  { id: 3, type: "ADD" },
+  { id: 3, type: "CHANGE" },
+  { id: 2, type: "REMOVE" },
+  { id: 3, type: "CHANGE" },
+  { id: 1, type: "REMOVE" },
+];
+
+Output:
+
+[
+  { id: 1, type: ["ADD", "CHANGE", "REMOVE"] },
+  { id: 2, type: ["ADD", "REMOVE"] },
+  { id: 3, type: ["ADD", "CHANGE", "CHANGE"] },
+];
+```
+
+<details><summary><b>Answer</b></summary>
+
+```javascript
+const groupBy = (arr = []) => {
+   const result = [];
+   const map = {};
+   for (let i = 0, j = arr.length; i < j; i++) {
+      let element = arr[i];
+      if (!(element.id in map)) {
+         map[element.id] = {id: element.id, type: []};
+         result.push(map[element.id]);
+      };
+      map[element.id].type.push(element.type);
+   };
+   return result;
+};
+
+console.log(groupBy(arr));
 ```
 
 </details>
