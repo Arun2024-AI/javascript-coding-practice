@@ -247,7 +247,7 @@ console.log(bubbleSort([53, 11, 34, 12, 18]));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Write a program to read file and count word count, unique word count and count search string?
+## Q. Write a program to read file and count word, unique word and search string?
 
 **Examples:**
 
