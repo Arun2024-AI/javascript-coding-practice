@@ -148,6 +148,12 @@ for(let key in count) {
 ```js
 Input: 'aabcbd'
 Output: 'c'
+
+Input: 'teeter'
+Output: 'r'
+
+Input: 'abacddbec'
+Output: 'e'
 ```
 
 <details><summary><b>Answer</b></summary>
