@@ -196,6 +196,21 @@ Output: [ 11, 12, 18, 34, 53 ];
 
 **Solution 1:**
 
+```js
+/**
+ * Sort elements using compare method
+ */
+let arr = [53, 11, 34, 12, 18];
+
+arr.sort((a, b) => {
+  return a - b;
+});
+
+console.log(arr);
+```
+
+**Solution 2:**
+
 ```javascript
 /**
  * Optimized implementation of bubble sort Algorithm
@@ -226,20 +241,7 @@ function bubbleSort(arr) {
 console.log(bubbleSort([53, 11, 34, 12, 18]));
 ```
 
-**Solution 2:**
 
-```js
-/**
- * Sort elements using compare method
- */
-let arr = [53, 11, 34, 12, 18];
-
-arr.sort(function (a, b) {
-  return a - b;
-});
-
-console.log(arr);
-```
 
 </details>
 
