@@ -241,7 +241,65 @@ function bubbleSort(arr) {
 console.log(bubbleSort([53, 11, 34, 12, 18]));
 ```
 
+</details>
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a program to read file and count word count, unique word count and count search string?
+
+**Examples:**
+
+```js
+Input: file.txt
+Search String: 'Lipsum'
+Output: 
+┌──────────────┬────────┐
+│   (index)    │ Values │
+├──────────────┼────────┤
+│  Word Count  │   22   │
+│ Unique Words │   17   │
+│ searchString │   18   │
+└──────────────┴────────┘
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+const fs = require("fs");
+
+// #1 count the number of words
+const wordCount = (string) => string.split(" ").length;
+
+// #2 count the number of unique words
+const uniqueWords = (txt) => new Set(txt.toLowerCase().match(/\w+/g)).size;
+
+// #3 count the search string
+const searchString = (string) => {
+  let count = 0;
+  let words = string.split(" ");
+
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].indexOf("ispsum")) {
+      count++;
+    }
+  }
+  return count;
+};
+
+fs.readFile("file.txt", "utf8", function (err, data) {
+  if (err) throw err;
+  console.log("The text in the file:\n\n", data, "\n");
+  // store results in an object to present the log better
+  let result = {
+    "Word Count": wordCount(data),
+    "Unique Words": uniqueWords(data),
+    searchString: searchString(data),
+  };
+  console.table(result);
+});
+```
 
 </details>
 
