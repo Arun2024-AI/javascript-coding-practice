@@ -156,14 +156,19 @@ Output: 'c'
 function firstNonRepeatingCharacter(str) {
   for (let i = 0; i < str.length; i++) {
     let char = str[i];
-    if (str.indexOf(char) == i && str.indexOf(char, i + 1) == -1) {
+    if (str.indexOf(char) === str.lastIndexOf(char)) {
       return char;
     }
   }
   return "_";
 }
 
-console.log(firstNonRepeatingCharacter("aabcbd"));
+console.log(firstNonRepeatingCharacter("aabcbd")); // c
+
+console.log(firstNonRepeatingCharacter("teeter")); // r
+
+console.log(firstNonRepeatingCharacter("abacddbec")); // e
+
 ```
 
 </details>
