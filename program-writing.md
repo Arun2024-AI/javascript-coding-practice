@@ -183,6 +183,70 @@ console.log(firstNonRepeatingCharacter("abacddbec")); // e
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Write a function to sort an integer array?
+
+**Examples:**
+
+```js
+Input: [ 53, 11, 34, 12, 18 ]
+Output: [ 11, 12, 18, 34, 53 ];
+```
+
+<details><summary><b>Answer</b></summary>
+
+**Solution 1:**
+
+```javascript
+/**
+ * Optimized implementation of bubble sort Algorithm
+ */
+function bubbleSort(arr) {
+  let isSwapped = false;
+
+  for (let i = 0; i < arr.length; i++) {
+    isSwapped = false;
+
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        isSwapped = true;
+      }
+    }
+
+    // If no two elements were swapped by inner loop, then break
+    if (!isSwapped) {
+      break;
+    }
+  }
+  return arr;
+}
+
+console.log(bubbleSort([53, 11, 34, 12, 18]));
+```
+
+**Solution 2:**
+
+```js
+/**
+ * Sort elements using compare method
+ */
+let arr = [53, 11, 34, 12, 18];
+
+arr.sort(function (a, b) {
+  return a - b;
+});
+
+console.log(arr);
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function to accept argument like `sum(num1)(num2);` or `sum(num1,num2);`
 
 **Examples:**
