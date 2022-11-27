@@ -329,7 +329,7 @@ function mostFrequentElement(array) {
   let count = {};
   let maxElement = array[0];
   let maxCount = 1;
-  
+
   for (let i = 0; i < array.length; i++) {
     let element = array[i];
     if (count[element]) {
@@ -346,6 +346,55 @@ function mostFrequentElement(array) {
 }
 
 console.log(mostFrequentElement([12, 5, 6, 76, 23, 12, 34, 5, 23, 34, 65, 34, 22, 67, 34])); // [34, 4]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Filter users with age between 15 and 30 from the given json array?
+
+**Examples:**
+
+```js
+Input: 
+[
+  {
+    a: { name: "John", age: 25 },
+    b: { name: "Peter", age: 45 },
+    c: { name: "Bob", age: 20 },
+  },
+  {
+    a: { name: "Ram", age: 25 },
+    b: { name: "Krish", age: 45 },
+    c: { name: "Roshan", age: 20 },
+  },
+];
+
+Output:
+[
+  [ { name: 'John', age: 25 }, { name: 'Bob', age: 20 } ], 
+  [ { name: 'Ram', age: 25 }, { name: 'Roshan', age: 20 } ]
+]
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function filterUser(arr) {
+  const users = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    let user = Object.values(element).filter((key) => {
+      return key.age > 15 && key.age < 30;
+    });
+    users.push(user);
+  }
+  return users;
+}
 ```
 
 </details>
