@@ -307,6 +307,53 @@ fs.readFile("file.txt", "utf8", function (err, data) {
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Find the most repeated elements in given array?
+
+**Examples:**
+
+```js
+Input: [1, 2, 3, 4, 5, 1]
+Output: [1, 2]
+
+Input: [12, 5, 6, 76, 23, 12, 34, 5, 23, 34, 65, 34, 22, 67, 34]
+Output: [34, 4]
+
+Input:  [2, 1, 10, 7, 10, 3, 10, 8, 7, 3, 10, 5, 4, 6, 7, 9, 9, 9, 9, 6, 3, 7, 6, 9, 8, 9, 10]
+Output: [9, 6]
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function mostFrequentElement(array) {
+  let count = {};
+  let maxElement = array[0];
+  let maxCount = 1;
+  
+  for (let i = 0; i < array.length; i++) {
+    let element = array[i];
+    if (count[element]) {
+      count[element] += 1;
+    } else {
+      count[element] = 1;
+    }
+    if (count[element] > maxCount) {
+      maxElement = element;
+      maxCount = count[element];
+    }
+  }
+  return [maxElement, maxCount];
+}
+
+console.log(mostFrequentElement([12, 5, 6, 76, 23, 12, 34, 5, 23, 34, 65, 34, 22, 67, 34])); // [34, 4]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function to accept argument like `sum(num1)(num2);` or `sum(num1,num2);`
 
 **Examples:**
