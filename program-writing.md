@@ -103,7 +103,7 @@ console.log(groupBy(arr));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Write a function to implement Math.power() function?
+## Q. Write a function to implement Math.pow() function?
 
 ```js
 Input: 2, 3
