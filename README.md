@@ -22,7 +22,34 @@ console.log(a, b);
 <details><summary><b>Answer</b></summary>
 
 ```js
-732 102
+732 
+102
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+let a = [1, 2, 3, 4];
+let b = a;
+let c = [...a];
+
+b.splice(3, 1);
+
+console.log(a, b, c);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+[ 1, 2, 3 ] 
+[ 1, 2, 3 ] 
+[ 1, 2, 3, 4 ]
 ```
 
 </details>
