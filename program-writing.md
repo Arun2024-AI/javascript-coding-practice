@@ -103,6 +103,33 @@ console.log(groupBy(arr));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Write a program to implement Math.power() function?
+
+```js
+Input: 2, 3
+Output: 8
+```
+
+<details><summary><b>Answer</b></summary>
+
+```javascript
+function powerOf(base, exponent) {
+  let result = 1;
+  for (let i = 1; i <= exponent; i++) {
+    result = result * base;
+  }
+  return result;
+}
+
+console.log(powerOf(2, 3));
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function to remove duplicates from an integer array in JavaScript?
 
 ```js
