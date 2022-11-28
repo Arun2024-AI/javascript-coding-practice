@@ -103,6 +103,35 @@ console.log(groupBy(arr));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Write a function to remove duplicates from an integer array in JavaScript?
+
+```js
+Input: [3, 2, 4, 5, 8, 9, 3, 8, 1, 7, 8, 4, 3, 2]
+Output: [1, 2, 3, 4, 5, 7, 8, 9]
+```
+
+<details><summary><b>Answer</b></summary>
+
+```javascript
+function removeDuplicates(arr) {
+  let result = [];
+  arr.forEach((element) => {
+    if (!result.includes(element)) {
+      result.push(element);
+    }
+  });
+  return result;
+}
+
+console.log(removeDuplicates(arr));
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function to find non-repetitive numbers in a given array?
 
 **Examples:**
