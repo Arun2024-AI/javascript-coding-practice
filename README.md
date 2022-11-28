@@ -61,6 +61,58 @@ console.log(a, b, c);
 ## Q. Predict the output of the following JS code?
 
 ```js
+var b = function () {
+  console.log("1");
+};
+
+b();
+
+function b() {
+  console.log("2");
+}
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+1
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+b();
+
+function b() {
+  console.log("2");
+}
+
+var b = function () {
+  console.log("1");
+};
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+2
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
 const a = { msg: "Hi" };
 const b = a;
 b.msg = "Hello";
