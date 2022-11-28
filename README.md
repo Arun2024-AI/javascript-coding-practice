@@ -13,6 +13,27 @@
 ## Q. Predict the output of the following JS code?
 
 ```js
+let a = "7" + 3 + 2;
+let b = 7 + 3 + "2";
+
+console.log(a, b);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+732 102
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
 const a = { msg: "Hi" };
 const b = a;
 b.msg = "Hello";
