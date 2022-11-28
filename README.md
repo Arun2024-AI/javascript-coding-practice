@@ -13,6 +13,34 @@
 ## Q. Predict the output of the following JS code?
 
 ```js
+var obj = {
+  x: 12,
+
+  getX: function () {
+    return this.x;
+  },
+};
+
+const output = obj.getX;
+
+console.log(output());
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+undefined
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
 let a = "7" + 3 + 2;
 let b = 7 + 3 + "2";
 
