@@ -355,35 +355,35 @@ Promise
 
 ```js
 async function something() {
-  console.log("1");
+  console.log("something");
 
   let promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      console.log("2");
+      console.log("promise");
       resolve("done!");
-    }, 100);
+    }, 0);
   });
 
   await promise;
 
   setTimeout(() => {
-    console.log("3");
-  }, 100);
-  console.log("4");
+    console.log("setTimeout");
+  }, 0);
+  console.log("end");
 }
 
 something();
-console.log("5");
+console.log("start");
 ```
 
 <details><summary><b>Answer</b></summary>
 
 ```js
-1
-5
-2
-4
-3
+something
+start
+promise
+end
+setTimeout
 ```
 
 </details>
