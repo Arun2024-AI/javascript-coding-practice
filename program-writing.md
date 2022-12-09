@@ -1277,38 +1277,24 @@ console.log(findMax(marks)); // 70
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Write a program to find min and max values in an array without using Math functions?
+## Q. Write a program to find the max values in an array without using Math functions?
 
 **Example:**
 
 ```js
 Input: [50, 20, 70, 60, 45, 30];
 Output:
-Min: 20
 Max: 70
 ```
 
 <details><summary><b>Answer</b></summary>
 
-You can write functions which loops through an array comparing each value with the lowest value or highest value to find the min and max values. Let us create those functions to find min an max values,
-
 ```js
 const marks = [50, 20, 70, 60, 45, 30];
 
-function findMin(arr) {
-  let length = arr.length;
-  let min = Infinity;
-  while (length--) {
-    if (arr[length] < min) {
-      min = arr[length];
-    }
-  }
-  return min;
-}
-
 function findMax(arr) {
   let length = arr.length;
-  let max = -Infinity;
+  let max = marks[0];
   while (length--) {
     if (arr[length] > max) {
       max = arr[length];
@@ -1317,7 +1303,6 @@ function findMax(arr) {
   return max;
 }
 
-console.log(findMin(marks)); // 20
 console.log(findMax(marks)); // 70
 ```
 
