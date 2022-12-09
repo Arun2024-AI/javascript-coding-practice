@@ -105,14 +105,8 @@ console.log(groupBy(arr));
 
 ## Q. Write a function to implement Math.pow() function?
 
-This is some <sup>superscript</sup> text.
-
-This is some <sub>subscript</sub> text.
-	
-```js
-Input: (2)3
-Output: 8
-```
+**Input: (2)<sup>3</sup>**
+**Output: 8**
 
 <details><summary><b>Answer</b></summary>
 
