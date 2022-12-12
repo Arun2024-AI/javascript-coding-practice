@@ -13,6 +13,115 @@
 ## Q. Predict the output of the following JS code?
 
 ```js
+const y = {
+  1: 'abc',
+  2: 'def',
+}
+    
+var x = y;
+x.2 = 'zsx'; 
+y.img = 'trigger';
+
+console.log(y);
+console.log(x);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+x.2 = 'zsx';
+ ^^
+
+SyntaxError: Unexpected number
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+const employee = {
+  name: "abc",
+  location: "IND",
+};
+
+employee.age = 1;
+console.log(employee);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+{ name: 'abc', location: 'IND', age: 1 }
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+const length = 4;
+const numbers = [];
+
+for (var i = 0; i < length; i++);
+{
+  numbers.push(i + 1);
+}
+
+console.log(numbers);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+[ 5 ]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+const abc = async function () {
+  console.log("2");
+  await setTimeout(async function () {
+    console.log("boo");
+  }, 1000);
+
+  console.log("3");
+};
+abc();
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+2
+3
+boo
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
 var obj = {
   x: 12,
 
