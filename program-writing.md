@@ -2,6 +2,27 @@
 
 <br/>
 
+## Q. Write a function to transform string array into group by its length?
+
+**Examples:**
+
+```js
+Input: ['one', 'two', 'three'] 
+Output: {3: ["one", "two"], 5: ["three"]}
+```
+
+<details><summary><b>Answer</b></summary>
+
+```javascript
+
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function to transform json in group by parameter?
 
 **Examples:**
