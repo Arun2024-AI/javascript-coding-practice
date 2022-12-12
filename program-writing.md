@@ -14,7 +14,6 @@ Output: {3: ["one", "two"], 5: ["three"]}
 <details><summary><b>Answer</b></summary>
 
 ```javascript
-const arr = ["one", "two", "three"];
 const result = {};
 
 for (let elemement of arr) {
