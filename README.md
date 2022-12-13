@@ -10,6 +10,53 @@
 
 <br/>
 
+## Table of Contents
+
+* [Variables](#-1-variables)
+* [Data types](#-2-data-types)
+* [Operators](#-3-operators)
+* [Numbers](#-4-numbers)
+* [Strings](#-5-strings)
+* [Arrays](#-6-arrays)
+* [Regular Expression](#-7-regular-expression)
+* [Functions](#-8-functions)
+* [Events](#-9-events)
+* [Objects](#-10-objects)
+* [Document Object Model](#-11-document-object-model)
+* [Classes](#-12-classes)
+* [Error Handling](#-13-error-handling)
+* [Promises](#-14-promises)
+* [Miscellaneous](#-15-miscellaneous)
+
+<br/>
+
+## # 1. Variables
+
+<br/>
+
+## Q. Predict the output of the following JS code?
+
+```js
+const num = 5;
+console.log(Num);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+ReferenceError: Num is not defined
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## # 10. Objects
+
+<br/>
+
 ## Q. Predict the output of the following JS code?
 
 ```js
