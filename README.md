@@ -36,6 +36,26 @@
 ## Q. What is the output?
 
 ```javascript
+var num = 8;
+var num = 10;
+
+console.log(num);
+```
+
+<details><summary><b>Answer</b></summary>
+
+With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
+You cannot do this with `let` or `const` since they\'re block-scoped.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
 (() => {
   let x = (y = 10);
 })();
@@ -202,6 +222,179 @@ ReferenceError: Num is not defined
 ## # 2. Operators
 
 <br/>
+
+
+## Q. What is the output?
+
+```javascript
+let number = 0;
+console.log(number++);
+console.log(++number);
+console.log(number);
+```
+
+<details><summary><b>Answer</b></summary>
+
+The **postfix** unary operator `++`:
+
+1. Returns the value (this returns `0`)
+2. Increments the value (number is now `1`)
+
+The **prefix** unary operator `++`:
+
+1. Increments the value (number is now `2`)
+2. Returns the value (this returns `2`)
+
+This returns `0 2 2`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = (number) => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+<details><summary><b>Answer</b></summary>
+
+The unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `num1` is `10`, since the `increaseNumber` function first returns the value of `num`, which is `10`, and only increments the value of `num` afterwards.
+
+`num2` is `10`, since we passed `num1` to the `increasePassedNumber`. `number` is equal to `10`(the value of `num1`. Again, the unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `number` is `10`, so `num2` is equal to `10`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
++true;
+!"Mala Pall";
+```
+
+<details><summary><b>Answer</b></summary>
+
+The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+
+The string `'Mala Pall'` is a truthy value. What we\'re actually asking, is "is this truthy value falsy?". This returns `false`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+let a = 3;
+let b = new Number(3);
+let c = 3;
+
+console.log(a == b);
+console.log(a === b);
+console.log(b === c);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`new Number()` is a built-in function constructor. Although it looks like a number, it\'s not really a number: it has a bunch of extra features and is an object.
+
+When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
+
+However, when we use the `===` operator, both value _and_ type should be the same. It\'s not: `new Number()` is not a number, it\'s an **object**. Both return `false.`
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Which of these values are falsy?
+
+```javascript
+0;
+new Number(0);
+("");
+(" ");
+new Boolean(false);
+undefined;
+```
+
+<details><summary><b>Answer</b></summary>
+
+There are only six falsy values:
+
+- `undefined`
+- `null`
+- `NaN`
+- `0`
+- `''` (empty string)
+- `false`
+
+Function constructors, like `new Number` and `new Boolean` are truthy.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+console.log(typeof typeof 1);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+`typeof 1` returns `"number"`.
+`typeof "number"` returns `"string"`
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+!!null;
+!!"";
+!!1;
+```
+
+<details><summary><b>Answer</b></summary>
+
+`null` is falsy. `!null` returns `true`. `!true` returns `false`.
+
+`""` is falsy. `!""` returns `true`. `!true` returns `false`.
+
+`1` is truthy. `!1` returns `false`. `!false` returns `true`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What is the output?
 
@@ -1399,26 +1592,15 @@ Note that this method is not supported in IE7 and below. In that case, use `.cha
 
 <br/>
 
-## Q. What is the output?
+## Q. What does the `setInterval` method return in the browser?
 
 ```javascript
-let num = 10;
-
-const increaseNumber = () => num++;
-const increasePassedNumber = (number) => number++;
-
-const num1 = increaseNumber();
-const num2 = increasePassedNumber(num1);
-
-console.log(num1);
-console.log(num2);
+setInterval(() => console.log("Hi"), 1000);
 ```
 
 <details><summary><b>Answer</b></summary>
 
-The unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `num1` is `10`, since the `increaseNumber` function first returns the value of `num`, which is `10`, and only increments the value of `num` afterwards.
-
-`num2` is `10`, since we passed `num1` to the `increasePassedNumber`. `number` is equal to `10`(the value of `num1`. Again, the unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `number` is `10`, so `num2` is equal to `10`.
+It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
 
 </details>
 
@@ -6091,51 +6273,6 @@ In the second loop, the variable `i` was declared using the `let` keyword: varia
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What is the output?
-
-```javascript
-+true;
-!"Mala Pall";
-```
-
-<details><summary><b>Answer</b></summary>
-
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
-
-The string `'Mala Pall'` is a truthy value. What we\'re actually asking, is "is this truthy value falsy?". This returns `false`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-let a = 3;
-let b = new Number(3);
-let c = 3;
-
-console.log(a == b);
-console.log(a === b);
-console.log(b === c);
-```
-
-<details><summary><b>Answer</b></summary>
-
-`new Number()` is a built-in function constructor. Although it looks like a number, it\'s not really a number: it has a bunch of extra features and is an object.
-
-When we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.
-
-However, when we use the `===` operator, both value _and_ type should be the same. It\'s not: `new Number()` is not a number, it\'s an **object**. Both return `false.`
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. What are the three phases of event propagation?
 
 - [ ] Target > Capturing > Bubbling
@@ -6174,35 +6311,6 @@ All objects have prototypes, except for the **base object**. The base object is 
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What is the output?
-
-```javascript
-let number = 0;
-console.log(number++);
-console.log(++number);
-console.log(number);
-```
-
-<details><summary><b>Answer</b></summary>
-
-The **postfix** unary operator `++`:
-
-1. Returns the value (this returns `0`)
-2. Increments the value (number is now `1`)
-
-The **prefix** unary operator `++`:
-
-1. Increments the value (number is now `2`)
-2. Returns the value (this returns `2`)
-
-This returns `0 2 2`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. What is value of `sum`?
 
 ```javascript
@@ -6232,26 +6340,6 @@ sessionStorage.setItem("cool_secret", 123);
 The data stored in `sessionStorage` is removed after closing the _tab_.
 
 If you used `localStorage`, the data would\'ve been there forever, unless for example `localStorage.clear()` is invoked.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-var num = 8;
-var num = 10;
-
-console.log(num);
-```
-
-<details><summary><b>Answer</b></summary>
-
-With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
-You cannot do this with `let` or `const` since they\'re block-scoped.
 
 </details>
 
@@ -6362,87 +6450,3 @@ If we click `p`, we see two logs: `p` and `div`. During event propagation, there
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Which of these values are falsy?
-
-```javascript
-0;
-new Number(0);
-("");
-(" ");
-new Boolean(false);
-undefined;
-```
-
-<details><summary><b>Answer</b></summary>
-
-There are only six falsy values:
-
-- `undefined`
-- `null`
-- `NaN`
-- `0`
-- `''` (empty string)
-- `false`
-
-Function constructors, like `new Number` and `new Boolean` are truthy.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-console.log(typeof typeof 1);
-```
-
-<details><summary><b>Answer</b></summary>
-
-`typeof 1` returns `"number"`.
-`typeof "number"` returns `"string"`
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-!!null;
-!!"";
-!!1;
-```
-
-<details><summary><b>Answer</b></summary>
-
-`null` is falsy. `!null` returns `true`. `!true` returns `false`.
-
-`""` is falsy. `!""` returns `true`. `!true` returns `false`.
-
-`1` is truthy. `!1` returns `false`. `!false` returns `true`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What does the `setInterval` method return in the browser?
-
-```javascript
-setInterval(() => console.log("Hi"), 1000);
-```
-
-<details><summary><b>Answer</b></summary>
-
-It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
