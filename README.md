@@ -12,24 +12,21 @@
 
 ## Table of Contents
 
-* [Variables](#-1-variables)
-* [Operators](#-2-operators)
-* [Numbers](#-3-numbers)
-* [Strings](#-4-strings)
-* [Arrays](#-5-arrays)
-* [Regular Expression](#-6-regular-expression)
-* [Functions](#-7-functions)
-* [Events](#-8-events)
-* [Objects](#-9-objects)
-* [Document Object Model](#-10-document-object-model)
-* [Classes](#-11-classes)
-* [Error Handling](#-12-error-handling)
-* [Promises](#-13-promises)
-* [Miscellaneous](#-14-miscellaneous)
+* [Variables](#-variables)
+* [Operators](#-operators)
+* [Numbers](#-numbers)
+* [Strings](#-strings)
+* [Arrays](#-arrays)
+* [Functions](#-functions)
+* [Objects](#-objects)
+* [Classes](#-classes)
+* [Error Handling](#-error-handling)
+* [Promises](#-promises)
+* [Miscellaneous](#-miscellaneous)
 
 <br/>
 
-## # 1. Variables
+## # Variables
 
 <br/>
 
@@ -298,7 +295,7 @@ ReferenceError: Num is not defined
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## # 2. Operators
+## # Operators
 
 <br/>
 
@@ -628,7 +625,7 @@ console.log(numbers);
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## # 3. Numbers
+## # Numbers
 
 <br/>
 
@@ -668,7 +665,7 @@ Every Symbol is entirely unique. The purpose of the argument passed to the Symbo
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## # 4. Strings
+## # Strings
 
 <br/>
 
@@ -734,7 +731,7 @@ console.log(a, b);
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## # 5. Arrays
+## # Arrays
 
 <br/>
 
@@ -1686,11 +1683,7 @@ Note that this method is not supported in IE7 and below. In that case, use `.cha
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## # 6. Regular Expression
-
-<br/>
-
-## # 7. Functions
+## # Functions
 
 <br/>
 
@@ -3141,11 +3134,7 @@ console.log(find_max(nums));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## # 8. Events
-
-<br/>
-
-## # 9. Objects
+## # Objects
 
 <br/>
 
@@ -3992,11 +3981,7 @@ SyntaxError: Unexpected number
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## # 10. Document Object Model
-
-<br/>
-
-## # 11. Classes
+## # Classes
 
 <br/>
 
@@ -4168,7 +4153,7 @@ Calling a function constructor with `new` results in the creation of an instance
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## # 12. Error Handling
+## # Error Handling
 
 <br/>
 
@@ -4324,7 +4309,7 @@ foo123 aq123
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## # 13. Promises
+## # Promises
 
 <br/>
 
@@ -4555,7 +4540,7 @@ boo
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## # 14. Miscellaneous
+## # Miscellaneous
 
 <br/>
 
