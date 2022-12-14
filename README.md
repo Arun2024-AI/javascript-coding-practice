@@ -36,6 +36,27 @@
 ## Q. What is the output?
 
 ```javascript
+const text = "Hi";
+text = "Hello";
+
+console.log(text);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+TypeError: Assignment to constant variable.
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
 console.log('The value of num is: ' + num);
 ```
 
