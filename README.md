@@ -36,6 +36,24 @@
 ## Q. What is the output?
 
 ```javascript
+console.log('The value of num is: ' + num);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+ReferenceError: num is not defined
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
 console.log(num);
 const num = 10;
 ```
