@@ -376,6 +376,16 @@ ReferenceError: Num is not defined
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
+console.log(0.1 + 0.2 == 0.3); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
 console.log(false == "0"); 
 console.log(false === "0");
 ```
@@ -778,6 +788,40 @@ Every Symbol is entirely unique. The purpose of the argument passed to the Symbo
 ## # Strings
 
 <br/>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+console.log(1 + -"1" + 2); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+var result;
+for (var i = 5; i > 0; i--) {
+  result = result + i;
+}
+console.log(result); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+console.log(+"Hello"); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What will be the output of the following code?
 
@@ -1907,6 +1951,20 @@ Note that this method is not supported in IE7 and below. In that case, use `.cha
 ## # Functions
 
 <br/>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+(function (x) {
+  return (function (y) {
+    console.log(x);
+  })(10);
+})(20); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -5643,64 +5701,6 @@ With the `import` keyword, all imported modules are _pre-parsed_. This means tha
 This is a difference between `require()` in CommonJS and `import`! With `require()`, you can load dependencies on demand while the code is being run. If we would have used `require` instead of `import`, `running index.js`, `running sum.js`, `3` would have been logged to the console.
 
 </details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
-console.log(+"Hello"); 
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
-var result;
-for (var i = 5; i > 0; i--) {
-  result = result + i;
-}
-console.log(result); 
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
-console.log(0.1 + 0.2 == 0.3); 
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
-console.log(1 + -"1" + 2); 
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
-(function (x) {
-  return (function (y) {
-    console.log(x);
-  })(10);
-})(20); 
-```
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
