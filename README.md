@@ -377,6 +377,26 @@ Every Symbol is entirely unique. The purpose of the argument passed to the Symbo
 
 <br/>
 
+## Q. What would be the output of following code?
+
+```javascript
+var strA = "hi there";
+var strB = strA;
+strB = "bye there!";
+console.log(strA);
+```
+
+<details><summary><b>Answer</b></summary>
+
+The output will `'hi there'` because we\'re dealing with strings here. Strings are
+passed by value, that is, copied.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. What is the output?
 
 ```javascript
@@ -5354,26 +5374,6 @@ var foo = new User("xyz");
 foo["location"] = "USA";
 // the console will show you that the result of this is "USA"
 ```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-var strA = "hi there";
-var strB = strA;
-strB = "bye there!";
-console.log(strA);
-```
-
-<details><summary><b>Answer</b></summary>
-
-The output will `'hi there'` because we\'re dealing with strings here. Strings are
-passed by value, that is, copied.
 
 </details>
 
