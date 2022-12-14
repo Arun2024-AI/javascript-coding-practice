@@ -1624,37 +1624,6 @@ When you return a property, the value of the property is equal to the _returned_
 ## Q. What is the output?
 
 ```javascript
-function greeting() {
-  throw "Hello world!";
-}
-
-function sayHi() {
-  try {
-    const data = greeting();
-    console.log("It worked!", data);
-  } catch (e) {
-    console.log("Oh no an error:", e);
-  }
-}
-
-sayHi();
-```
-
-<details><summary><b>Answer</b></summary>
-
-With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
-
-With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
 function getInfo(member, year) {
   member.name = "Inika";
   year = "1998";
@@ -2049,25 +2018,6 @@ console.log(output);
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What will be the output?
-
-```javascript
-var v = 0;
-try {
-  throw (v = (function (c) {
-    throw (v = function (a) {
-      return v;
-    });
-  })());
-} catch (e) {
-  console.log(e()());
-}
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2117,32 +2067,6 @@ function b(b) {
   return this.b && b(b);
 }
 b(b.bind(b));
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is g value?
-
-```javascript
-f = g = 0;
-(function () {
-  try {
-    f =
-      function () {
-        return f();
-      } && f();
-  } catch (e) {
-    return g++ && f();
-  } finally {
-    return ++g;
-  }
-  function f() {
-    g += 5;
-    return 0;
-  }
-})();
 ```
 
 <div align="right">
@@ -3944,6 +3868,158 @@ Calling a function constructor with `new` results in the creation of an instance
 
 <br/>
 
+## Q. What is the output?
+
+```javascript
+(() => {
+  let x, y;
+  try {
+    throw new Error();
+  } catch (x) {
+    (x = 1), (y = 2);
+    console.log(x);
+  }
+  console.log(x);
+  console.log(y);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
+
+Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
+
+Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+function greeting() {
+  throw "Hello world!";
+}
+
+function sayHi() {
+  try {
+    const data = greeting();
+    console.log("It worked!", data);
+  } catch (e) {
+    console.log("Oh no an error:", e);
+  }
+}
+
+sayHi();
+```
+
+<details><summary><b>Answer</b></summary>
+
+With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
+
+With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What will be the output?
+
+```javascript
+var v = 0;
+try {
+  throw (v = (function (c) {
+    throw (v = function (a) {
+      return v;
+    });
+  })());
+} catch (e) {
+  console.log(e()());
+}
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is g value?
+
+```javascript
+f = g = 0;
+(function () {
+  try {
+    f =
+      function () {
+        return f();
+      } && f();
+  } catch (e) {
+    return g++ && f();
+  } finally {
+    return ++g;
+  }
+  function f() {
+    g += 5;
+    return 0;
+  }
+})();
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+(function () {
+  try {
+    throw new Error();
+  } catch (x) {
+    var x = 1,
+      y = 2;
+    console.log(x);
+  }
+  console.log(x);
+  console.log(y);
+})();
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+var employeeId = "aq123";
+(function Employee() {
+  try {
+    throw "foo123";
+  } catch (employeeId) {
+    console.log(employeeId);
+  }
+  console.log(employeeId);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+foo123 aq123
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## # 13. Promises
 
 <br/>
@@ -4904,26 +4980,6 @@ obj.method(fn, 1);
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
-(function () {
-  try {
-    throw new Error();
-  } catch (x) {
-    var x = 1,
-      y = 2;
-    console.log(x);
-  }
-  console.log(x);
-  console.log(y);
-})();
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
 var x = 21;
 var girl = function () {
   console.log(x); 
@@ -5836,30 +5892,6 @@ bq1uy 1BJKSJ bq1uy
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What would be the output of following code?
-
-```javascript
-var employeeId = "aq123";
-(function Employee() {
-  try {
-    throw "foo123";
-  } catch (employeeId) {
-    console.log(employeeId);
-  }
-  console.log(employeeId);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-foo123 aq123
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. What is the value of `foo`?
 
 ```javascript
@@ -6380,36 +6412,6 @@ console.log(typeof typeof 1);
 ## Q. What is the output?
 
 ```javascript
-(() => {
-  let x, y;
-  try {
-    throw new Error();
-  } catch (x) {
-    (x = 1), (y = 2);
-    console.log(x);
-  }
-  console.log(x);
-  console.log(y);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
-
-Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
-
-Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
 !!null;
 !!"";
 !!1;
@@ -6444,8 +6446,3 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
-
-
-
-
-
