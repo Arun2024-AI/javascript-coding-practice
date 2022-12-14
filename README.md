@@ -36,6 +36,25 @@
 ## Q. What is the output?
 
 ```javascript
+console.log(num);
+const num = 10;
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+ReferenceError: Cannot access 'num' before initialization
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
 var num = 8;
 var num = 10;
 
@@ -203,7 +222,7 @@ ReferenceErrors get thrown when JavaScript isn\'t able to find a reference to a 
 ## Q. Predict the output of the following JS code?
 
 ```js
-const num = 5;
+const num = 10;
 console.log(Num);
 ```
 
