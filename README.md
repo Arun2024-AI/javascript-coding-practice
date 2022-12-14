@@ -30,6 +30,18 @@
 
 <br/>
 
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+var g = 0;
+g = 1 && g++;
+console.log(g);
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. What would be the output of following code?
 
 ```javascript
@@ -360,6 +372,28 @@ ReferenceError: Num is not defined
 ## # Operators
 
 <br/>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+console.log(false == "0"); 
+console.log(false === "0");
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+console.log(0.1 + 0.2); 
+console.log(0.1 + 0.2 == 0.3); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -1873,6 +1907,569 @@ Note that this method is not supported in IE7 and below. In that case, use `.cha
 ## # Functions
 
 <br/>
+
+## Q. What would be the output of following code?
+
+```javascript
+var employeeId = "aq123";
+function Employee() {
+  this.employeeId = "bq1uy";
+}
+console.log(Employee.employeeId);
+```
+
+<details><summary><b>Answer</b></summary>
+
+undefined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+var employeeId = "aq123";
+
+function Employee() {
+  this.employeeId = "bq1uy";
+}
+console.log(new Employee().employeeId);
+Employee.prototype.employeeId = "kj182";
+Employee.prototype.JobId = "1BJKSJ";
+console.log(new Employee().JobId);
+console.log(new Employee().employeeId);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+bq1uy 1BJKSJ bq1uy
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+function passWordMngr() {
+  var password = "12345678";
+  this.userName = "John";
+  return {
+    pwd: password,
+  };
+}
+// Block End
+var userInfo = passWordMngr();
+console.log(userInfo.pwd);
+console.log(userInfo.userName);
+```
+
+<details><summary><b>Answer</b></summary>
+
+12345678 undefined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+function Person(name, age) {
+  this.name = name || "John";
+  this.age = age || 24;
+  this.displayName = function () {
+    console.log(this.name);
+  };
+}
+
+Person.name = "John";
+Person.displayName = function () {
+  console.log(this.name);
+};
+
+var person1 = new Person("John");
+person1.displayName();
+Person.displayName();
+```
+
+<details><summary><b>Answer</b></summary>
+
+John Person
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+function myFunc() {
+  console.log(arguments.length);
+}
+console.log(myFunc());
+console.log(myFunc("a", "b"));
+console.log(myFunc("a", "b", "c", "d"));
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+0 2 4
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+function myFunc(param1, param2) {
+  console.log(myFunc.length);
+}
+console.log(myFunc());
+console.log(myFunc("a", "b"));
+console.log(myFunc("a", "b", "c", "d"));
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+2 2 2
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+function myFunc() {
+  myFunc.message = "Hi John";
+  console.log(myFunc.message);
+}
+console.log(myFunc());
+```
+
+<details><summary><b>Answer</b></summary>
+
+'Hi John'
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+function myFunc() {
+  console.log(myFunc.message);
+}
+myFunc.message = "Hi John";
+
+console.log(myFunc());
+```
+
+<details><summary><b>Answer</b></summary>
+
+'Hi John'
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+function myFunc() {
+  console.log(this.message);
+}
+myFunc.message = "Hi John";
+
+console.log(myFunc());
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+undefined
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+function funcA() {
+  console.log("funcA ", this);
+  (function innerFuncA1() {
+    console.log("innerFunc1", this);
+    (function innerFunA11() {
+      console.log("innerFunA11", this);
+    })();
+  })();
+}
+
+console.log(funcA());
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+funcA  
+innerFunc1 
+innerFunA11 
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function foo() {
+  bar();
+
+  function bar() {
+    abc();
+    console.log(typeof abc);
+  }
+
+  function abc() {
+    console.log(typeof bar);
+  }
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+function function
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+function foo() {
+  employeeId();
+  var product = "Car";
+  return;
+
+  function employeeId() {
+    console.log(product);
+  }
+}
+foo();
+```
+
+<details><summary><b>Answer</b></summary>
+
+1) undefined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+var employeeId = "abc123";
+
+function foo() {
+  employeeId();
+  return;
+
+  function employeeId() {
+    console.log(typeof employeeId);
+  }
+}
+foo();
+```
+
+<details><summary><b>Answer</b></summary>
+
+'function'
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+var employeeId = "abc123";
+
+function foo() {
+  employeeId = "123bcd";
+  return;
+
+  function employeeId() {}
+}
+foo();
+console.log(employeeId);
+```
+
+<details><summary><b>Answer</b></summary>
+
+'abc123'
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+var employeeId = "abc123";
+function foo() {
+  employeeId = "123bcd";
+  return;
+}
+foo();
+console.log(employeeId);
+```
+
+<details><summary><b>Answer</b></summary>
+
+'123bcd'
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  console.log(typeof displayFunc);
+  var displayFunc = function () {
+    console.log("Hi I am inside displayFunc");
+  };
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+undefined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+
+## Q. What would be the output of following code?
+
+```javascript
+var employeeId = "1234abe";
+(function () {
+  console.log(employeeId);
+  var employeeId = "122345";
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+undefined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+var employeeId = "1234abe";
+(function () {
+  console.log(employeeId);
+  var employeeId = "122345";
+  (function () {
+    var employeeId = "abc1234";
+  })();
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+undefined
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What will be the output of the following code?
+
+```javascript
+var salary = "1000$";
+
+(function () {
+  console.log("Original salary was " + salary);
+
+  var salary = "5000$";
+
+  console.log("My New Salary " + salary);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+The code above will output: `undefined, 5000$` because of hoisting. In the code presented above, you might be expecting `salary` to retain it values from outer scope until the point that `salary` was re-declared in the inner scope. But due to `hoisting` salary value was `undefined` instead. To understand it better have a look of the following code, here `salary` variable is hoisted and declared at the top in function scope. When we print its value using `console.log` the result is `undefined`. Afterwards the variable is redeclared and the new value `"5000$"` is assigned to it.
+
+```javascript
+var salary = "1000$";
+
+(function () {
+  var salary = undefined;
+  console.log("Original salary was " + salary);
+
+  salary = "5000$";
+
+  console.log("My New Salary " + salary);
+})();
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of the following code?
+
+```javascript
+function User(name) {
+  this.name = name || "JsGeeks";
+}
+
+var person = (new User("xyz")["location"] = "USA");
+console.log(person);
+```
+
+<details><summary><b>Answer</b></summary>
+
+The output of above code would be `"USA"`. Here `new User("xyz")` creates a brand new object and created property `location` on that and `USA` has been assigned to object property location and that has been referenced by the person.
+
+Let say `new User("xyz")` created a object called `foo`. The value `"USA"` will be assigned to `foo["location"]`, but according to [ECMAScript Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-assignment-operators-runtime-semantics-evaluation) , pt 12.14.4 the assignment will itself return the rightmost value: in our case it\'s `"USA"`.
+Then it will be assigned to person.
+
+To better understand What is going on here, try to execute this code in console, line by line:
+
+```javascript
+function User(name) {
+  this.name = name || "JS";
+}
+
+var person;
+var foo = new User("xyz");
+foo["location"] = "USA";
+// the console will show you that the result of this is "USA"
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output of the following?
+
+```javascript
+bar();
+(function abc() {
+  console.log("something");
+})();
+function bar() {
+  console.log("bar got called");
+}
+```
+
+<details><summary><b>Answer</b></summary>
+
+The output will be :
+
+```js
+bar got called
+something
+```
+
+Since the function is called first and defined during parse time the JS engine will try to find any possible parse time definitions and start the execution loop which will mean function is called first even if the definition is post another function.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+```
+
+<details><summary><b>Answer</b></summary>
+
+Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+
+In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What is the output?
 
@@ -3450,6 +4047,43 @@ console.log(find_max(nums));
 ## # Objects
 
 <br/>
+
+## Q. What is the value of `foo.x`?
+
+```javascript
+var foo = { n: 1 };
+var bar = foo;
+foo.x = foo = { n: 2 };
+```
+
+<details><summary><b>Answer</b></summary>
+
+`undefined`. Rather, `bar.x` is `{n: 2}`.
+
+`foo.x = foo = {n: 2}` is the same as `foo.x = (foo = {n: 2})`. It is because
+a left term is first referenced and then a right term is evaluated when an
+assignment is performed in JavaScript. When `foo.x` is referenced, it refers
+to an original object, `{n: 1}`. So, when the result of the right term, `{n: 2}`, is evaluated, it will assigned to the original object, which is at the
+moment referenced by `bar`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What will be the output?
+
+```javascript
+c = (c) => {
+  return this.c && c(c);
+};
+c(c.bind(c));
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JS code?
 
@@ -5252,17 +5886,6 @@ myObject.func();
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
-console.log(0.1 + 0.2); 
-console.log(0.1 + 0.2 == 0.3); 
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
 (function () {
   console.log(1);
   setTimeout(function () {
@@ -5349,17 +5972,6 @@ console.log("0 || 1 = " + (0 || 1));
 console.log("1 || 2 = " + (1 || 2)); 
 console.log("0 && 1 = " + (0 && 1)); 
 console.log("1 && 2 = " + (1 && 2)); 
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
-console.log(false == "0"); 
-console.log(false === "0");
 ```
 
 <div align="right">
@@ -5733,109 +6345,6 @@ var foo = function bar() {
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What is the output of the following?
-
-```javascript
-bar();
-(function abc() {
-  console.log("something");
-})();
-function bar() {
-  console.log("bar got called");
-}
-```
-
-<details><summary><b>Answer</b></summary>
-
-The output will be :
-
-```js
-bar got called
-something
-```
-
-Since the function is called first and defined during parse time the JS engine will try to find any possible parse time definitions and start the execution loop which will mean function is called first even if the definition is post another function.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What will be the output of the following code?
-
-```javascript
-var salary = "1000$";
-
-(function () {
-  console.log("Original salary was " + salary);
-
-  var salary = "5000$";
-
-  console.log("My New Salary " + salary);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-The code above will output: `undefined, 5000$` because of hoisting. In the code presented above, you might be expecting `salary` to retain it values from outer scope until the point that `salary` was re-declared in the inner scope. But due to `hoisting` salary value was `undefined` instead. To understand it better have a look of the following code, here `salary` variable is hoisted and declared at the top in function scope. When we print its value using `console.log` the result is `undefined`. Afterwards the variable is redeclared and the new value `"5000$"` is assigned to it.
-
-```javascript
-var salary = "1000$";
-
-(function () {
-  var salary = undefined;
-  console.log("Original salary was " + salary);
-
-  salary = "5000$";
-
-  console.log("My New Salary " + salary);
-})();
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of the following code?
-
-```javascript
-function User(name) {
-  this.name = name || "JsGeeks";
-}
-
-var person = (new User("xyz")["location"] = "USA");
-console.log(person);
-```
-
-<details><summary><b>Answer</b></summary>
-
-The output of above code would be `"USA"`. Here `new User("xyz")` creates a brand new object and created property `location` on that and `USA` has been assigned to object property location and that has been referenced by the person.
-
-Let say `new User("xyz")` created a object called `foo`. The value `"USA"` will be assigned to `foo["location"]`, but according to [ECMAScript Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-assignment-operators-runtime-semantics-evaluation) , pt 12.14.4 the assignment will itself return the rightmost value: in our case it\'s `"USA"`.
-Then it will be assigned to person.
-
-To better understand What is going on here, try to execute this code in console, line by line:
-
-```javascript
-function User(name) {
-  this.name = name || "JS";
-}
-
-var person;
-var foo = new User("xyz");
-foo["location"] = "USA";
-// the console will show you that the result of this is "USA"
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. What would be the output of following code?
 
 ```javascript
@@ -5881,443 +6390,6 @@ This doesn\'t affect where `objA` variable references to.
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What would be the output of following code?
-
-```javascript
-var employeeId = "1234abe";
-(function () {
-  console.log(employeeId);
-  var employeeId = "122345";
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-undefined
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-var employeeId = "1234abe";
-(function () {
-  console.log(employeeId);
-  var employeeId = "122345";
-  (function () {
-    var employeeId = "abc1234";
-  })();
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-undefined
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  console.log(typeof displayFunc);
-  var displayFunc = function () {
-    console.log("Hi I am inside displayFunc");
-  };
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-undefined
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-var employeeId = "abc123";
-function foo() {
-  employeeId = "123bcd";
-  return;
-}
-foo();
-console.log(employeeId);
-```
-
-<details><summary><b>Answer</b></summary>
-
-'123bcd'
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-
-## Q. What would be the output of following code?
-
-```javascript
-var employeeId = "abc123";
-
-function foo() {
-  employeeId = "123bcd";
-  return;
-
-  function employeeId() {}
-}
-foo();
-console.log(employeeId);
-```
-
-<details><summary><b>Answer</b></summary>
-
-'abc123'
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-var employeeId = "abc123";
-
-function foo() {
-  employeeId();
-  return;
-
-  function employeeId() {
-    console.log(typeof employeeId);
-  }
-}
-foo();
-```
-
-<details><summary><b>Answer</b></summary>
-
-'function'
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-function foo() {
-  employeeId();
-  var product = "Car";
-  return;
-
-  function employeeId() {
-    console.log(product);
-  }
-}
-foo();
-```
-
-<details><summary><b>Answer</b></summary>
-
-1) undefined
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function foo() {
-  bar();
-
-  function bar() {
-    abc();
-    console.log(typeof abc);
-  }
-
-  function abc() {
-    console.log(typeof bar);
-  }
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-function function
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-function funcA() {
-  console.log("funcA ", this);
-  (function innerFuncA1() {
-    console.log("innerFunc1", this);
-    (function innerFunA11() {
-      console.log("innerFunA11", this);
-    })();
-  })();
-}
-
-console.log(funcA());
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-funcA  
-innerFunc1 
-innerFunA11 
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-function myFunc() {
-  console.log(this.message);
-}
-myFunc.message = "Hi John";
-
-console.log(myFunc());
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-undefined
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-function myFunc() {
-  console.log(myFunc.message);
-}
-myFunc.message = "Hi John";
-
-console.log(myFunc());
-```
-
-<details><summary><b>Answer</b></summary>
-
-'Hi John'
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-function myFunc() {
-  myFunc.message = "Hi John";
-  console.log(myFunc.message);
-}
-console.log(myFunc());
-```
-
-<details><summary><b>Answer</b></summary>
-
-'Hi John'
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-function myFunc(param1, param2) {
-  console.log(myFunc.length);
-}
-console.log(myFunc());
-console.log(myFunc("a", "b"));
-console.log(myFunc("a", "b", "c", "d"));
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-2 2 2
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-function myFunc() {
-  console.log(arguments.length);
-}
-console.log(myFunc());
-console.log(myFunc("a", "b"));
-console.log(myFunc("a", "b", "c", "d"));
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-0 2 4
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-
-## Q. What would be the output of following code?
-
-```javascript
-function Person(name, age) {
-  this.name = name || "John";
-  this.age = age || 24;
-  this.displayName = function () {
-    console.log(this.name);
-  };
-}
-
-Person.name = "John";
-Person.displayName = function () {
-  console.log(this.name);
-};
-
-var person1 = new Person("John");
-person1.displayName();
-Person.displayName();
-```
-
-<details><summary><b>Answer</b></summary>
-
-John Person
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-function passWordMngr() {
-  var password = "12345678";
-  this.userName = "John";
-  return {
-    pwd: password,
-  };
-}
-// Block End
-var userInfo = passWordMngr();
-console.log(userInfo.pwd);
-console.log(userInfo.userName);
-```
-
-<details><summary><b>Answer</b></summary>
-
-12345678 undefined
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-var employeeId = "aq123";
-function Employee() {
-  this.employeeId = "bq1uy";
-}
-console.log(Employee.employeeId);
-```
-
-<details><summary><b>Answer</b></summary>
-
-undefined
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-var employeeId = "aq123";
-
-function Employee() {
-  this.employeeId = "bq1uy";
-}
-console.log(new Employee().employeeId);
-Employee.prototype.employeeId = "kj182";
-Employee.prototype.JobId = "1BJKSJ";
-console.log(new Employee().JobId);
-console.log(new Employee().employeeId);
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-bq1uy 1BJKSJ bq1uy
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. What is the value of `window.foo`?
 
 ```javascript
@@ -6327,30 +6399,6 @@ window.foo || (window.foo = "bar");
 <details><summary><b>Answer</b></summary>
 
 Always `'bar'`
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the value of `foo.x`?
-
-```javascript
-var foo = { n: 1 };
-var bar = foo;
-foo.x = foo = { n: 2 };
-```
-
-<details><summary><b>Answer</b></summary>
-
-`undefined`. Rather, `bar.x` is `{n: 2}`.
-
-`foo.x = foo = {n: 2}` is the same as `foo.x = (foo = {n: 2})`. It is because
-a left term is first referenced and then a right term is evaluated when an
-assignment is performed in JavaScript. When `foo.x` is referenced, it refers
-to an original object, `{n: 1}`. So, when the result of the right term, `{n: 2}`, is evaluated, it will assigned to the original object, which is at the
-moment referenced by `bar`.
 
 </details>
 
@@ -6370,55 +6418,6 @@ if( !(x > 100) ) {...}
 `NaN <= 100` is `false` and `NaN > 100` is also false, so if the value of `x` is `NaN`, the statements are not the same.
 
 The same holds true for any value of x that being converted to Number, returns NaN, e.g.: `undefined`, `[1,2,5]`, `{a:22}`, etc.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What will be the output?
-
-```javascript
-c = (c) => {
-  return this.c && c(c);
-};
-c(c.bind(c));
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
-var g = 0;
-g = 1 && g++;
-console.log(g);
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-for (var i = 0; i < 3; i++) {
-  setTimeout(() => console.log(i), 1);
-}
-
-for (let i = 0; i < 3; i++) {
-  setTimeout(() => console.log(i), 1);
-}
-```
-
-<details><summary><b>Answer</b></summary>
-
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
-
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
 
 </details>
 
