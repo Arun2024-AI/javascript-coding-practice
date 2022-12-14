@@ -30,6 +30,68 @@
 
 <br/>
 
+## Q. What would be the output of following code?
+
+```javascript
+console.log(employeeId);
+var employeeId = "19000";
+```
+
+<details><summary><b>Answer</b></summary>
+
+undefined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. console.log(employeeId);
+
+<details><summary><b>Answer</b></summary>
+
+ReferenceError: employeeId is not defined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+var a = 1.2;
+console.log(typeof a); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+const a = { msg: "Hi" };
+const b = a;
+b.msg = "Hello";
+
+console.log(a, b);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+{ msg: 'Hello' } { msg: 'Hello' }
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. What is the output?
 
 ```javascript
@@ -298,6 +360,20 @@ ReferenceError: Num is not defined
 ## # Operators
 
 <br/>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+var x = 10;
+if (x) {
+  let x = 4;
+}
+console.log(x); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What is the output?
 
@@ -668,6 +744,117 @@ Every Symbol is entirely unique. The purpose of the argument passed to the Symbo
 ## # Strings
 
 <br/>
+
+## Q. What will be the output of the following code?
+
+```javascript
+console.log(eval("10 + 10")); 
+
+console.log(eval("5 + 5" + 10)); 
+
+console.log(eval("5 + 5 + 5" + 10)); 
+
+console.log(eval(10 + "5 + 5")); 
+
+console.log(eval(10 + "5 + 5 + 5")); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What will be the output of the following code?
+
+```javascript
+var x = 10;
+var y = 20;
+var a = eval("x * y") + "<br>";
+var b = eval("2 + 2") + "<br>";
+var c = eval("x + 30") + "<br>";
+
+let result = a + b + c;
+console.log(result); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is value of `sum`?
+
+```javascript
+const sum = eval("10*10+5");
+```
+
+<details><summary><b>Answer</b></summary>
+
+`eval` evaluates codes that\'s passed as a string. If it\'s an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the value of `foo`?
+
+```javascript
+var foo = 10 + "20";
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'1020'`, because of type coercion from Number to String
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the result of 1+2+'3'?
+
+<details><summary><b>Answer</b></summary>
+
+The output is going to be `33`. Since `1` and `2` are numeric values, the result of first two digits is going to be a numeric value `3`. The next digit is a string type value because of that the addition of numeric value `3` and string type value `3` is just going to be a concatenation value `33`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What value is returned from the following statement?
+
+```javascript
+"i'm a lasagna hog".split("").reverse().join("");
+```
+
+<details><summary><b>Answer</b></summary>
+
+It\'s actually a reverse method for a string - `'goh angasal a m\'i'`
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the value of `foo`?
+
+```javascript
+var foo = 10 + "20";
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'1020'`, because of type coercion from Number to String
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -1686,6 +1873,132 @@ Note that this method is not supported in IE7 and below. In that case, use `.cha
 ## # Functions
 
 <br/>
+
+## Q. What is the output?
+
+```javascript
+const foo = () => console.log("First");
+const bar = () => setTimeout(() => console.log("Second"));
+const baz = () => console.log("Third");
+
+bar();
+foo();
+baz();
+```
+
+<details><summary><b>Answer</b></summary>
+
+We have a `setTimeout` function and invoked it first. Yet, it was logged last.
+
+This is because in browsers, we don\'t just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.
+
+After the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.
+
+<img src="https://i.imgur.com/X5wsHOg.png" width="200">
+
+Now, `foo` gets invoked, and `"First"` is being logged.
+
+<img src="https://i.imgur.com/Pvc0dGq.png" width="200">
+
+`foo` is popped off the stack, and `baz` gets invoked. `"Third"` gets logged.
+
+<img src="https://i.imgur.com/WhA2bCP.png" width="200">
+
+The WebAPI can\'t just add stuff to the stack whenever it\'s ready. Instead, it pushes the callback function to something called the _queue_.
+
+<img src="https://i.imgur.com/NSnDZmU.png" width="200">
+
+This is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.
+
+<img src="https://i.imgur.com/uyiScAI.png" width="200">
+
+`bar` gets invoked, `"Second"` gets logged, and it\'s popped off the stack.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+var b = function () {
+  console.log("1");
+};
+
+b();
+
+function b() {
+  console.log("2");
+}
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+1
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+b();
+
+function b() {
+  console.log("2");
+}
+
+var b = function () {
+  console.log("1");
+};
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+2
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+var a = 1;
+
+function b() {
+  a = 10;
+  return;
+
+  function a() {}
+}
+
+b();
+console.log(a);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+1
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What does the `setInterval` method return in the browser?
 
@@ -3138,6 +3451,52 @@ console.log(find_max(nums));
 
 <br/>
 
+## Q. Predict the output of the following JS code?
+
+```js
+var obj = {name: "neha", getName: function() {console.log(this.name);}}
+
+var getName = obj.getName;
+var obj2 = {name: "naina", getName};
+obj.getName();
+obj2.getName();
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+Neha
+Naina
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+const person = {name: "neha"};
+const array = [person, person, person];
+
+array[1].name = "";
+console.log(array[0].name);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+undefined
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. What is the output?
 
 ```javascript
@@ -4313,6 +4672,38 @@ foo123 aq123
 
 <br/>
 
+## Q. Predict the output of the following NodeJS code?
+
+```js
+console.log('A');
+
+setImmediate(()=>{console.log('setImmediate')});
+
+process.nextTick(()=>{console.log('nextTick')});
+
+setTimeout(()=>{
+  console.log('setTimeout');
+},0);
+
+console.log('C');
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+A
+C
+nextTick
+setTimeout
+setImmediate
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. What kind of information would get logged?
 
 ```javascript
@@ -4623,186 +5014,6 @@ This is a difference between `require()` in CommonJS and `import`! With `require
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Predict the output of the following JS code?
-
-```js
-var b = function () {
-  console.log("1");
-};
-
-b();
-
-function b() {
-  console.log("2");
-}
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-1
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JS code?
-
-```js
-b();
-
-function b() {
-  console.log("2");
-}
-
-var b = function () {
-  console.log("1");
-};
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-2
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JS code?
-
-```js
-const a = { msg: "Hi" };
-const b = a;
-b.msg = "Hello";
-
-console.log(a, b);
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-{ msg: 'Hello' } { msg: 'Hello' }
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JS code?
-
-```js
-var obj = {name: "neha", getName: function() {console.log(this.name);}}
-
-var getName = obj.getName;
-var obj2 = {name: "naina", getName};
-obj.getName();
-obj2.getName();
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-Neha
-Naina
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JS code?
-
-```js
-const person = {name: "neha"};
-const array = [person, person, person];
-
-array[1].name = "";
-console.log(array[0].name);
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-undefined
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JS code?
-
-```js
-var a = 1;
-
-function b() {
-  a = 10;
-  return;
-
-  function a() {}
-}
-
-b();
-console.log(a);
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-1
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following NodeJS code?
-
-```js
-console.log('A');
-
-setImmediate(()=>{console.log('setImmediate')});
-
-process.nextTick(()=>{console.log('nextTick')});
-
-setTimeout(()=>{
-  console.log('setTimeout');
-},0);
-
-console.log('C');
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-A
-C
-nextTick
-setTimeout
-setImmediate
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -4821,31 +5032,6 @@ for (var i = 5; i > 0; i--) {
   result = result + i;
 }
 console.log(result); 
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
-var a = 1.2;
-console.log(typeof a); 
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
-var x = 10;
-if (x) {
-  let x = 4;
-}
-console.log(x); 
 ```
 
 <div align="right">
@@ -5695,35 +5881,6 @@ This doesn\'t affect where `objA` variable references to.
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. console.log(employeeId);
-
-<details><summary><b>Answer</b></summary>
-
-ReferenceError: employeeId is not defined
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-console.log(employeeId);
-var employeeId = "19000";
-```
-
-<details><summary><b>Answer</b></summary>
-
-undefined
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. What would be the output of following code?
 
 ```javascript
@@ -6161,38 +6318,6 @@ bq1uy 1BJKSJ bq1uy
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What is the value of `foo`?
-
-```javascript
-var foo = 10 + "20";
-```
-
-<details><summary><b>Answer</b></summary>
-
-`'1020'`, because of type coercion from Number to String
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What value is returned from the following statement?
-
-```javascript
-"i'm a lasagna hog".split("").reverse().join("");
-```
-
-<details><summary><b>Answer</b></summary>
-
-It\'s actually a reverse method for a string - `'goh angasal a m\'i'`
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. What is the value of `window.foo`?
 
 ```javascript
@@ -6226,34 +6351,6 @@ a left term is first referenced and then a right term is evaluated when an
 assignment is performed in JavaScript. When `foo.x` is referenced, it refers
 to an original object, `{n: 1}`. So, when the result of the right term, `{n: 2}`, is evaluated, it will assigned to the original object, which is at the
 moment referenced by `bar`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the result of 1+2+'3'?
-
-<details><summary><b>Answer</b></summary>
-
-The output is going to be `33`. Since `1` and `2` are numeric values, the result of first two digits is going to be a numeric value `3`. The next digit is a string type value because of that the addition of numeric value `3` and string type value `3` is just going to be a concatenation value `33`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the value of `foo`?
-
-```javascript
-var foo = 10 + "20";
-```
-
-<details><summary><b>Answer</b></summary>
-
-`'1020'`, because of type coercion from Number to String
 
 </details>
 
@@ -6299,37 +6396,6 @@ c(c.bind(c));
 var g = 0;
 g = 1 && g++;
 console.log(g);
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What will be the output of the following code?
-
-```javascript
-console.log(eval("10 + 10")); 
-
-console.log(eval("5 + 5" + 10)); 
-
-console.log(eval("5 + 5 + 5" + 10)); 
-
-console.log(eval(10 + "5 + 5")); 
-
-console.log(eval(10 + "5 + 5 + 5")); 
-```
-
-## Q. What will be the output of the following code?
-
-```javascript
-var x = 10;
-var y = 20;
-var a = eval("x * y") + "<br>";
-var b = eval("2 + 2") + "<br>";
-var c = eval("x + 30") + "<br>";
-
-let result = a + b + c;
-console.log(result); 
 ```
 
 <div align="right">
@@ -6398,22 +6464,6 @@ All objects have prototypes, except for the **base object**. The base object is 
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What is value of `sum`?
-
-```javascript
-const sum = eval("10*10+5");
-```
-
-<details><summary><b>Answer</b></summary>
-
-`eval` evaluates codes that\'s passed as a string. If it\'s an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. How long is cool_secret accessible?
 
 ```javascript
@@ -6446,52 +6496,6 @@ for (let i = 1; i < 5; i++) {
 <details><summary><b>Answer</b></summary>
 
 The `continue` statement skips an iteration if a certain condition returns `true`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-const foo = () => console.log("First");
-const bar = () => setTimeout(() => console.log("Second"));
-const baz = () => console.log("Third");
-
-bar();
-foo();
-baz();
-```
-
-<details><summary><b>Answer</b></summary>
-
-We have a `setTimeout` function and invoked it first. Yet, it was logged last.
-
-This is because in browsers, we don\'t just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.
-
-After the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.
-
-<img src="https://i.imgur.com/X5wsHOg.png" width="200">
-
-Now, `foo` gets invoked, and `"First"` is being logged.
-
-<img src="https://i.imgur.com/Pvc0dGq.png" width="200">
-
-`foo` is popped off the stack, and `baz` gets invoked. `"Third"` gets logged.
-
-<img src="https://i.imgur.com/WhA2bCP.png" width="200">
-
-The WebAPI can\'t just add stuff to the stack whenever it\'s ready. Instead, it pushes the callback function to something called the _queue_.
-
-<img src="https://i.imgur.com/NSnDZmU.png" width="200">
-
-This is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.
-
-<img src="https://i.imgur.com/uyiScAI.png" width="200">
-
-`bar` gets invoked, `"Second"` gets logged, and it\'s popped off the stack.
 
 </details>
 
@@ -6536,4 +6540,3 @@ If we click `p`, we see two logs: `p` and `div`. During event propagation, there
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
-
