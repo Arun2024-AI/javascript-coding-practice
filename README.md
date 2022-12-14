@@ -33,21 +33,53 @@
 
 <br/>
 
-## Q. Predict the output of the following JS code?
+## Q. What is the output?
 
-```js
-let a = "7" + 3 + 2;
-let b = 7 + 3 + "2";
+```javascript
+(() => {
+  let x = (y = 10);
+})();
 
-console.log(a, b);
+console.log(typeof x);
+console.log(typeof y);
 ```
 
 <details><summary><b>Answer</b></summary>
 
-```js
-732 
-102
+`let x = y = 10;` is actually shorthand for:
+
+```javascript
+y = 10;
+let x = y;
 ```
+
+When we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.
+
+Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they\'re declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it\'s declared in. This means that `x` is not defined. Values who haven\'t been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
+
+However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+const name = "Swarna";
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+<details><summary><b>Answer</b></summary>
+
+The `delete` operator returns a boolean value: `true` on a successful deletion, else it'll return `false`. However, variables declared with the `var`, `const` or `let` keyword cannot be deleted using the `delete` operator.
+
+The `name` variable was declared with a `const` keyword, so its deletion is not successful: `false` is returned. When we set `age` equal to `21`, we actually added a property called `age` to the global object. You can successfully delete properties from objects this way, also the global object, so `delete age` returns `true`.
 
 </details>
 
@@ -118,25 +150,6 @@ When we unpack the property `name` from the object on the right-hand side, we as
 With `{ name: myName }`, we tell JavaScript that we want to create a new variable called `myName` with the value of the `name` property on the right-hand side.
 
 Since we try to log `name`, a variable that is not defined, a ReferenceError gets thrown.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-const list = [1 + 2, 1 * 2, 1 / 2];
-console.log(list);
-```
-
-<details><summary><b>Answer</b></summary>
-
-Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.
-
-The element will be equal to the returned value. `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
 
 </details>
 
@@ -324,6 +337,24 @@ console.log(numbers);
 
 <br/>
 
+## Q. What is the value of `num`?
+
+```javascript
+const num = parseInt("7*6", 10);
+```
+
+<details><summary><b>Answer</b></summary>
+
+Only the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn\'t a valid number in the radix, it stops parsing and ignores the following characters.
+
+`*` is not a valid number. It only parses `"7"` into the decimal `7`. `num` now holds the value of `7`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. What is the output?
 
 ```javascript
@@ -342,14 +373,939 @@ Every Symbol is entirely unique. The purpose of the argument passed to the Symbo
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-
 ## # 4. Strings
 
 <br/>
 
+## Q. What is the output?
+
+```javascript
+console.log(3 + 4 + "5");
+```
+
+<details><summary><b>Answer</b></summary>
+
+Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
+
+`3 + 4` gets evaluated first. This results in the number `7`.
+
+`7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+let a = "7" + 3 + 2;
+let b = 7 + 3 + "2";
+
+console.log(a, b);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+732 
+102
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## # 5. Arrays
 
 <br/>
+
+## Q. What does this return?
+
+```javascript
+[..."Inika "];
+```
+
+<details><summary><b>Answer</b></summary>
+
+A string is an iterable. The spread operator maps every character of an iterable to one element.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+<details><summary><b>Answer</b></summary>
+
+We can unpack values from arrays or properties from objects through destructuring. For example:
+
+```javascript
+[a, b] = [1, 2];
+```
+
+<img src="https://i.imgur.com/ADFpVop.png" width="200">
+
+The value of `a` is now `1`, and the value of `b` is now `2`. What we actually did in the question, is:
+
+```javascript
+[y] = [1, 2, 3, 4, 5];
+```
+
+<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+
+This means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+const list = [1 + 2, 1 * 2, 1 / 2];
+console.log(list);
+```
+
+<details><summary><b>Answer</b></summary>
+
+Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.
+
+The element will be equal to the returned value. `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+[
+  [0, 1],
+  [2, 3],
+].reduce(
+  (acc, cur) => {
+    return acc.concat(cur);
+  },
+  [1, 2]
+);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
+
+Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+const numbers = [1, 2, 3];
+numbers[10] = 11;
+console.log(numbers);
+```
+
+<details><summary><b>Answer</b></summary>
+
+When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
+
+`[1, 2, 3, 7 x empty, 11]`
+
+depending on where you run it (it\'s different for every browser, node, etc.)
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the value of `foo.length`?
+
+```javascript
+var foo = [];
+foo.push(1);
+foo.push(2);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`.push` is mutable - `2`
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var greet = "Hello World";
+  var toGreet = [].filter.call(greet, function (element, index) {
+    return index > 5;
+  });
+  console.log(toGreet);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+[ 'W', 'o', 'r', 'l', 'd' ]
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var arrayNumb = [2, 8, 15, 16, 23, 42];
+  arrayNumb.sort();
+  console.log(arrayNumb);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+[ 15, 16, 2, 23, 42, 8 ]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var list = ["foo", "bar", "john"];
+  console.log(list.splice(1));
+  console.log(list.splice(1, 2));
+  console.log(list);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+[ 'bar', 'john' ] [] [ 'foo' ]
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var list = ["foo", "bar", "john", "ritz"];
+  console.log(list.slice(1));
+  console.log(list.slice(1, 3));
+  console.log(list.slice());
+  console.log(list.slice(2, 2));
+  console.log(list);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+[ 'bar', 'john', 'ritz' ]
+[ 'bar', 'john' ]
+[ 'foo', 'bar', 'john', 'ritz' ]
+[]
+[ 'foo', 'bar', 'john', 'ritz' ]
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var containers = [2, 0, false, "", "12", true];
+  var containers = containers.filter(Boolean);
+  console.log(containers);
+  var containers = containers.filter(Number);
+  console.log(containers);
+  var containers = containers.filter(String);
+  console.log(containers);
+  var containers = containers.filter(Object);
+  console.log(containers);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+[ 2, '12', true ]
+[ 2, '12', true ]
+[ 2, '12', true ]
+[ 2, '12', true ]
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var numbers = [2, 3, 4, 8, 9, 11, 13, 12, 16];
+  var even = numbers.filter(function (element, index) {
+    return element % 2 === 0;
+  });
+  console.log(even);
+
+  var containsDivisibleby3 = numbers.some(function (element, index) {
+    return element % 3 === 0;
+  });
+
+  console.log(containsDivisibleby3);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+[ 2, 4, 8, 12, 16 ] true
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var array = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6];
+  console.log(array.indexOf(2));
+  console.log(array.indexOf(2, 3));
+  console.log(array.indexOf(2, 10));
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+1 6 -1
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var animal = ["cow", "horse"];
+  animal.push("cat");
+  animal.unshift("dog", "rat", "goat");
+  console.log(animal);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+ [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var array = [1, 2, 3, 4, 5];
+  console.log(array.indexOf(2));
+  console.log([{ name: "John" }, { name: "John" }].indexOf({ name: "John" }));
+  console.log([[1], [2], [3], [4]].indexOf([3]));
+  console.log("abcdefgh".indexOf("e"));
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+1) 1 -1 -1 4
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var animal = ["cow", "horse"];
+  animal.push("cat");
+  animal.push("dog", "rat", "goat");
+  console.log(animal.length);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+6
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var array = new Array("a", "b", "c", "d", "e");
+  array[10] = "f";
+  delete array[10];
+  console.log(array.length);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+11
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var array1 = [];
+  var array2 = new Array(100);
+  var array3 = new Array(["1", 2, "3", 4, 5.6]);
+  console.log(array1);
+  console.log(array2);
+  console.log(array3);
+  console.log(array3.length);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+[] [] [Array[5]] 1
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var array = new Array("100");
+  console.log(array);
+  console.log(array.length);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+["100"] 1
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+var arrA = [
+  { prop1: "value of array A!!" },
+  { someProp: "also value of array A!" },
+  3,
+  4,
+  5,
+];
+var arrB = arrA.slice();
+arrB[0].prop1 = 42;
+arrB[3] = 20;
+console.log(arrA);
+```
+
+<details><summary><b>Answer</b></summary>
+
+The output will be `[{prop1: 42}, {someProp: "also value of array A!"}, 3,4,5]`.
+
+The `slice` function copies all the elements of the array returning the new array. However,
+it doesn\'t do deep copying. Instead it does shallow copying. You can imagine slice implemented like this:
+
+```javascript
+function slice(arr) {
+  var result = [];
+  for (i = 0; i < arr.length; i++) {
+    result.push(arr[i]);
+  }
+  return result;
+}
+```
+
+Look at the line with `result.push(arr[i])`. If `arr[i]` happens to be a number or string,
+it will be passed by value, in other words, copied. If `arr[i]` is an object, it will be passed by reference.
+
+In case of our array `arr[0]` is an object `{prop1: "value of array A!!"}`. Only the reference
+to this object will be copied. This effectively means that arrays arrA and arrB share first
+two elements.
+
+This is why changing the property of `arrB[0]` in `arrB` will also change the `arrA[0]`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+
+## Q. What would be the output of following code?
+
+```javascript
+var arrA = [
+  { prop1: "value of array A!!" },
+  { someProp: "also value of array A!" },
+  3,
+  4,
+  5,
+];
+var arrB = arrA;
+arrB[0].prop1 = 42;
+console.log(arrA);
+```
+
+<details><summary><b>Answer</b></summary>
+
+The output will be `[{prop1: 42}, {someProp: "also value of array A!"}, 3,4,5]`.
+
+Arrays are object in JS, so both varaibles arrA and arrB point to the same array. Changing
+`arrB[0]` is the same as changing `arrA[0]`
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+var arrA = [0, 1, 2, 3, 4, 5];
+var arrB = arrA.slice();
+arrB[0] = 42;
+console.log(arrA);
+```
+
+<details><summary><b>Answer</b></summary>
+
+The output will be `[0,1,2,3,4,5]`.
+
+The `slice` function copies all the elements of the array returning the new array. That\'s why
+`arrA` and `arrB` reference two completely different arrays.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+var arrA = [0, 1, 2, 3, 4, 5];
+var arrB = arrA;
+arrB[0] = 42;
+console.log(arrA);
+```
+
+<details><summary><b>Answer</b></summary>
+
+The output will be `[42,1,2,3,4,5]`.
+
+Arrays are object in JavaScript and they are passed and assigned by reference. This is why
+both `arrA` and `arrB` point to the same array `[0,1,2,3,4,5]`. That\'s why changing the first
+element of the `arrB` will also modify `arrA`: it\'s the same array in the memory.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What will be the output of the following code?
+
+```javascript
+var trees = ["xyz", "xxxx", "test", "ryan", "apple"];
+delete trees[3];
+console.log(trees.length);
+```
+
+<details><summary><b>Answer</b></summary>
+
+The code above will output `5` as output. When we used `delete` operator for deleting an array element then, the array length is not affected by this. This holds even if you deleted all elements of an array using `delete` operator.
+
+So when delete operator removes an array element that deleted element is no longer present in the array. In place of value at deleted index `undefined x 1` in **chrome** and `undefined` is placed at the index. If you do `console.log(trees)` output `["xyz", "xxxx", "test", undefined × 1, "apple"]` in Chrome and in Firefox `["xyz", "xxxx", "test", undefined, "apple"]`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+var arr = ["javascript", "typescript", "es6"];
+
+var searchValue = (value) => {
+  return arr.filter((item) => {
+    return item.indexOf(value) > -1;
+  });
+};
+
+console.log(searchValue("script"));
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+const arr = [1, 2];
+arr.push(3); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+const arr = [10, 20, 30];
+arr.push(40);  
+console.log(arr)
+
+const arr1 = [10, 20, 30];
+arr1 = []; 
+console.log(arr1) 
+
+const arr2 = [10, 20, 30];
+arr2[2] = 50; 
+console.log(arr2) 
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+[10, 20, 30, 40]
+Error
+[10, 20, 50]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+let a = [1, 2, 3];
+let b = [4, 5, 6];
+
+console.log(a + b);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+1, 2, 34, 5, 6
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+let a = [1, 2, 3, 4];
+let b = a;
+let c = [...a];
+
+b.splice(3, 1);
+
+console.log(a, b, c);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+[ 1, 2, 3 ] 
+[ 1, 2, 3 ] 
+[ 1, 2, 3, 4 ]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var arrayNumb = [2, 8, 15, 16, 23, 42];
+  Array.prototype.sort = function (a, b) {
+    return a - b;
+  };
+  arrayNumb.sort();
+  console.log(arrayNumb);
+})();
+
+(function () {
+  var numberArray = [2, 8, 15, 16, 23, 42];
+  numberArray.sort(function (a, b) {
+    if (a == b) {
+      return 0;
+    } else {
+      return a < b ? -1 : 1;
+    }
+  });
+  console.log(numberArray);
+})();
+
+(function () {
+  var numberArray = [2, 8, 15, 16, 23, 42];
+  numberArray.sort(function (a, b) {
+    return a - b;
+  });
+  console.log(numberArray);
+})();
+```
+
+<details><summary><b>Answer</b></summary>
+
+[ 2, 8, 15, 16, 23, 42 ]
+[ 2, 8, 15, 16, 23, 42 ]
+[ 2, 8, 15, 16, 23, 42 ]
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What will the following code output?
+
+```javascript
+const arr = [10, 12, 15, 21];
+for (var i = 0; i < arr.length; i++) {
+  setTimeout(function () {
+    console.log("Index: " + i + ", element: " + arr[i]);
+  }, 3000);
+}
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Fix the bug using ES5 only?
+
+```javascript
+var arr = [10, 32, 65, 2];
+for (var i = 0; i < arr.length; i++) {
+  setTimeout(function () {
+    console.log("The index of this number is: " + i);
+  }, 3000);
+}
+```
+
+<details><summary><b>Answer</b></summary>
+
+For ES6, you can just replace `var i` with `let i`.
+
+For ES5, you need to create a function scope like here:
+
+```javascript
+var arr = [10, 32, 65, 2];
+for (var i = 0; i < arr.length; i++) {
+  setTimeout(
+    (function (j) {
+      return function () {
+        console.log("The index of this number is: " + j);
+      };
+    })(i),
+    3000
+  );
+}
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output`?
+
+```javascript
+[1, 2, 3].map((num) => {
+  if (typeof num === "number") return;
+  return num * 2;
+});
+```
+
+<details><summary><b>Answer</b></summary>
+
+When mapping over the array, the value of `num` is equal to the element it’s currently looping over. In this case, the elements are numbers, so the condition of the if statement `typeof num === "number"` returns `true`. The map function creates a new array and inserts the values returned from the function.
+
+However, we don\'t return a value. When we don\'t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+<details><summary><b>Answer</b></summary>
+
+The `Set` object is a collection of _unique_ values: a value can only occur once in a set.
+
+We passed the iterable `[1, 1, 2, 3, 4]` with a duplicate value `1`. Since we cannot have two of the same values in a set, one of them is removed. This results in `{1, 2, 3, 4}`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the value of output?
+
+```javascript
+const set = new Set();
+
+set.add(1);
+set.add("Anima Nagarajan");
+set.add({ name: "Anima Nagarajan" });
+
+for (let item of set) {
+  console.log(item + 2);
+}
+```
+
+<details><summary><b>Answer</b></summary>
+
+The `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string.
+
+The first one is `1`, which is a numerical value. `1 + 2` returns the number 3.
+
+However, the second one is a string `"Anima Nagarajan"`. `"Anima Nagarajan"` is a string and `2` is a number: `2` gets coerced into a string. `"Anima Nagarajan"` and `"2"` get concatenated, which results in the string `"Anima Nagarajan2"`.
+
+`{ name: "Anima Nagarajan" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[Object object]"`. `"[Object object]"` concatenated with `"2"` becomes `"[Object object]2"`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
+const obj = { 1: "a", 2: "b", 3: "c" };
+const set = new Set([1, 2, 3, 4, 5]);
+
+obj.hasOwnProperty("1");
+obj.hasOwnProperty(1);
+set.has("1");
+set.has(1);
+```
+
+<details><summary><b>Answer</b></summary>
+
+All object keys (excluding Symbols) are strings under the hood, even if you don\'t type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
+
+It doesn\'t work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What is the output?
 
@@ -1078,43 +2034,6 @@ VM298:6 5
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Fix the bug using ES5 only?
-
-```javascript
-var arr = [10, 32, 65, 2];
-for (var i = 0; i < arr.length; i++) {
-  setTimeout(function () {
-    console.log("The index of this number is: " + i);
-  }, 3000);
-}
-```
-
-<details><summary><b>Answer</b></summary>
-
-For ES6, you can just replace `var i` with `let i`.
-
-For ES5, you need to create a function scope like here:
-
-```javascript
-var arr = [10, 32, 65, 2];
-for (var i = 0; i < arr.length; i++) {
-  setTimeout(
-    (function (j) {
-      return function () {
-        console.log("The index of this number is: " + j);
-      };
-    })(i),
-    3000
-  );
-}
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. What will be the output of the following code?
 
 ```javascript
@@ -1124,22 +2043,6 @@ var output = (function (x) {
 })(0);
 
 console.log(output);
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-
-## Q. What will the following code output?
-
-```javascript
-const arr = [10, 12, 15, 21];
-for (var i = 0; i < arr.length; i++) {
-  setTimeout(function () {
-    console.log("Index: " + i + ", element: " + arr[i]);
-  }, 3000);
-}
 ```
 
 <div align="right">
@@ -1475,51 +2378,6 @@ console.log(numb);
 <details><summary><b>Answer</b></summary>
 
 Uncaught TypeError: Cannot read property 'fullName' of undefined
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var arrayNumb = [2, 8, 15, 16, 23, 42];
-  Array.prototype.sort = function (a, b) {
-    return a - b;
-  };
-  arrayNumb.sort();
-  console.log(arrayNumb);
-})();
-
-(function () {
-  var numberArray = [2, 8, 15, 16, 23, 42];
-  numberArray.sort(function (a, b) {
-    if (a == b) {
-      return 0;
-    } else {
-      return a < b ? -1 : 1;
-    }
-  });
-  console.log(numberArray);
-})();
-
-(function () {
-  var numberArray = [2, 8, 15, 16, 23, 42];
-  numberArray.sort(function (a, b) {
-    return a - b;
-  });
-  console.log(numberArray);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-[ 2, 8, 15, 16, 23, 42 ]
-[ 2, 8, 15, 16, 23, 42 ]
-[ 2, 8, 15, 16, 23, 42 ]
 
 </details>
 
@@ -3324,21 +4182,25 @@ boo
 ## Q. What is the output?
 
 ```javascript
-// index.js
-console.log("running index.js");
-import { sum } from "./sum.js";
-console.log(sum(1, 2));
+// counter.js
+let counter = 10;
+export default counter;
+```
 
-// sum.js
-console.log("running sum.js");
-export const sum = (a, b) => a + b;
+```javascript
+// index.js
+import myCounter from "./counter";
+
+myCounter += 1;
+
+console.log(myCounter);
 ```
 
 <details><summary><b>Answer</b></summary>
 
-With the `import` keyword, all imported modules are _pre-parsed_. This means that the imported modules get run _first_, the code in the file which imports the module gets executed _after_.
+An imported module is _read-only_: you cannot modify the imported module. Only the module that exports them can change its value.
 
-This is a difference between `require()` in CommonJS and `import`! With `require()`, you can load dependencies on demand while the code is being run. If we would have used `require` instead of `import`, `running index.js`, `running sum.js`, `3` would have been logged to the console.
+When we try to increment the value of `myCounter`, it throws an error: `myCounter` is read-only and cannot be modified.
 
 </details>
 
@@ -3371,55 +4233,24 @@ The `data` object has a `default` property for the default export, other propert
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What is the value of output?
+## Q. What is the output?
 
 ```javascript
-const set = new Set();
+// index.js
+console.log("running index.js");
+import { sum } from "./sum.js";
+console.log(sum(1, 2));
 
-set.add(1);
-set.add("Anima Nagarajan");
-set.add({ name: "Anima Nagarajan" });
-
-for (let item of set) {
-  console.log(item + 2);
-}
+// sum.js
+console.log("running sum.js");
+export const sum = (a, b) => a + b;
 ```
 
 <details><summary><b>Answer</b></summary>
 
-The `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string.
+With the `import` keyword, all imported modules are _pre-parsed_. This means that the imported modules get run _first_, the code in the file which imports the module gets executed _after_.
 
-The first one is `1`, which is a numerical value. `1 + 2` returns the number 3.
-
-However, the second one is a string `"Anima Nagarajan"`. `"Anima Nagarajan"` is a string and `2` is a number: `2` gets coerced into a string. `"Anima Nagarajan"` and `"2"` get concatenated, which results in the string `"Anima Nagarajan2"`.
-
-`{ name: "Anima Nagarajan" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[Object object]"`. `"[Object object]"` concatenated with `"2"` becomes `"[Object object]2"`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JS code?
-
-```js
-let a = [1, 2, 3, 4];
-let b = a;
-let c = [...a];
-
-b.splice(3, 1);
-
-console.log(a, b, c);
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-[ 1, 2, 3 ] 
-[ 1, 2, 3 ] 
-[ 1, 2, 3, 4 ]
-```
+This is a difference between `require()` in CommonJS and `import`! With `require()`, you can load dependencies on demand while the code is being run. If we would have used `require` instead of `import`, `running index.js`, `running sum.js`, `3` would have been logged to the console.
 
 </details>
 
@@ -3493,57 +4324,6 @@ console.log(a, b);
 
 ```js
 { msg: 'Hello' } { msg: 'Hello' }
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JS code?
-
-```js
-let a = [1, 2, 3];
-let b = [4, 5, 6];
-
-console.log(a + b);
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-1, 2, 34, 5, 6
-```
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JS code?
-
-```js
-const arr = [10, 20, 30];
-arr.push(40);  
-console.log(arr)
-
-const arr1 = [10, 20, 30];
-arr1 = []; 
-console.log(arr1) 
-
-const arr2 = [10, 20, 30];
-arr2[2] = 50; 
-console.log(arr2) 
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-[10, 20, 30, 40]
-Error
-[10, 20, 50]
 ```
 
 </details>
@@ -4212,17 +4992,6 @@ var x;
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
-const arr = [1, 2];
-arr.push(3); 
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
 var o = new F();
 o.constructor === F;
 ```
@@ -4238,24 +5007,6 @@ let sum = (a, b) => {
   a + b;
 };
 console.log(sum(10, 20)); 
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Predict the output of the following JavaScript code?
-
-```javascript
-var arr = ["javascript", "typescript", "es6"];
-
-var searchValue = (value) => {
-  return arr.filter((item) => {
-    return item.indexOf(value) > -1;
-  });
-};
-
-console.log(searchValue("script"));
 ```
 
 <div align="right">
@@ -4343,26 +5094,6 @@ console.log(emp1.company);
 The code above will output `xyz` as output. Here `emp1` object got company as **prototype** property. delete operator doesn\'t delete prototype property.
 
 `emp1` object doesn\'t have **company** as its own property. you can test it `console.log(emp1.hasOwnProperty('company')); //output : false` However, we can delete company property directly from `Employee` object using `delete Employee.company` or we can also delete from `emp1` object using `__proto__` property `delete emp1.__proto__.company`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What will be the output of the following code?
-
-```javascript
-var trees = ["xyz", "xxxx", "test", "ryan", "apple"];
-delete trees[3];
-console.log(trees.length);
-```
-
-<details><summary><b>Answer</b></summary>
-
-The code above will output `5` as output. When we used `delete` operator for deleting an array element then, the array length is not affected by this. This holds even if you deleted all elements of an array using `delete` operator.
-
-So when delete operator removes an array element that deleted element is no longer present in the array. In place of value at deleted index `undefined x 1` in **chrome** and `undefined` is placed at the index. If you do `console.log(trees)` output `["xyz", "xxxx", "test", undefined × 1, "apple"]` in Chrome and in Firefox `["xyz", "xxxx", "test", undefined, "apple"]`.
 
 </details>
 
@@ -4639,127 +5370,6 @@ This doesn\'t affect where `objA` variable references to.
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What would be the output of following code?
-
-```javascript
-var arrA = [0, 1, 2, 3, 4, 5];
-var arrB = arrA;
-arrB[0] = 42;
-console.log(arrA);
-```
-
-<details><summary><b>Answer</b></summary>
-
-The output will be `[42,1,2,3,4,5]`.
-
-Arrays are object in JavaScript and they are passed and assigned by reference. This is why
-both `arrA` and `arrB` point to the same array `[0,1,2,3,4,5]`. That\'s why changing the first
-element of the `arrB` will also modify `arrA`: it\'s the same array in the memory.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-var arrA = [0, 1, 2, 3, 4, 5];
-var arrB = arrA.slice();
-arrB[0] = 42;
-console.log(arrA);
-```
-
-<details><summary><b>Answer</b></summary>
-
-The output will be `[0,1,2,3,4,5]`.
-
-The `slice` function copies all the elements of the array returning the new array. That\'s why
-`arrA` and `arrB` reference two completely different arrays.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-var arrA = [
-  { prop1: "value of array A!!" },
-  { someProp: "also value of array A!" },
-  3,
-  4,
-  5,
-];
-var arrB = arrA;
-arrB[0].prop1 = 42;
-console.log(arrA);
-```
-
-<details><summary><b>Answer</b></summary>
-
-The output will be `[{prop1: 42}, {someProp: "also value of array A!"}, 3,4,5]`.
-
-Arrays are object in JS, so both varaibles arrA and arrB point to the same array. Changing
-`arrB[0]` is the same as changing `arrA[0]`
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-var arrA = [
-  { prop1: "value of array A!!" },
-  { someProp: "also value of array A!" },
-  3,
-  4,
-  5,
-];
-var arrB = arrA.slice();
-arrB[0].prop1 = 42;
-arrB[3] = 20;
-console.log(arrA);
-```
-
-<details><summary><b>Answer</b></summary>
-
-The output will be `[{prop1: 42}, {someProp: "also value of array A!"}, 3,4,5]`.
-
-The `slice` function copies all the elements of the array returning the new array. However,
-it doesn\'t do deep copying. Instead it does shallow copying. You can imagine slice implemented like this:
-
-```javascript
-function slice(arr) {
-  var result = [];
-  for (i = 0; i < arr.length; i++) {
-    result.push(arr[i]);
-  }
-  return result;
-}
-```
-
-Look at the line with `result.push(arr[i])`. If `arr[i]` happens to be a number or string,
-it will be passed by value, in other words, copied. If `arr[i]` is an object, it will be passed by reference.
-
-In case of our array `arr[0]` is an object `{prop1: "value of array A!!"}`. Only the reference
-to this object will be copied. This effectively means that arrays arrA and arrB share first
-two elements.
-
-This is why changing the property of `arrB[0]` in `arrB` will also change the `arrA[0]`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. console.log(employeeId);
 
 <details><summary><b>Answer</b></summary>
@@ -4974,284 +5584,6 @@ foo();
 <details><summary><b>Answer</b></summary>
 
 function function
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var array = new Array("100");
-  console.log(array);
-  console.log(array.length);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-["100"] 1
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var array1 = [];
-  var array2 = new Array(100);
-  var array3 = new Array(["1", 2, "3", 4, 5.6]);
-  console.log(array1);
-  console.log(array2);
-  console.log(array3);
-  console.log(array3.length);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-[] [] [Array[5]] 1
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var array = new Array("a", "b", "c", "d", "e");
-  array[10] = "f";
-  delete array[10];
-  console.log(array.length);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-11
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var animal = ["cow", "horse"];
-  animal.push("cat");
-  animal.push("dog", "rat", "goat");
-  console.log(animal.length);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-6
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var animal = ["cow", "horse"];
-  animal.push("cat");
-  animal.unshift("dog", "rat", "goat");
-  console.log(animal);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
- [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var array = [1, 2, 3, 4, 5];
-  console.log(array.indexOf(2));
-  console.log([{ name: "John" }, { name: "John" }].indexOf({ name: "John" }));
-  console.log([[1], [2], [3], [4]].indexOf([3]));
-  console.log("abcdefgh".indexOf("e"));
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-1) 1 -1 -1 4
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var array = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6];
-  console.log(array.indexOf(2));
-  console.log(array.indexOf(2, 3));
-  console.log(array.indexOf(2, 10));
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-1 6 -1
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var numbers = [2, 3, 4, 8, 9, 11, 13, 12, 16];
-  var even = numbers.filter(function (element, index) {
-    return element % 2 === 0;
-  });
-  console.log(even);
-
-  var containsDivisibleby3 = numbers.some(function (element, index) {
-    return element % 3 === 0;
-  });
-
-  console.log(containsDivisibleby3);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-[ 2, 4, 8, 12, 16 ] true
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var containers = [2, 0, false, "", "12", true];
-  var containers = containers.filter(Boolean);
-  console.log(containers);
-  var containers = containers.filter(Number);
-  console.log(containers);
-  var containers = containers.filter(String);
-  console.log(containers);
-  var containers = containers.filter(Object);
-  console.log(containers);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-[ 2, '12', true ]
-[ 2, '12', true ]
-[ 2, '12', true ]
-[ 2, '12', true ]
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var list = ["foo", "bar", "john", "ritz"];
-  console.log(list.slice(1));
-  console.log(list.slice(1, 3));
-  console.log(list.slice());
-  console.log(list.slice(2, 2));
-  console.log(list);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-[ 'bar', 'john', 'ritz' ]
-[ 'bar', 'john' ]
-[ 'foo', 'bar', 'john', 'ritz' ]
-[]
-[ 'foo', 'bar', 'john', 'ritz' ]
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var list = ["foo", "bar", "john"];
-  console.log(list.splice(1));
-  console.log(list.splice(1, 2));
-  console.log(list);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-[ 'bar', 'john' ] [] [ 'foo' ]
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var arrayNumb = [2, 8, 15, 16, 23, 42];
-  arrayNumb.sort();
-  console.log(arrayNumb);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-```js
-[ 15, 16, 2, 23, 42, 8 ]
-```
 
 </details>
 
@@ -5528,28 +5860,6 @@ foo123 aq123
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var greet = "Hello World";
-  var toGreet = [].filter.call(greet, function (element, index) {
-    return index > 5;
-  });
-  console.log(toGreet);
-})();
-```
-
-<details><summary><b>Answer</b></summary>
-
-[ 'W', 'o', 'r', 'l', 'd' ]
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. What is the value of `foo`?
 
 ```javascript
@@ -5591,24 +5901,6 @@ window.foo || (window.foo = "bar");
 <details><summary><b>Answer</b></summary>
 
 Always `'bar'`
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the value of `foo.length`?
-
-```javascript
-var foo = [];
-foo.push(1);
-foo.push(2);
-```
-
-<details><summary><b>Answer</b></summary>
-
-`.push` is mutable - `2`
 
 </details>
 
@@ -5938,30 +6230,6 @@ You cannot do this with `let` or `const` since they\'re block-scoped.
 ## Q. What is the output?
 
 ```javascript
-const obj = { 1: "a", 2: "b", 3: "c" };
-const set = new Set([1, 2, 3, 4, 5]);
-
-obj.hasOwnProperty("1");
-obj.hasOwnProperty(1);
-set.has("1");
-set.has(1);
-```
-
-<details><summary><b>Answer</b></summary>
-
-All object keys (excluding Symbols) are strings under the hood, even if you don\'t type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
-
-It doesn\'t work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
 for (let i = 1; i < 5; i++) {
   if (i === 3) continue;
   console.log(i);
@@ -6112,28 +6380,6 @@ console.log(typeof typeof 1);
 ## Q. What is the output?
 
 ```javascript
-const numbers = [1, 2, 3];
-numbers[10] = 11;
-console.log(numbers);
-```
-
-<details><summary><b>Answer</b></summary>
-
-When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
-
-`[1, 2, 3, 7 x empty, 11]`
-
-depending on where you run it (it\'s different for every browser, node, etc.)
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
 (() => {
   let x, y;
   try {
@@ -6154,32 +6400,6 @@ The `catch` block receives the argument `x`. This is not the same `x` as the var
 Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
 
 Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-[
-  [0, 1],
-  [2, 3],
-].reduce(
-  (acc, cur) => {
-    return acc.concat(cur);
-  },
-  [1, 2]
-);
-```
-
-<details><summary><b>Answer</b></summary>
-
-`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
-
-Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
 
 </details>
 
@@ -6225,215 +6445,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. What does this return?
 
-```javascript
-[..."Inika "];
-```
 
-<details><summary><b>Answer</b></summary>
 
-A string is an iterable. The spread operator maps every character of an iterable to one element.
 
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-console.log(3 + 4 + "5");
-```
-
-<details><summary><b>Answer</b></summary>
-
-Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
-
-`3 + 4` gets evaluated first. This results in the number `7`.
-
-`7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the value of `num`?
-
-```javascript
-const num = parseInt("7*6", 10);
-```
-
-<details><summary><b>Answer</b></summary>
-
-Only the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn\'t a valid number in the radix, it stops parsing and ignores the following characters.
-
-`*` is not a valid number. It only parses `"7"` into the decimal `7`. `num` now holds the value of `7`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output`?
-
-```javascript
-[1, 2, 3].map((num) => {
-  if (typeof num === "number") return;
-  return num * 2;
-});
-```
-
-<details><summary><b>Answer</b></summary>
-
-When mapping over the array, the value of `num` is equal to the element it’s currently looping over. In this case, the elements are numbers, so the condition of the if statement `typeof num === "number"` returns `true`. The map function creates a new array and inserts the values returned from the function.
-
-However, we don\'t return a value. When we don\'t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-(() => {
-  let x = (y = 10);
-})();
-
-console.log(typeof x);
-console.log(typeof y);
-```
-
-<details><summary><b>Answer</b></summary>
-
-`let x = y = 10;` is actually shorthand for:
-
-```javascript
-y = 10;
-let x = y;
-```
-
-When we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.
-
-Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they\'re declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it\'s declared in. This means that `x` is not defined. Values who haven\'t been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
-
-However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-const set = new Set([1, 1, 2, 3, 4]);
-
-console.log(set);
-```
-
-<details><summary><b>Answer</b></summary>
-
-The `Set` object is a collection of _unique_ values: a value can only occur once in a set.
-
-We passed the iterable `[1, 1, 2, 3, 4]` with a duplicate value `1`. Since we cannot have two of the same values in a set, one of them is removed. This results in `{1, 2, 3, 4}`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-// counter.js
-let counter = 10;
-export default counter;
-```
-
-```javascript
-// index.js
-import myCounter from "./counter";
-
-myCounter += 1;
-
-console.log(myCounter);
-```
-
-<details><summary><b>Answer</b></summary>
-
-An imported module is _read-only_: you cannot modify the imported module. Only the module that exports them can change its value.
-
-When we try to increment the value of `myCounter`, it throws an error: `myCounter` is read-only and cannot be modified.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-const name = "Swarna";
-age = 21;
-
-console.log(delete name);
-console.log(delete age);
-```
-
-<details><summary><b>Answer</b></summary>
-
-The `delete` operator returns a boolean value: `true` on a successful deletion, else it'll return `false`. However, variables declared with the `var`, `const` or `let` keyword cannot be deleted using the `delete` operator.
-
-The `name` variable was declared with a `const` keyword, so its deletion is not successful: `false` is returned. When we set `age` equal to `21`, we actually added a property called `age` to the global object. You can successfully delete properties from objects this way, also the global object, so `delete age` returns `true`.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-const numbers = [1, 2, 3, 4, 5];
-const [y] = numbers;
-
-console.log(y);
-```
-
-<details><summary><b>Answer</b></summary>
-
-We can unpack values from arrays or properties from objects through destructuring. For example:
-
-```javascript
-[a, b] = [1, 2];
-```
-
-<img src="https://i.imgur.com/ADFpVop.png" width="200">
-
-The value of `a` is now `1`, and the value of `b` is now `2`. What we actually did in the question, is:
-
-```javascript
-[y] = [1, 2, 3, 4, 5];
-```
-
-<img src="https://i.imgur.com/NzGkMNk.png" width="200">
-
-This means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned.
-
-</details>
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
