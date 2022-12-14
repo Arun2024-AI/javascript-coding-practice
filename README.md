@@ -36,6 +36,27 @@
 ## Q. What is the output?
 
 ```javascript
+let text = "hello";
+let text = "hello world";
+
+console.log(text);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+SyntaxError: Identifier 'text' has already been declared
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```javascript
 const text = "Hi";
 text = "Hello";
 
@@ -281,6 +302,27 @@ ReferenceError: Num is not defined
 
 <br/>
 
+## Q. What is the output?
+
+```javascript
+const numOne = 2;
+const numTwo = 3;
+
+const res = numOne ** numTwo;
+console.log(res);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+8
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What is the output?
 
