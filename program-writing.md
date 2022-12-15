@@ -2,6 +2,34 @@
 
 <br/>
 
+## Q. Write a function that takes a string as argument and increment each letter to the next letter in the alphabet?
+
+**Examples:**
+
+```js
+function solution(str) {
+
+}
+
+
+// Test Cases:
+solution('aaa') // Expected 'bbb'
+solution('abcde')    // Expected 'bcdef'
+solution('hello') // Expected 'ifmmp'
+```
+
+<details><summary><b>Answer</b></summary>
+
+```javascript
+
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function that takes a string as argument and remove the first 3 characters from it?
 
 **Examples:**
