@@ -2,6 +2,36 @@
 
 <br/>
 
+## Q. Write a function that return the nth character of string?
+
+**Examples:**
+
+```js
+function solution(str, num) {
+
+}
+```
+
+**Test Cases:**
+
+|Test Case             |Expected Output|
+|----------------------|---------------|
+|solution('abcd', 1)   | a       |
+|solution('zyxbpl', 5) | w       |
+|solution('gfedcba', 3)| e       |
+
+<details><summary><b>Answer</b></summary>
+
+```javascript
+
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function to transform string array into group by its length?
 
 **Examples:**
