@@ -2,7 +2,7 @@
 
 <br/>
 
-## Q. Write a function that return the nth character of string?
+## Q. Write a function that return the nth character from a given string?
 
 **Examples:**
 
@@ -11,8 +11,8 @@ function solution(str, num) {
 
 }
 
-// Test Cases:
 
+// Test Cases:
 solution('abcd', 1)   // Expected Output 'a'
 solution('zyxbpl', 5) // Expected Output 'p'
 solution('gfedcba', 3)// Expected Output 'e'
