@@ -1963,7 +1963,7 @@ function sayMessage(msg) {
   console.log("Default Message");
 }
 
-sayMessage("Hello !");
+sayMessage("Hello");
 ```
 
 <details><summary><b>Answer</b></summary>
