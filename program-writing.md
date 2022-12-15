@@ -13,8 +13,8 @@ function solution(str) {
 
 
 // Test Cases:
-solution('aaa') // Expected 'bbb'
-solution('abcde')    // Expected 'bcdef'
+solution('aaa')   // Expected 'bbb'
+solution('abcde') // Expected 'bcdef'
 solution('hello') // Expected 'ifmmp'
 ```
 
