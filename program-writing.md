@@ -2,6 +2,34 @@
 
 <br/>
 
+## Q. Write a function that takes a string as arugment and remove the first 3 characters from it?
+
+**Examples:**
+
+```js
+function solution(str) {
+
+}
+
+
+// Test Cases:
+solution('abcdefg') // Expected 'defg'
+solution('1234')    // Expected '4'
+solution('fgedcba') // Expected 'dcba'
+```
+
+<details><summary><b>Answer</b></summary>
+
+```javascript
+
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function that return the nth character from a given string?
 
 **Examples:**
