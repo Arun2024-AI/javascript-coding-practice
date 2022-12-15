@@ -1955,6 +1955,32 @@ Note that this method is not supported in IE7 and below. In that case, use `.cha
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
+function sayMessage(msg) {
+  console.log(msg);
+}
+
+function sayMessage(msg) {
+  console.log("Default Message");
+}
+
+sayMessage("Hello !");
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+Default Message
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
 (function (x) {
   return (function (y) {
     console.log(x);
