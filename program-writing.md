@@ -2,6 +2,46 @@
 
 <br/>
 
+## Q. Write a function to check whether given string is a Palindrome or not?
+
+**Examples:**
+
+```js
+function checkPalindrome(str) {
+
+}
+
+
+// Test Cases:
+checkPalindrome("aba")     // Palindrome
+checkPalindrome("ABCDCBA") // Palindrome
+checkPalindrome("Hello")   // Not a palindrome
+```
+
+<details><summary><b>Answer</b></summary>
+
+```javascript
+function checkPalindrome(str) {
+  for (let i = 0; i < str.length / 2; i++) {
+    // check if first and last character are same
+    if (str[i] !== str[str.length - 1 - i]) {
+      return "Not a palindrome";
+    }
+  }
+  return "Palindrome";
+}
+
+console.log(checkPalindrome("aba"));
+console.log(checkPalindrome("ABCDCBA"));
+console.log(checkPalindrome("Hello"));
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function to find out number of occurrences of a character in a given string??
 
 **Examples:**
