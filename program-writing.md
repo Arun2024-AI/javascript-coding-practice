@@ -10,15 +10,13 @@
 function solution(str, num) {
 
 }
+
+// Test Cases:
+
+solution('abcd', 1)   // Expected Output 'a'
+solution('zyxbpl', 5) // Expected Output 'p'
+solution('gfedcba', 3)// Expected Output 'e'
 ```
-
-**Test Cases:**
-
-|Test Case             |Expected Output|
-|----------------------|---------------|
-|solution('abcd', 1)   | a       |
-|solution('zyxbpl', 5) | w       |
-|solution('gfedcba', 3)| e       |
 
 <details><summary><b>Answer</b></summary>
 
