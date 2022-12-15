@@ -2,7 +2,7 @@
 
 <br/>
 
-## Q. Write a function that takes a string as arugment and remove the first 3 characters from it?
+## Q. Write a function that takes a string as argument and remove the first 3 characters from it?
 
 **Examples:**
 
