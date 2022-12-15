@@ -2,6 +2,34 @@
 
 <br/>
 
+## Q. Write a function to find out number of occurrences of a character in a given string??
+
+**Examples:**
+
+```js
+function solution(str) {
+
+}
+
+
+// Test Cases:
+solution('m', 'how many times does the character occur in this sentence?') // Expected 2
+solution('h', 'how many times does the character occur in this sentence?') // Expected 4
+solution('?', 'how many times does the character occur in this sentence?') // Expected 1
+```
+
+<details><summary><b>Answer</b></summary>
+
+```javascript
+
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Write a function that takes a string as argument and increment each letter to the next letter in the alphabet?
 
 **Examples:**
