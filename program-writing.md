@@ -42,7 +42,7 @@ console.log(checkPalindrome("Hello"));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Write a function to find out number of occurrences of a character in a given string??
+## Q. Write a function to find out number of occurrences of a character in a given string?
 
 **Examples:**
 
