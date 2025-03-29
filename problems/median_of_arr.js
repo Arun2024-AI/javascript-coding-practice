@@ -1,6 +1,6 @@
 const median = (arr) => {
   if (!Array.isArray(arr)) {
-    return null; // or throw error;
+    return null; 
   }
   if (arr.length === 0) {
     return null;
